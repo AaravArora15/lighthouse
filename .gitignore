@@ -1,0 +1,40 @@
+# secrets
+.env
+.env.local
+*.pem
+*.key
+
+# data — never commit datasets or transcripts.
+# Anchored with a leading slash: an unanchored `data/` also matches the source package
+# `ml/lighthouse/data/`, which silently drops real code from the repo.
+/data/
+
+# model artifacts
+*.pt
+*.bin
+*.safetensors
+checkpoints/
+runs/
+artifacts/
+
+# python
+.venv/
+*.egg-info/
+build/
+dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,25 @@
+[project]
+name = "lighthouse"
+version = "0.1.0"
+description = "Lighthouse — ML triage for an anonymous student chat helpline"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "datasets>=3.0",
+    "huggingface-hub>=0.26",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+    "numpy>=1.26",
+    "pyarrow>=17.0",
+    "matplotlib>=3.9",
+    "pytest>=8.3",
+]
+
+[project.optional-dependencies]
+train = ["torch>=2.4", "transformers>=4.44", "accelerate>=0.34"]
+
+[tool.setuptools.packages.find]
+include = ["lighthouse*"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
