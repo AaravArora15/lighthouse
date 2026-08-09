@@ -8,7 +8,12 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "db:push": "drizzle-kit push",
+    "counsellor": "tsx scripts/counsellor.mts",
+    "counsellor:add": "tsx scripts/counsellor.mts add",
+    "counsellor:list": "tsx scripts/counsellor.mts list",
+    "counsellor:disable": "tsx scripts/counsellor.mts disable"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.116.0",
@@ -27,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.11",
     "typescript": "^5",
     "vitest": "^4.1.10"
   }

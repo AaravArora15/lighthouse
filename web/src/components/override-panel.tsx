@@ -18,27 +18,32 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import type { TierOverride } from "@/lib/overrides";
+import * as config from "@/lib/config";
+import type { OverrideRecord } from "@/lib/store";
 import { TIER_ORDER, TIERS, Tier } from "@/lib/taxonomy";
 
 export function OverridePanel({
   caseId,
   predictedTier,
   existing,
+  persisted,
 }: {
   caseId: string;
   predictedTier: Tier;
-  existing: TierOverride | null;
+  existing: OverrideRecord | null;
+  /** False when the app is running on the in-memory store. Said out loud below. */
+  persisted: boolean;
 }) {
   const router = useRouter();
   const [tier, setTier] = useState<Tier>(existing?.requestedTier ?? predictedTier);
   const [reason, setReason] = useState(existing?.reason ?? "");
   const [saving, setSaving] = useState(false);
-  const [result, setResult] = useState<TierOverride | null>(existing);
+  const [result, setResult] = useState<OverrideRecord | null>(existing);
   const [error, setError] = useState<string | null>(null);
 
+  const min = config.REASON_CHARS.override;
   const unchanged = tier === predictedTier;
-  const canSubmit = reason.trim().length >= 10 && !unchanged && !saving;
+  const canSubmit = reason.trim().length >= min && !unchanged && !saving;
 
   async function submit() {
     setSaving(true);
@@ -51,7 +56,7 @@ export function OverridePanel({
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error ?? "could not record the override");
-      setResult(data.override as TierOverride);
+      setResult(data.override as OverrideRecord);
       router.refresh();
     } catch (e) {
       setError(e instanceof Error ? e.message : "could not record the override");
@@ -85,7 +90,8 @@ export function OverridePanel({
       </div>
 
       <label htmlFor="reason" className="mt-3 block text-sm font-medium">
-        Why? <span className="font-normal text-stone-500">(required, 10+ characters)</span>
+        Why?{" "}
+        <span className="font-normal text-stone-500">(required, {min}+ characters)</span>
       </label>
       <textarea
         id="reason"
@@ -128,9 +134,12 @@ export function OverridePanel({
               {result.flooredNotice}
             </p>
           )}
-          <p className="mt-2 text-xs text-stone-500 dark:text-stone-400">
-            Held in memory only — there is no database yet, so this is lost on restart.
-          </p>
+          {!persisted && (
+            <p className="mt-2 text-xs text-amber-700 dark:text-amber-400">
+              No DATABASE_URL is set, so this is held in memory and will not survive a
+              restart. Said plainly rather than left to be discovered.
+            </p>
+          )}
         </div>
       )}
     </div>

@@ -1,11 +1,5 @@
 /**
- * Tier overrides and the counsellor access log.
- *
- * **In-memory, and that is a stated limitation rather than a design.** There is no
- * `DATABASE_URL` yet, so these live in a module-level Map and vanish on restart. The
- * Drizzle tables they belong in already exist (`db/schema.ts`: `tier_overrides`,
- * `counsellor_access`) with the same fields, so switching to Neon is a driver change.
- * Until then the console is honest about it in the UI rather than implying persistence.
+ * Tier overrides: the counsellor's correction, kept rather than applied.
  *
  * ## Why an override is recorded rather than applied
  *
@@ -24,100 +18,96 @@
  * over the model's prediction, so a counsellor who marks a T4 self-harm disclosure as T1
  * gets T4 with their reason recorded against it. That invariant has no exception for
  * humans: the gate exists precisely because the moment of judgement is the moment things
- * get missed. A counsellor who genuinely needs to close a case does so through the
- * break-glass path on day 8, which is logged differently and deliberately harder.
+ * get missed. A counsellor who genuinely needs to close such a case does so through
+ * `lib/breakglass.ts`, which is logged differently and is deliberately harder.
+ *
+ * Day 6 shipped a bug here worth remembering: the floor was inferred from
+ * `card.tierFloorReason`, which is null whenever the model already agreed with the gate.
+ * On exactly the cases where the floor mattered most there appeared to be no floor, and a
+ * T4 self-harm case could be downgraded to T1. The floor is now passed explicitly and
+ * `gateFloor` is a required field rather than an optional one, so omitting it does not
+ * compile.
  */
 
+import { recordAccess } from "@/lib/audit";
+import type { Principal } from "@/lib/auth/session";
+import { REASON_CHARS } from "@/lib/config";
+import type { OverrideRecord, Store } from "@/lib/store";
 import { Tier, applyFloor, tierRank } from "@/lib/taxonomy";
 
-export interface TierOverride {
-  caseId: string;
-  counsellorId: string;
-  predictedTier: Tier;
-  /** What the counsellor asked for. May differ from `effectiveTier`. */
-  requestedTier: Tier;
-  /** What they got, after the gate floor was re-applied. */
-  effectiveTier: Tier;
-  /** Set when the floor prevented the requested change. Shown in the UI. */
-  flooredNotice: string | null;
-  reason: string;
-  at: string;
-}
+export const MIN_OVERRIDE_REASON_CHARS = REASON_CHARS.override;
 
-export interface AccessEntry {
-  caseId: string;
-  counsellorId: string;
-  action: "viewed_card" | "viewed_transcript" | "overrode_tier";
-  reason: string | null;
-  at: string;
-}
-
-const overrides = new Map<string, TierOverride>();
-const accessLog: AccessEntry[] = [];
-
-export function recordAccess(entry: Omit<AccessEntry, "at">): void {
-  accessLog.push({ ...entry, at: new Date().toISOString() });
-}
-
-export function accessFor(caseId: string): AccessEntry[] {
-  return accessLog.filter((e) => e.caseId === caseId);
-}
-
-export function overrideFor(caseId: string): TierOverride | undefined {
-  return overrides.get(caseId);
-}
-
-export function allOverrides(): TierOverride[] {
-  return [...overrides.values()];
-}
+export class OverrideError extends Error {}
 
 export interface OverrideInput {
   caseId: string;
-  counsellorId: string;
+  principal: Principal;
   predictedTier: Tier;
   requestedTier: Tier;
   reason: string;
   /** The gate's floor for this conversation. `null` when the gate did not fire. */
   gateFloor: Tier | null;
+  at?: Date;
 }
 
-export function recordOverride(input: OverrideInput): TierOverride {
+export async function recordOverride(
+  store: Store,
+  input: OverrideInput,
+): Promise<OverrideRecord> {
+  const reason = input.reason.trim();
+  if (reason.length < MIN_OVERRIDE_REASON_CHARS) {
+    throw new OverrideError(
+      `An override needs a reason of at least ${MIN_OVERRIDE_REASON_CHARS} characters.`,
+    );
+  }
+
   const effectiveTier = applyFloor(input.requestedTier, input.gateFloor);
+  const at = input.at ?? new Date();
 
   const flooredNotice =
     effectiveTier !== input.requestedTier
       ? `Recorded as ${effectiveTier}, not ${input.requestedTier}: the safety gate floors ` +
-        `this conversation at ${input.gateFloor}. Your reason has been logged against it.`
+        `this conversation at ${input.gateFloor}. Your reason has been logged against it. ` +
+        `To close it below the floor you have to break glass, which a lead will review.`
       : null;
 
-  const entry: TierOverride = {
+  const record = await store.putOverride({
     caseId: input.caseId,
-    counsellorId: input.counsellorId,
+    counsellorId: input.principal.counsellorId,
+    counsellorEmail: input.principal.email,
     predictedTier: input.predictedTier,
     requestedTier: input.requestedTier,
     effectiveTier,
     flooredNotice,
-    reason: input.reason,
-    at: new Date().toISOString(),
-  };
-
-  overrides.set(input.caseId, entry);
-  recordAccess({
-    caseId: input.caseId,
-    counsellorId: input.counsellorId,
-    action: "overrode_tier",
-    reason: input.reason,
+    reason,
+    at: at.toISOString(),
   });
-  return entry;
+
+  await recordAccess(store, {
+    caseId: input.caseId,
+    principal: input.principal,
+    action: "overrode_tier",
+    reason,
+    at,
+  });
+
+  return record;
+}
+
+export function overrideFor(store: Store, caseId: string): Promise<OverrideRecord | null> {
+  return store.overrideForCase(caseId);
+}
+
+export function allOverrides(store: Store): Promise<OverrideRecord[]> {
+  return store.allOverrides();
 }
 
 /** The tier a counsellor should act on: their override if there is one, else the model's. */
-export function effectiveTier(caseId: string, cardTier: Tier): Tier {
-  return overrides.get(caseId)?.effectiveTier ?? cardTier;
+export function effectiveTier(override: OverrideRecord | null, cardTier: Tier): Tier {
+  return override?.effectiveTier ?? cardTier;
 }
 
 /** True when an override moved a case, for the "edited" marker in the queue. */
-export function wasMoved(caseId: string, cardTier: Tier): boolean {
-  const o = overrides.get(caseId);
-  return Boolean(o && tierRank(o.effectiveTier) !== tierRank(cardTier));
+export function wasMoved(override: OverrideRecord | null, cardTier: Tier): boolean {
+  return Boolean(override && tierRank(override.effectiveTier) !== tierRank(cardTier));
 }

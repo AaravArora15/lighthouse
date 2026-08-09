@@ -10,30 +10,26 @@
  * invariant this project rests on, and a counsellor clicking a button is an input to the
  * system like any other. The moment of human judgement is exactly the moment things get
  * missed, which is why the floor exists. A counsellor who genuinely needs to close such a
- * case does it through the day 8 break-glass path, which is logged differently and is
- * deliberately harder.
- *
- * Day 8 replaces the in-memory store with the `tier_overrides` and `counsellor_access`
- * tables and puts a real counsellor identity behind this. There is no auth yet, so the
- * actor is hardcoded — flagged here rather than left to be discovered.
+ * case does it through `/break-glass`, which is logged differently and is deliberately
+ * harder.
  */
 
+import { requireCounsellorApi } from "@/lib/auth/current";
 import { cardById } from "@/lib/cards";
-import { recordOverride } from "@/lib/overrides";
+import { OverrideError, recordOverride } from "@/lib/overrides";
+import { store } from "@/lib/store";
 import { TIER_ORDER, Tier } from "@/lib/taxonomy";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** Net-new on day 8. Until then every action is attributed to one demo actor. */
-const DEMO_COUNSELLOR = "demo-counsellor";
-
-const MIN_REASON_CHARS = 10;
-
 export async function POST(
   request: Request,
   context: { params: Promise<{ caseId: string }> },
 ) {
+  const auth = await requireCounsellorApi();
+  if (!auth.ok) return auth.response;
+
   const { caseId } = await context.params;
 
   const card = cardById(caseId);
@@ -56,30 +52,26 @@ export async function POST(
     );
   }
 
-  const reason = typeof body.reason === "string" ? body.reason.trim() : "";
-  if (reason.length < MIN_REASON_CHARS) {
-    // Enforced server-side as well as in the UI. The reason is the entire value of an
-    // override; a client that skips it must not be able to write a useless row.
-    return Response.json(
-      { error: `a reason of at least ${MIN_REASON_CHARS} characters is required` },
-      { status: 400 },
-    );
+  try {
+    // Read the floor directly. Do NOT infer it from `tierFloorReason`: that field is set
+    // only when the gate CHANGED the tier, so on a case the model already scored T4 it is
+    // null while the floor is very much T4. Day 6 shipped exactly that bug and a
+    // counsellor could downgrade a self-harm disclosure to T1.
+    const override = await recordOverride(await store(), {
+      caseId,
+      principal: auth.principal,
+      predictedTier: card.tier,
+      requestedTier: requestedTier as Tier,
+      reason: typeof body.reason === "string" ? body.reason : "",
+      gateFloor: card.gateFloor,
+    });
+    return Response.json({ override });
+  } catch (e) {
+    // The reason threshold is enforced server-side as well as in the UI. The reason is the
+    // entire value of an override; a client that skips it must not write a useless row.
+    if (e instanceof OverrideError) {
+      return Response.json({ error: e.message }, { status: 400 });
+    }
+    throw e;
   }
-
-  // Read the floor directly. Do NOT infer it from `tierFloorReason`: that field is set
-  // only when the gate CHANGED the tier, so on a case the model already scored T4 it is
-  // null while the floor is very much T4. Day 6 shipped exactly that bug and a counsellor
-  // could downgrade a self-harm disclosure to T1.
-  const gateFloor = card.gateFloor;
-
-  const override = recordOverride({
-    caseId,
-    counsellorId: DEMO_COUNSELLOR,
-    predictedTier: card.tier,
-    requestedTier: requestedTier as Tier,
-    reason,
-    gateFloor,
-  });
-
-  return Response.json({ override });
 }

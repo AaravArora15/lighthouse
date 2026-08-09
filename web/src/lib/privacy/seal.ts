@@ -36,6 +36,8 @@ import {
   timingSafeEqual,
 } from "node:crypto";
 
+import { REASON_CHARS } from "@/lib/config";
+
 const ALGORITHM = "aes-256-gcm";
 const IV_BYTES = 12; // 96 bits, the GCM standard
 const KEY_BYTES = 32; // AES-256
@@ -122,7 +124,7 @@ export interface UnsealResult {
   };
 }
 
-const MIN_REASON_CHARS = 20;
+const MIN_REASON_CHARS = REASON_CHARS.unseal;
 
 /**
  * Decrypt one span, and produce the audit record that must accompany it.

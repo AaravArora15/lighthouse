@@ -17,11 +17,17 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { BreakGlassPanel } from "@/components/break-glass-panel";
+import { ConsoleHeader } from "@/components/console-header";
 import { OverridePanel } from "@/components/override-panel";
 import { RiskSparkline } from "@/components/risk-sparkline";
 import { TierBadge } from "@/components/tier-badge";
+import { accessForCase, describeAccess, recordAccess } from "@/lib/audit";
+import { requireCounsellor } from "@/lib/auth/current";
+import { breakGlassForCase } from "@/lib/breakglass";
 import { cardById } from "@/lib/cards";
-import { overrideFor, recordAccess } from "@/lib/overrides";
+import { overrideFor } from "@/lib/overrides";
+import { store } from "@/lib/store";
 import { TIERS } from "@/lib/taxonomy";
 
 export const dynamic = "force-dynamic";
@@ -32,19 +38,30 @@ export default async function CardPage({
   params: Promise<{ caseId: string }>;
 }) {
   const { caseId } = await params;
+  const principal = await requireCounsellor(`/console/${caseId}`);
+
   const card = cardById(caseId);
   if (!card) notFound();
 
-  // Every read of a case is logged. `docs/context.md` §11 promises the student can see who
-  // opened their case, and a promise nothing records is not a promise. Day 8 moves this to
-  // the `counsellor_access` table and surfaces it to the student.
-  recordAccess({ caseId, counsellorId: "demo-counsellor", action: "viewed_card", reason: null });
+  const db = await store();
 
-  const override = overrideFor(caseId);
+  // Every read of a case is logged, before anything is rendered. `docs/context.md` §11
+  // promises the student can see who opened their case, and a promise nothing records is
+  // not a promise. Written first so a render that throws halfway still leaves the record
+  // of the access that was already granted.
+  await recordAccess(db, { caseId, principal, action: "viewed_card" });
+
+  const [override, glass, accesses] = await Promise.all([
+    overrideFor(db, caseId),
+    breakGlassForCase(db, caseId),
+    accessForCase(db, caseId),
+  ]);
   const spec = TIERS[card.tier];
 
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-8">
+      <ConsoleHeader principal={principal} />
+
       <Link
         href="/console"
         className="text-sm text-stone-500 underline-offset-4 hover:underline dark:text-stone-400"
@@ -152,7 +169,49 @@ export default async function CardPage({
           caseId={card.caseId}
           predictedTier={card.tier}
           existing={override ?? null}
+          persisted={db.kind === "postgres"}
         />
+      </section>
+
+      {/* Only where there is a floor to break. On an unfloored case an ordinary override
+          already does everything this would, so offering it would be noise that teaches
+          counsellors to click past the red panel. */}
+      {card.gateFloor && (
+        <BreakGlassPanel
+          caseId={card.caseId}
+          gateFloor={card.gateFloor}
+          existing={glass}
+          viewer={{ counsellorId: principal.counsellorId, role: principal.role }}
+        />
+      )}
+
+      {/* ---- The record the student can read ----------------------------------- */}
+      <section className="mt-8 border-t border-stone-200 pt-6 dark:border-stone-800">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
+          Who has opened this case
+        </h2>
+        <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+          Shown to you because it is shown to the student. Nothing on this list can be
+          edited or removed, including by whoever wrote it.
+        </p>
+        <ul className="mt-3 space-y-1.5 text-sm">
+          {accesses.map((entry) => (
+            <li key={entry.id} className="flex flex-wrap gap-x-2 gap-y-0.5">
+              <span className="tabular-nums text-stone-500 dark:text-stone-400">
+                {new Date(entry.at).toLocaleString()}
+              </span>
+              <span>{describeAccess(entry)}</span>
+              <span className="text-stone-500 dark:text-stone-400">
+                {entry.counsellorEmail}
+              </span>
+              {entry.reason && (
+                <span className="w-full italic text-stone-500 dark:text-stone-400">
+                  &ldquo;{entry.reason}&rdquo;
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <p className="mt-8 text-xs text-stone-500 dark:text-stone-400">

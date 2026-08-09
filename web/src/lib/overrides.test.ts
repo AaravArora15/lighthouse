@@ -14,17 +14,29 @@
 
 import { beforeEach, describe, expect, it } from "vitest";
 
+import type { Principal } from "@/lib/auth/session";
 import { allCards } from "@/lib/cards";
-import { effectiveTier, recordOverride, overrideFor } from "@/lib/overrides";
+import { OverrideError, effectiveTier, overrideFor, recordOverride } from "@/lib/overrides";
+import { createMemoryStore, type Store } from "@/lib/store";
 import { Tier } from "@/lib/taxonomy";
 
-const COUNSELLOR = "test-counsellor";
+const COUNSELLOR: Principal = {
+  counsellorId: "00000000-0000-4000-8000-000000000001",
+  email: "test@school.example",
+  displayName: "Test Counsellor",
+  role: "counsellor",
+};
+
+let store: Store;
+beforeEach(() => {
+  store = createMemoryStore();
+});
 
 describe("the gate floor survives a counsellor", () => {
-  it("refuses to lower a T4 self-harm case, and says why", () => {
-    const result = recordOverride({
+  it("refuses to lower a T4 self-harm case, and says why", async () => {
+    const result = await recordOverride(store, {
       caseId: "syn-065",
-      counsellorId: COUNSELLOR,
+      principal: COUNSELLOR,
       predictedTier: Tier.T4,
       requestedTier: Tier.T1,
       reason: "spoke to the student, they say they are fine now",
@@ -39,12 +51,24 @@ describe("the gate floor survives a counsellor", () => {
     expect(result.reason).toContain("they say they are fine");
   });
 
+  it("points a refused downgrade at break-glass rather than leaving a dead end", async () => {
+    const result = await recordOverride(store, {
+      caseId: "syn-065",
+      principal: COUNSELLOR,
+      predictedTier: Tier.T4,
+      requestedTier: Tier.T1,
+      reason: "spoke to the student, they say they are fine now",
+      gateFloor: Tier.T4,
+    });
+    expect(result.flooredNotice).toContain("break glass");
+  });
+
   it.each([Tier.T0, Tier.T1, Tier.T2, Tier.T3])(
     "clamps a requested %s up to a T4 floor",
-    (requested) => {
-      const result = recordOverride({
+    async (requested) => {
+      const result = await recordOverride(store, {
         caseId: `clamp-${requested}`,
-        counsellorId: COUNSELLOR,
+        principal: COUNSELLOR,
         predictedTier: Tier.T4,
         requestedTier: requested,
         reason: "a reason long enough to pass validation",
@@ -54,10 +78,10 @@ describe("the gate floor survives a counsellor", () => {
     },
   );
 
-  it("allows an upgrade above the floor", () => {
-    const result = recordOverride({
+  it("allows an upgrade above the floor", async () => {
+    const result = await recordOverride(store, {
       caseId: "syn-003",
-      counsellorId: COUNSELLOR,
+      principal: COUNSELLOR,
       predictedTier: Tier.T2,
       requestedTier: Tier.T4,
       reason: "I know this student and this is worse than it reads",
@@ -67,10 +91,10 @@ describe("the gate floor survives a counsellor", () => {
     expect(result.flooredNotice).toBeNull();
   });
 
-  it("allows any change when the gate never fired", () => {
-    const result = recordOverride({
+  it("allows any change when the gate never fired", async () => {
+    const result = await recordOverride(store, {
       caseId: "no-floor",
-      counsellorId: COUNSELLOR,
+      principal: COUNSELLOR,
       predictedTier: Tier.T2,
       requestedTier: Tier.T0,
       reason: "duplicate of an earlier conversation, already actioned",
@@ -78,6 +102,52 @@ describe("the gate floor survives a counsellor", () => {
     });
     expect(result.effectiveTier).toBe(Tier.T0);
     expect(result.flooredNotice).toBeNull();
+  });
+});
+
+describe("the reason is not optional", () => {
+  it("refuses a short one", async () => {
+    await expect(
+      recordOverride(store, {
+        caseId: "syn-003",
+        principal: COUNSELLOR,
+        predictedTier: Tier.T2,
+        requestedTier: Tier.T1,
+        reason: "fine",
+        gateFloor: null,
+      }),
+    ).rejects.toBeInstanceOf(OverrideError);
+  });
+
+  it("writes nothing at all when it refuses", async () => {
+    await expect(
+      recordOverride(store, {
+        caseId: "syn-003",
+        principal: COUNSELLOR,
+        predictedTier: Tier.T2,
+        requestedTier: Tier.T1,
+        reason: "no",
+        gateFloor: null,
+      }),
+    ).rejects.toThrow();
+
+    // Both halves. A rejected override that still left an audit row would tell a student
+    // their case was changed when it was not.
+    expect(await overrideFor(store, "syn-003")).toBeNull();
+    expect(await store.accessForCase("syn-003")).toHaveLength(0);
+  });
+
+  it("does not accept whitespace as a reason", async () => {
+    await expect(
+      recordOverride(store, {
+        caseId: "syn-003",
+        principal: COUNSELLOR,
+        predictedTier: Tier.T2,
+        requestedTier: Tier.T1,
+        reason: "              ",
+        gateFloor: null,
+      }),
+    ).rejects.toBeInstanceOf(OverrideError);
   });
 });
 
@@ -104,10 +174,10 @@ describe("the card carries what the endpoint needs", () => {
 });
 
 describe("bookkeeping", () => {
-  beforeEach(() => {
-    recordOverride({
+  beforeEach(async () => {
+    await recordOverride(store, {
       caseId: "book-1",
-      counsellorId: COUNSELLOR,
+      principal: COUNSELLOR,
       predictedTier: Tier.T2,
       requestedTier: Tier.T3,
       reason: "escalating over the last fortnight",
@@ -115,14 +185,22 @@ describe("bookkeeping", () => {
     });
   });
 
-  it("reports the effective tier over the card's", () => {
-    expect(effectiveTier("book-1", Tier.T2)).toBe(Tier.T3);
-    expect(effectiveTier("never-touched", Tier.T2)).toBe(Tier.T2);
+  it("reports the effective tier over the card's", async () => {
+    expect(effectiveTier(await overrideFor(store, "book-1"), Tier.T2)).toBe(Tier.T3);
+    expect(effectiveTier(await overrideFor(store, "never-touched"), Tier.T2)).toBe(Tier.T2);
   });
 
-  it("keeps the model's tier alongside the override rather than replacing it", () => {
-    const stored = overrideFor("book-1")!;
+  it("keeps the model's tier alongside the override rather than replacing it", async () => {
+    const stored = (await overrideFor(store, "book-1"))!;
     expect(stored.predictedTier).toBe(Tier.T2);
     expect(stored.effectiveTier).toBe(Tier.T3);
+  });
+
+  it("logs the override as an access the student can read", async () => {
+    const log = await store.accessForCase("book-1");
+    expect(log).toHaveLength(1);
+    expect(log[0].action).toBe("overrode_tier");
+    expect(log[0].counsellorEmail).toBe(COUNSELLOR.email);
+    expect(log[0].reason).toContain("fortnight");
   });
 });

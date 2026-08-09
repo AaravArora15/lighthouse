@@ -93,6 +93,59 @@ export const COUNSELLOR_WEEKLY_BUDGET = 20;
 export const MAX_CITED_QUOTES = 3;
 
 // ---------------------------------------------------------------------------------------
+// Counsellor auth
+// ---------------------------------------------------------------------------------------
+
+/**
+ * A session lasts one working day.
+ *
+ * Long enough that a counsellor is not re-authenticating between cases, short enough that
+ * a laptop left open in a staff room stops being a way into the queue by the next morning.
+ * TypeScript only: there is no Python counterpart, so this is not MIRRORED.
+ */
+export const SESSION_TTL_HOURS = 12;
+
+/**
+ * Minimum password length, and deliberately the only rule.
+ *
+ * Composition requirements ("one uppercase, one symbol") measurably push people toward
+ * `Password1!` and toward writing it on a sticky note beside a screen that displays
+ * children's disclosures. Length is the property that correlates with strength.
+ */
+export const MIN_PASSWORD_CHARS = 12;
+
+// ---------------------------------------------------------------------------------------
+// Reason thresholds
+// ---------------------------------------------------------------------------------------
+
+/**
+ * How much a counsellor has to write before an action goes through, by action.
+ *
+ * **One table, because these were four.** The transcript threshold lived in
+ * `privacy/disclosure.ts`, the unseal threshold in both `privacy/seal.ts` and
+ * `disclosure.ts`, and the override threshold as a bare `10` in the route handler and
+ * again in `overrides.ts`. Four copies of a number that expresses a single policy is four
+ * chances for the UI to promise one thing and the server to enforce another.
+ *
+ * The ordering is the argument: reading a transcript is routine and costs a sentence;
+ * lifting a child's anonymity costs more; overruling the safety gate costs most, because a
+ * safeguarding lead will read that one weeks later with no memory of the case and has to
+ * be able to tell whether the call was reasonable.
+ */
+export const REASON_CHARS = {
+  /** Opening the full redacted transcript. */
+  transcript: 10,
+  /** Recording a tier override. */
+  override: 10,
+  /** Unsealing identifying spans. */
+  unseal: 20,
+  /** Closing a case below the gate's floor. */
+  breakGlass: 40,
+  /** A lead's note when reviewing a break-glass. */
+  breakGlassReview: 10,
+} as const;
+
+// ---------------------------------------------------------------------------------------
 // Retention
 // ---------------------------------------------------------------------------------------
 

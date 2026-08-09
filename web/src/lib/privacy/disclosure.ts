@@ -27,6 +27,7 @@
  * separate problem and is currently unsolved.
  */
 
+import { REASON_CHARS } from "@/lib/config";
 import { ESCALATED_TIERS, Tier } from "@/lib/taxonomy";
 
 export type DisclosureLevel = "card" | "transcript" | "identity";
@@ -67,11 +68,16 @@ export interface DisclosureDecision {
   } | null;
 }
 
-/** Reason length required per level. Identity costs more to ask for than transcript. */
+/**
+ * Reason length required per level, from the one table in `config.ts`.
+ *
+ * These were literals here and again in `seal.ts`, which meant the disclosure gate and
+ * the thing it guards could disagree about the same policy.
+ */
 const MIN_REASON: Record<DisclosureLevel, number> = {
   card: 0,
-  transcript: 10,
-  identity: 20,
+  transcript: REASON_CHARS.transcript,
+  identity: REASON_CHARS.unseal,
 };
 
 const ACTION: Record<DisclosureLevel, DisclosureDecision["audit"] extends null ? never : NonNullable<DisclosureDecision["audit"]>["action"]> = {

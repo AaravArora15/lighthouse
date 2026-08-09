@@ -11,23 +11,37 @@
 
 import Link from "next/link";
 
+import { requireCounsellor } from "@/lib/auth/current";
+import { unreviewed } from "@/lib/breakglass";
 import { queue, queueStats } from "@/lib/cards";
 import { allAlerts } from "@/lib/patterns";
+import { ConsoleHeader } from "@/components/console-header";
 import { PatternAlertPanel } from "@/components/pattern-alert";
 import * as config from "@/lib/config";
+import { store } from "@/lib/store";
 import { TierBadge } from "@/components/tier-badge";
 import { Tier, TIERS } from "@/lib/taxonomy";
 
 export const dynamic = "force-dynamic";
 
-export default function ConsolePage() {
+export default async function ConsolePage() {
+  // First line of the page, and of every protected page. Next's own guidance is that a
+  // proxy/middleware check is an optimistic redirect and not the authorisation, and a
+  // layout does not re-render on navigation between its children — so the check lives
+  // here, and returns the principal the page then needs rather than a boolean it could
+  // forget to read.
+  const principal = await requireCounsellor("/console");
+
   const cases = queue();
   const stats = queueStats();
   const alerts = allAlerts();
   const budget = config.COUNSELLOR_WEEKLY_BUDGET;
+  const openGlass = await unreviewed(await store());
 
   return (
     <main className="mx-auto w-full max-w-5xl px-4 py-8">
+      <ConsoleHeader principal={principal} />
+
       <header className="mb-6">
         <h1 className="text-xl font-semibold tracking-tight">Counsellor queue</h1>
         <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
@@ -42,6 +56,18 @@ export default function ConsolePage() {
           >
             {stats.breakGlass} case{stats.breakGlass === 1 ? "" : "s"} at T4 — immediate,
             break-glass now. Crisis resources were already shown to the student.
+          </p>
+        )}
+
+        {/* The one control on break-glass is that these are visible and counted. Shown to
+            everyone, not just leads: a counsellor seeing their own unreviewed closure sit
+            here for a week is the feedback that keeps the threshold meaningful. */}
+        {openGlass.length > 0 && (
+          <p className="mt-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:border-amber-500/30 dark:bg-amber-950/40 dark:text-amber-100">
+            {openGlass.length} break-glass closure{openGlass.length === 1 ? "" : "s"}{" "}
+            awaiting review by a safeguarding lead
+            {principal.role === "lead" ? " — that is you." : "."}{" "}
+            {openGlass.map((r) => r.caseId).join(", ")}
           </p>
         )}
       </header>
