@@ -1,0 +1,4596 @@
+[
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-065",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / kill_myself",
+        "score": 1.0,
+        "text": "i want to kill myself",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9579,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "lanternfish",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.885,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0958,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0943,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-29T17:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-067",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / wrote_a_note",
+        "score": 1.0,
+        "text": "i left a goodbye letter",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9298,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "nightferry",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.3347,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1211,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0664,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-29T09:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-068",
+    "citedQuotes": [
+      {
+        "reason": "abuse_disclosure / caregiver_violence",
+        "score": 1.0,
+        "text": "my dad hits me when he's been drinking",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.682699,
+        "text": "no. my mum knows obviously but she says it's easier not to make it worse",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.9392,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "abuse_disclosure"
+    ],
+    "handle": "quarrylane",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes being hurt or unsafe at home."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0503,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0853,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.6827,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-29T05:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-069",
+    "citedQuotes": [
+      {
+        "reason": "abuse_disclosure / home_not_safe",
+        "score": 1.0,
+        "text": "i'm not safe at home",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9765,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "abuse_disclosure"
+    ],
+    "handle": "stillwater",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes being hurt or unsafe at home."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.8463,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0181,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0421,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-29T01:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-070",
+    "citedQuotes": [
+      {
+        "reason": "threat_of_violence / reported_threat_against_student",
+        "score": 1.0,
+        "text": "he said he'd stab me",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "weapon_mention / bare_weapon_noun",
+        "score": 0.3,
+        "text": "he's threatened me before but never with a knife",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.8683,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "threat_of_violence",
+      "weapon_mention",
+      "imminent_time_marker"
+    ],
+    "handle": "crowfield",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Reports being threatened with violence.",
+      "Mentions a weapon.",
+      "Refers to something happening imminently."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.9315,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1066,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.3299,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-28T21:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-071",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / going_to_end_it",
+        "score": 1.0,
+        "text": "i'm going to end it all",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9941,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation",
+      "imminent_time_marker"
+    ],
+    "handle": "lastlight",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive.",
+      "Refers to something happening imminently."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.9767,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0928,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.2617,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-28T17:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-072",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / saved_pills",
+        "score": 1.0,
+        "text": "saving up my pills",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9521,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "paperkite",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.8977,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0597,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0762,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-28T13:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-074",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / kill_myself",
+        "score": 1.0,
+        "text": "im gonna k1ll myself tonight and i dont care anymore",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.998,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation",
+      "imminent_time_marker"
+    ],
+    "handle": "ironvane",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive.",
+      "Refers to something happening imminently."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.3172,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.3397,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.2419,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-28T05:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-077",
+    "citedQuotes": [
+      {
+        "reason": "threat_of_violence / told_target_to_kill_themselves",
+        "score": 1.0,
+        "text": "told me to kill myself",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "imminent_time_marker / imminent_window",
+        "score": 0.6,
+        "text": "i'm at home. i'm not going to do anything tonight",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.9952,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation",
+      "threat_of_violence",
+      "imminent_time_marker"
+    ],
+    "handle": "windrose",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive.",
+      "Reports being threatened with violence.",
+      "Refers to something happening imminently.",
+      "Ongoing for roughly 30+ weeks."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.9826,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.7974,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0201,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-27T17:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-078",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / giving_things_away",
+        "score": 1.0,
+        "text": "giving all my stuff away",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.671118,
+        "text": "i just don't need it anymore",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.9183,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "sablewood",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0786,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.6711,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0489,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-27T13:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-079",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / has_a_method_in_mind",
+        "score": 1.0,
+        "text": "i've thought about how i'd do it",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.9345,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "greyfriar",
+    "modelTier": "T4",
+    "nStudentTurns": 4,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive.",
+      "Ongoing for roughly 30+ weeks.",
+      "Student has changed their behaviour to avoid it."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.2379,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1004,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.9866,
+        "turnId": "turn-2"
+      },
+      {
+        "ordinal": 3,
+        "risk": 0.0427,
+        "turnId": "turn-3"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-27T09:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-080",
+    "citedQuotes": [
+      {
+        "reason": "weapon_mention / weapon_being_carried",
+        "score": 1.0,
+        "text": "bringing a knife",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9672,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "weapon_mention",
+      "imminent_time_marker"
+    ],
+    "handle": "coldharbour",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 5.0,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Mentions a weapon.",
+      "Refers to something happening imminently."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.4873,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0951,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0496,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-27T05:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-073",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / unalive_myself",
+        "score": 1.0,
+        "text": "honestly i just want to unalive myself",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9533,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9625,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "paleharbour",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 4.9625,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes not wanting to be alive.",
+      "Ongoing for roughly 100+ weeks."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.2637,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0377,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0314,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-28T09:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-076",
+    "citedQuotes": [
+      {
+        "reason": "abuse_disclosure / beaten_at_home",
+        "score": 1.0,
+        "text": "i get hit at home",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9111,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9508,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "abuse_disclosure"
+    ],
+    "handle": "hollowmere",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 4.9508,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes being hurt or unsafe at home.",
+      "Barrier to disclosure reported."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.3412,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0191,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0544,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-27T21:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-066",
+    "citedQuotes": [
+      {
+        "reason": "self_harm_intent / first_person_cutting",
+        "score": 1.0,
+        "text": "i've been cutting my arms",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9115,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "self_harm_intent"
+    ],
+    "handle": "emberfall",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 4.9444,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes harming themselves.",
+      "Ongoing for roughly 4+ weeks."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1323,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1802,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1049,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-29T13:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Break-glass immediately, crisis resources to student",
+    "caseId": "syn-075",
+    "citedQuotes": [
+      {
+        "reason": "abuse_disclosure / sexual_abuse_disclosure",
+        "score": 1.0,
+        "text": "touched me when i was asleep",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.9747,
+    "crisisResourcesShown": true,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T4",
+    "gateIndicators": [
+      "abuse_disclosure"
+    ],
+    "handle": "greenglass",
+    "modelTier": "T4",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 4.9444,
+    "reasons": [
+      "Immediate risk. Break-glass now; crisis resources were shown to the student.",
+      "Describes being hurt or unsafe at home."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0693,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1758,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0829,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 0,
+    "startedAt": "2026-07-28T01:00:00+00:00",
+    "tier": "T4",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-047",
+    "citedQuotes": [
+      {
+        "reason": "threat_of_violence / told_target_to_kill_themselves",
+        "score": 1.0,
+        "text": "keep telling me to kys",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.96474,
+        "text": "angry more than anything. i'm not going to do anything, i just want it to stop",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.9156,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "threat_of_violence"
+    ],
+    "handle": "grimsby",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 4.0,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Reports being threatened with violence.",
+      "Described as recurring."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.3696,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0662,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.9647,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-01T17:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-055",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / better_off_without_me",
+        "score": 0.6,
+        "text": "everyone would be better off without me",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.902521,
+        "text": "few months. it's worse in the evenings",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.9913,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "ashenvale",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 4.0,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Describes not wanting to be alive."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.9621,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0694,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.9025,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-31T09:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-063",
+    "citedQuotes": [
+      {
+        "reason": "abuse_disclosure / afraid_to_go_home",
+        "score": 0.6,
+        "text": "scared to go home",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9808,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "abuse_disclosure"
+    ],
+    "handle": "fenwold",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 4.0,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Describes being hurt or unsafe at home.",
+      "Targets a protected characteristic: sexuality."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.6871,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0786,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1684,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-30T01:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-084",
+    "citedQuotes": [
+      {
+        "reason": "threat_of_violence / reported_threat_against_student",
+        "score": 1.0,
+        "text": "kai says he'll batter me",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.721491,
+        "text": "i don't know. i just don't want to be the one who told",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.9452,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "threat_of_violence"
+    ],
+    "handle": "thornmere",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 4.0,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Reports being threatened with violence."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.7395,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0321,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.7215,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-09T09:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-048",
+    "citedQuotes": [
+      {
+        "reason": "threat_of_violence / reported_threat_against_student",
+        "score": 1.0,
+        "text": "he said he'd batter me",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.8009,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "threat_of_violence"
+    ],
+    "handle": "pellmell",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 3.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Reports being threatened with violence.",
+      "Barrier to disclosure reported."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.8095,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0317,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0809,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-01T13:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-049",
+    "citedQuotes": [
+      {
+        "reason": "weapon_mention / weapon_being_carried",
+        "score": 1.0,
+        "text": "brought a knife",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.6211,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "weapon_mention"
+    ],
+    "handle": "cragfoot",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 3.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Mentions a weapon."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0354,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0212,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0881,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-01T09:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-056",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / nobody_would_notice",
+        "score": 0.6,
+        "text": "nobody would notice",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.8735,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "pallasrook",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 3.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Describes not wanting to be alive."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.2053,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0204,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.129,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-31T05:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-057",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / third_party_disclosure",
+        "score": 0.6,
+        "text": "my friend said she wants to die",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.8783,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "willowbrace",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 3.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Describes not wanting to be alive.",
+      "Barrier to disclosure reported."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.812,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.2233,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.2227,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-31T01:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-060",
+    "citedQuotes": [
+      {
+        "reason": "self_harm_intent / self_harm_term",
+        "score": 0.6,
+        "text": "there's a lot of self harm content on that app and it keeps getting pushed to me",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9137,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "self_harm_intent"
+    ],
+    "handle": "greenlaw",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 3.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Describes harming themselves."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.3539,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1732,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0284,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-30T13:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-061",
+    "citedQuotes": [
+      {
+        "reason": "threat_of_violence / reported_threat_against_student",
+        "score": 1.0,
+        "text": "he said he'd hurt me",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.906,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T3",
+    "gateIndicators": [
+      "threat_of_violence"
+    ],
+    "handle": "redditch",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 3.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Reports being threatened with violence.",
+      "Barrier to disclosure reported."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.9507,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0268,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1281,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-30T09:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-062",
+    "citedQuotes": [
+      {
+        "reason": "threat_of_violence / coming_for_you",
+        "score": 0.6,
+        "text": "going to get me",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.978561,
+        "text": "most days. waiting for it is honestly worse than if he just did it",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.9844,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 1.0,
+    "gateFloor": "T2",
+    "gateIndicators": [
+      "threat_of_violence"
+    ],
+    "handle": "underhill",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 3.0,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Reports being threatened with violence.",
+      "Student has changed their behaviour to avoid it.",
+      "Described as recurring."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0802,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.9786,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0233,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-30T05:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-053",
+    "citedQuotes": [
+      {
+        "reason": "threat_of_violence / make_you_pay",
+        "score": 0.6,
+        "text": "someone has a photo of me and says they'll make me pay if i tell a teacher",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.9643,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": "T2",
+    "gateIndicators": [
+      "threat_of_violence"
+    ],
+    "handle": "barrowfen",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 2.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Reports being threatened with violence."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0478,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0148,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.2542,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-31T17:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-045",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.37688600000000005,
+        "text": "slurs. actual slurs, in front of everyone, and people laugh",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.9529,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "nightjar",
+    "modelTier": "T3",
+    "nStudentTurns": 4,
+    "patternClusterId": null,
+    "queueRank": 0.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Ongoing for roughly 100+ weeks.",
+      "Targets a protected characteristic: race or ethnicity.",
+      "Barrier to disclosure reported."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1518,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.3769,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0189,
+        "turnId": "turn-2"
+      },
+      {
+        "ordinal": 3,
+        "risk": 0.187,
+        "turnId": "turn-3"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-02T01:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-046",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.843263,
+        "text": "three weeks and it's got worse each week",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.9099,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "halyard",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Ongoing for roughly 30+ weeks.",
+      "Student has changed their behaviour to avoid it.",
+      "Targets a protected characteristic: sexuality."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0913,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1237,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.8433,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-01T21:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-051",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.358475,
+        "text": "three times now. the first time i thought it was an accident",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.8653,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "eastwick",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Targets a protected characteristic: religion."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0592,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.3585,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0247,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-01T01:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-052",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.98514,
+        "text": "people keep deadnaming me on purpose and a teacher does it too",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.8959,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "vireo",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Ongoing for roughly 30+ weeks.",
+      "Described as recurring.",
+      "Targets a protected characteristic: gender identity."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.9851,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0551,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0245,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-31T21:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-058",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.32025000000000003,
+        "text": "all year. i've stopped putting my hand up entirely",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.7651,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "corvid",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Ongoing for roughly 30+ weeks.",
+      "Student has changed their behaviour to avoid it.",
+      "Described as recurring.",
+      "Targets a protected characteristic: disability."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0271,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.3203,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0343,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-30T21:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-064",
+    "citedQuotes": [
+      {
+        "reason": "suicidal_ideation / cannot_go_on",
+        "score": 0.3,
+        "text": "i can't do this anymore",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "suicidal_ideation / wants_to_disappear",
+        "score": 0.3,
+        "text": "i just want to disappear",
+        "turnId": "turn-3"
+      }
+    ],
+    "confidence": 0.8467,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": null,
+    "gateIndicators": [
+      "suicidal_ideation"
+    ],
+    "handle": "marrowgate",
+    "modelTier": "T3",
+    "nStudentTurns": 4,
+    "patternClusterId": null,
+    "queueRank": 0.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Describes not wanting to be alive."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.8232,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.134,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.4883,
+        "turnId": "turn-2"
+      },
+      {
+        "ordinal": 3,
+        "risk": 0.8004,
+        "turnId": "turn-3"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-07-29T21:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-083",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.5878140000000001,
+        "text": "it's been going on for about a month. always the same stairwell, always him starting it",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.955,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.9444,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "brackenhill",
+    "modelTier": "T3",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.9444,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Ongoing for roughly 4+ weeks.",
+      "Targets a protected characteristic: race or ethnicity.",
+      "Barrier to disclosure reported."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0717,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.5878,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.4411,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-06T09:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, priority",
+    "caseId": "syn-050",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.926861,
+        "text": "two weeks. i don't really see the point of any of it anymore",
+        "turnId": "turn-3"
+      }
+    ],
+    "confidence": 0.7935,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.6734,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "loamfield",
+    "modelTier": "T3",
+    "nStudentTurns": 4,
+    "patternClusterId": null,
+    "queueRank": 0.6734,
+    "reasons": [
+      "Severe or persistent harassment. Priority queue, 24 hours.",
+      "Student has changed their behaviour to avoid it."
+    ],
+    "retentionExpiresAt": null,
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.2463,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0377,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0519,
+        "turnId": "turn-2"
+      },
+      {
+        "ordinal": 3,
+        "risk": 0.9269,
+        "turnId": "turn-3"
+      }
+    ],
+    "slaHours": 24,
+    "startedAt": "2026-08-01T05:00:00+00:00",
+    "tier": "T3",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-001",
+    "citedQuotes": [],
+    "confidence": 0.6713,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "quietbird",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-08T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0362,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0342,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0279,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-09T09:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-002",
+    "citedQuotes": [],
+    "confidence": 0.5053,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "mossy",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-08T05:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0148,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0399,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0258,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-09T05:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-003",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.26840200000000003,
+        "text": "fair enough, my pe kit has vanished again lol",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.4696,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "tealkite",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 15+ weeks."
+    ],
+    "retentionExpiresAt": "2026-09-08T01:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0897,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.2684,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.2024,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-09T01:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-005",
+    "citedQuotes": [],
+    "confidence": 0.4897,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "harbourlight",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-07T17:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0216,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0334,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0228,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-08T17:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-006",
+    "citedQuotes": [],
+    "confidence": 0.4333,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "n0va",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-07T13:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0252,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1626,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0362,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-08T13:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-007",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.855625,
+        "text": "this coursework is killing me honestly",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.801565,
+        "text": "i'll survive, just needed to moan at something",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.7183,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "brambles",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-07T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.8556,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0694,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.8016,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-08T09:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-008",
+    "citedQuotes": [],
+    "confidence": 0.4249,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "copperwren",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-07T05:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.026,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0366,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.026,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-08T05:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-009",
+    "citedQuotes": [],
+    "confidence": 0.7323,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "slateowl",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-07T01:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.4231,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0272,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.201,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-08T01:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-010",
+    "citedQuotes": [],
+    "confidence": 0.6986,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "junipers",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-06T21:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0476,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0191,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0427,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-07T21:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-011",
+    "citedQuotes": [],
+    "confidence": 0.4317,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "foxglove",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-06T17:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0335,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0528,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0399,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-07T17:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-012",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.958381,
+        "text": "we're reading a book about suicide for english and it's quite heavy",
+        "turnId": "turn-0"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.797229,
+        "text": "just a lot to think about. i'm fine, it's more that some people in the class were being dickheads about it",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.8786,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "harepath",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-06T13:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.9584,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.7972,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0259,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-07T13:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-013",
+    "citedQuotes": [],
+    "confidence": 0.6488,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "ashgrove",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-06T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1318,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0926,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.068,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-07T09:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-015",
+    "citedQuotes": [],
+    "confidence": 0.4426,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "wrenlow",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-06T01:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0192,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1234,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1029,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-07T01:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-016",
+    "citedQuotes": [],
+    "confidence": 0.6974,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "cobaltfox",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed.",
+      "Described as recurring."
+    ],
+    "retentionExpiresAt": "2026-09-05T21:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0555,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0412,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.3133,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-06T21:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-017",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.639938,
+        "text": "few days. i think i'm just not sleeping properly",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.7531,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "linnet",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-05T17:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1174,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0388,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.6399,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-06T17:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-018",
+    "citedQuotes": [],
+    "confidence": 0.6138,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "gullstone",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-05T13:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0302,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0429,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0632,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-06T13:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-021",
+    "citedQuotes": [],
+    "confidence": 0.7048,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "pipit",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-05T01:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0203,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.1576,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.2909,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-06T01:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-022",
+    "citedQuotes": [],
+    "confidence": 0.5087,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "cinderwick",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-04T21:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0368,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.2886,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0868,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-05T21:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-025",
+    "citedQuotes": [],
+    "confidence": 0.4997,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "beechnut",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-04T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.088,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0933,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0283,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-05T09:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-026",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.533838,
+        "text": "exhausting. both sides keep asking me whose side i'm on",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.5162,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "hollowpine",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours."
+    ],
+    "retentionExpiresAt": "2026-09-04T05:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0204,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.5338,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0218,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-05T05:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-027",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.812941,
+        "text": "yeah. i haven't told anyone because it sounds pathetic written down",
+        "turnId": "turn-3"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.724133,
+        "text": "just constant. every corridor, every lesson change. it's the same three of them",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.8243,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "greyharbour",
+    "modelTier": "T2",
+    "nStudentTurns": 4,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 30+ weeks.",
+      "Student has changed their behaviour to avoid it.",
+      "Described as recurring.",
+      "Barrier to disclosure reported."
+    ],
+    "retentionExpiresAt": "2026-09-04T01:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0237,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.7241,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1317,
+        "turnId": "turn-2"
+      },
+      {
+        "ordinal": 3,
+        "risk": 0.8129,
+        "turnId": "turn-3"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-05T01:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-028",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.302597,
+        "text": "fourth time this term. they make one, i find out, someone adds me back out of pity, then they make another",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.9773,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "lowtide",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 15+ weeks.",
+      "Student has changed their behaviour to avoid it.",
+      "Described as recurring."
+    ],
+    "retentionExpiresAt": "2026-09-03T21:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1179,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.3026,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0447,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-04T21:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-029",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.897519,
+        "text": "three weeks. people i've never spoken to are saying it to my face now",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.8621,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "ferrous",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 30+ weeks."
+    ],
+    "retentionExpiresAt": "2026-09-03T17:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0408,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.8975,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0232,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-04T17:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-030",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.24874700000000005,
+        "text": "most days. he doesn't threaten me or anything he just stands there until i hand it over",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.8085,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "pennyroyal",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 30+ weeks.",
+      "Described as recurring."
+    ],
+    "retentionExpiresAt": "2026-09-03T13:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.149,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.2487,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0349,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-04T13:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-031",
+    "citedQuotes": [],
+    "confidence": 0.5795,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "windlass",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-03T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0591,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0495,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0145,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-04T09:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-032",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.764573,
+        "text": "telling me i'm ugly, that no one likes me, that sort of thing. like twenty messages a night",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.8108,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "driftwood",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Described as recurring."
+    ],
+    "retentionExpiresAt": "2026-09-03T05:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0458,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.7646,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0729,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-04T05:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-033",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.06656200000000001,
+        "text": "someone took a photo of me at lunch and put it in a group chat with a caption",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.5234,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "aldergate",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Described as recurring."
+    ],
+    "retentionExpiresAt": "2026-09-03T01:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0666,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.023,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0541,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-04T01:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-036",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.88461,
+        "text": "stuff about my family and where i live. not threats just, everyone can see it",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.6187,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "marlowe",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours."
+    ],
+    "retentionExpiresAt": "2026-09-02T13:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1664,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.8846,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1868,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-03T13:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-037",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.10148400000000002,
+        "text": "the people i sat with for two years have all stopped speaking to me",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.7894,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "cobweb",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 100+ weeks."
+    ],
+    "retentionExpiresAt": "2026-09-02T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1015,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0455,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0903,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-03T09:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-038",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.313269,
+        "text": "usually. he says it's a joke every time",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.3898,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "birchmere",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Described as recurring."
+    ],
+    "retentionExpiresAt": "2026-09-02T05:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0553,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.3133,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0693,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-03T05:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-040",
+    "citedQuotes": [],
+    "confidence": 0.4716,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "seaholly",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-01T21:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.071,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.2523,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0369,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-02T21:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-041",
+    "citedQuotes": [],
+    "confidence": 0.406,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "vellum",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-09-01T17:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0213,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.048,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0264,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-02T17:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-042",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.23617299999999997,
+        "text": "couple of weeks. i eat at home so it's fine",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.8749,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "orrery",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Student has changed their behaviour to avoid it."
+    ],
+    "retentionExpiresAt": "2026-09-01T13:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1157,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0695,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.2362,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-02T13:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-044",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.07694999999999996,
+        "text": "yeah and they use other accounts. i've blocked about eleven accounts",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.7748,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "cindermoss",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Student has changed their behaviour to avoid it."
+    ],
+    "retentionExpiresAt": "2026-09-01T05:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.03,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0769,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0429,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-02T05:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-054",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.605082,
+        "text": "no that's what makes it worse. they just walk behind me the whole way",
+        "turnId": "turn-1"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.598842,
+        "text": "twice. they found me both times",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.3778,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "stormcock",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours."
+    ],
+    "retentionExpiresAt": "2026-08-30T13:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0198,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.6051,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.5988,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-07-31T13:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-059",
+    "citedQuotes": [],
+    "confidence": 0.5252,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "heathermoor",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-08-29T17:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0791,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0515,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0716,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-07-30T17:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log only",
+    "caseId": "syn-081",
+    "citedQuotes": [],
+    "confidence": 0.594,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "millpond",
+    "modelTier": "T0",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "No concern identified. Logged only."
+    ],
+    "retentionExpiresAt": "2026-08-30T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1994,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0559,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0319,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-07-31T09:00:00+00:00",
+    "tier": "T0",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-082",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.6297820000000001,
+        "text": "i've stopped going that way. i eat lunch in the library now instead",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.7058,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "harrowgate",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Student has changed their behaviour to avoid it."
+    ],
+    "retentionExpiresAt": "2026-09-02T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1652,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0405,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.6298,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-03T09:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-085",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.646198,
+        "text": "i just sit outside the music rooms on my own. nobody's said anything mean, they just don't talk to me",
+        "turnId": "turn-2"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.639499,
+        "text": "a couple of weeks. jamie decided she didn't want me around and the rest followed",
+        "turnId": "turn-1"
+      }
+    ],
+    "confidence": 0.4589,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0811,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "fennelrow",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0811,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours."
+    ],
+    "retentionExpiresAt": "2026-09-03T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0379,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.6395,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.6462,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-04T09:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-004",
+    "citedQuotes": [],
+    "confidence": 0.6301,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "pinefall",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-07T21:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0157,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0325,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0621,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-08T21:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-014",
+    "citedQuotes": [],
+    "confidence": 0.6786,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "emberly",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-06T05:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.04,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.046,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0989,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-07T05:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-019",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.11642300000000005,
+        "text": "yeah. my mum says i'll be fine and she's probably right",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.4848,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "marram",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 100+ weeks."
+    ],
+    "retentionExpiresAt": "2026-09-05T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0165,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0754,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1164,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-06T09:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-020",
+    "citedQuotes": [],
+    "confidence": 0.7414,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "thistle",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-05T05:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.1029,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0391,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.2451,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-06T05:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-023",
+    "citedQuotes": [],
+    "confidence": 0.743,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "redkite",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-04T17:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.158,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0278,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1997,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-05T17:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-024",
+    "citedQuotes": [],
+    "confidence": 0.6597,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "saltmarsh",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-04T13:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0254,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0457,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0467,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-05T13:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Log, no counsellor action",
+    "caseId": "syn-034",
+    "citedQuotes": [],
+    "confidence": 0.6496,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "kestrelway",
+    "modelTier": "T1",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Venting or minor social friction. No counsellor action needed."
+    ],
+    "retentionExpiresAt": "2026-09-02T21:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0194,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0386,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.04,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": null,
+    "startedAt": "2026-08-03T21:00:00+00:00",
+    "tier": "T1",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-035",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.144887,
+        "text": "some teachers use it now which is the worst part",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.8002,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "stonecrop",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 100+ weeks.",
+      "Barrier to disclosure reported."
+    ],
+    "retentionExpiresAt": "2026-09-02T17:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0585,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0358,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.1449,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-03T17:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-039",
+    "citedQuotes": [
+      {
+        "reason": "no explicit signal; highest-scoring turn",
+        "score": 0.09619500000000003,
+        "text": "yeah. i asked my mum for new ones and then felt awful because i know we can't",
+        "turnId": "turn-2"
+      }
+    ],
+    "confidence": 0.4854,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "quillon",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 30+ weeks."
+    ],
+    "retentionExpiresAt": "2026-09-02T01:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.0321,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.0543,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0962,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-03T01:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  },
+  {
+    "action": "Queue, routine",
+    "caseId": "syn-043",
+    "citedQuotes": [
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.9189890000000001,
+        "text": "no. someone said i was annoying in voice chat. now they post clips taking the piss out of me",
+        "turnId": "turn-1"
+      },
+      {
+        "reason": "highest-scoring turn",
+        "score": 0.72414,
+        "text": "they kicked me from the server we've played on for two years",
+        "turnId": "turn-0"
+      }
+    ],
+    "confidence": 0.7755,
+    "crisisResourcesShown": false,
+    "deltaSinceLastSession": null,
+    "entities": {
+      "people": [],
+      "places": [],
+      "platforms": []
+    },
+    "escalation": 0.0,
+    "gateFloor": null,
+    "gateIndicators": [],
+    "handle": "tarnbeck",
+    "modelTier": "T2",
+    "nStudentTurns": 3,
+    "patternClusterId": null,
+    "queueRank": 0.0,
+    "reasons": [
+      "Sustained bullying or exclusion. Routine queue, 48 hours.",
+      "Ongoing for roughly 100+ weeks."
+    ],
+    "retentionExpiresAt": "2026-09-01T09:00:00+00:00",
+    "sessionTimeline": [
+      {
+        "ordinal": 0,
+        "risk": 0.7241,
+        "turnId": "turn-0"
+      },
+      {
+        "ordinal": 1,
+        "risk": 0.919,
+        "turnId": "turn-1"
+      },
+      {
+        "ordinal": 2,
+        "risk": 0.0398,
+        "turnId": "turn-2"
+      }
+    ],
+    "slaHours": 48,
+    "startedAt": "2026-08-02T09:00:00+00:00",
+    "tier": "T2",
+    "tierFloorReason": null
+  }
+]
