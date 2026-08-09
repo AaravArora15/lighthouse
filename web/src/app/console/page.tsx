@@ -13,7 +13,7 @@ import Link from "next/link";
 
 import { requireCounsellor } from "@/lib/auth/current";
 import { unreviewed } from "@/lib/breakglass";
-import { queue, queueStats } from "@/lib/cards";
+import { queue, queueStats } from "@/lib/queue";
 import { allAlerts } from "@/lib/patterns";
 import { ConsoleHeader } from "@/components/console-header";
 import { PatternAlertPanel } from "@/components/pattern-alert";
@@ -32,8 +32,7 @@ export default async function ConsolePage() {
   // forget to read.
   const principal = await requireCounsellor("/console");
 
-  const cases = queue();
-  const stats = queueStats();
+  const [cases, stats] = await Promise.all([queue(), queueStats()]);
   const alerts = allAlerts();
   const budget = config.COUNSELLOR_WEEKLY_BUDGET;
   const openGlass = await unreviewed(await store());
@@ -71,6 +70,15 @@ export default async function ConsolePage() {
           </p>
         )}
       </header>
+
+      {stats.awaitingClassifier > 0 && (
+        <p className="mb-4 rounded-lg border border-violet-300 bg-violet-50 px-3 py-2 text-sm text-violet-900 dark:border-violet-500/30 dark:bg-violet-950/30 dark:text-violet-100">
+          {stats.awaitingClassifier} case{stats.awaitingClassifier === 1 ? " is" : "s are"}{" "}
+          from a live conversation and {stats.awaitingClassifier === 1 ? "has" : "have"} been
+          scored by the safety gate only. The tier is a floor, not a prediction — the
+          classifier has not run on {stats.awaitingClassifier === 1 ? "it" : "them"} yet.
+        </p>
+      )}
 
       <PatternAlertPanel alerts={alerts} />
 
@@ -119,10 +127,22 @@ export default async function ConsolePage() {
                     ? "now"
                     : `${TIERS[card.tier].slaHours}h`}
                 </div>
-                <div>conf {card.confidence.toFixed(2)}</div>
+                <div>
+                  {card.confidence === null
+                    ? "not scored"
+                    : `conf ${card.confidence.toFixed(2)}`}
+                </div>
                 {card.tierFloorReason && (
                   <div className="mt-1 font-medium text-amber-700 dark:text-amber-400">
                     gate
+                  </div>
+                )}
+                {/* A counsellor has to be able to tell a gate-only floor from a
+                    classifier judgement at a glance: the two carry different amounts
+                    of evidence, and the tier means different things. */}
+                {card.awaitingClassifier && (
+                  <div className="mt-1 font-medium text-violet-700 dark:text-violet-400">
+                    live
                   </div>
                 )}
               </div>

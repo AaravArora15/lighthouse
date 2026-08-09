@@ -25,7 +25,7 @@ import { TierBadge } from "@/components/tier-badge";
 import { accessForCase, describeAccess, recordAccess } from "@/lib/audit";
 import { requireCounsellor } from "@/lib/auth/current";
 import { breakGlassForCase } from "@/lib/breakglass";
-import { cardById } from "@/lib/cards";
+import { caseById } from "@/lib/queue";
 import { overrideFor } from "@/lib/overrides";
 import { store } from "@/lib/store";
 import { TIERS } from "@/lib/taxonomy";
@@ -40,7 +40,7 @@ export default async function CardPage({
   const { caseId } = await params;
   const principal = await requireCounsellor(`/console/${caseId}`);
 
-  const card = cardById(caseId);
+  const card = await caseById(caseId);
   if (!card) notFound();
 
   const db = await store();
@@ -74,12 +74,24 @@ export default async function CardPage({
         <div className="min-w-0 flex-1">
           <h1 className="text-xl font-semibold tracking-tight">{card.handle}</h1>
           <p className="text-sm text-stone-500 dark:text-stone-400">
-            {card.caseId} · {card.nStudentTurns} messages · calibrated confidence{" "}
-            {card.confidence.toFixed(2)}
+            {card.caseId} · {card.nStudentTurns} messages ·{" "}
+            {card.confidence === null
+              ? "not scored by the classifier yet"
+              : `calibrated confidence ${card.confidence.toFixed(2)}`}
           </p>
           <p className="mt-1 text-sm font-medium">{spec.action}</p>
         </div>
       </header>
+
+      {card.awaitingClassifier && (
+        <p className="mt-4 rounded-lg border border-violet-300 bg-violet-50 px-3 py-2 text-sm text-violet-900 dark:border-violet-500/30 dark:bg-violet-950/30 dark:text-violet-100">
+          <strong className="font-medium">Live conversation, gate-only triage.</strong>{" "}
+          This case was created from a conversation happening now and has been scored by
+          the deterministic safety gate alone. The tier below is a <em>floor</em> — the
+          classifier has not run on it, so there is no confidence figure and the reasons
+          come only from what the gate matched.
+        </p>
+      )}
 
       {card.crisisResourcesShown && (
         <p className="mt-4 rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-900 dark:border-red-500/30 dark:bg-red-950/40 dark:text-red-100">

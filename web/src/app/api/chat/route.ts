@@ -22,6 +22,8 @@
 import * as config from "@/lib/config";
 import { evaluateConversation, evaluateTurn, requiresCrisisResources } from "@/lib/gate/safety";
 import { generateReply, hasApiKey, type IntakeMessage } from "@/lib/intake";
+import { newCaseId, newHandle, persistConversation } from "@/lib/live";
+import { store } from "@/lib/store";
 
 export const runtime = "nodejs";
 /** The gate must run per request; a cached response would serve one student another's verdict. */
@@ -29,7 +31,16 @@ export const dynamic = "force-dynamic";
 
 interface ChatRequest {
   handle?: unknown;
+  startedAt?: unknown;
   messages?: unknown;
+  /**
+   * Supplied by the client from the second message onward, echoed back on the first.
+   *
+   * The server mints it; the client only carries it. A client-chosen id would let anyone
+   * append turns to a case id they guessed, which on this product means writing into
+   * another student's disclosure.
+   */
+  conversationId?: unknown;
 }
 
 function parseMessages(raw: unknown): IntakeMessage[] | null {
@@ -76,6 +87,19 @@ export async function POST(request: Request) {
   const conversationVerdict = evaluateConversation(studentTurns);
   const showCrisis = requiresCrisisResources(conversationVerdict);
 
+  // Case identity. Minted here on the first message of a conversation and carried by the
+  // client thereafter; `startedAt` likewise, so a conversation's age is when it began
+  // rather than when its last message landed — which is what retention is measured from.
+  const conversationId =
+    typeof body.conversationId === "string" && body.conversationId.startsWith("live-")
+      ? body.conversationId
+      : newCaseId();
+  const handle = typeof body.handle === "string" && body.handle ? body.handle : newHandle();
+  const startedAt =
+    typeof body.startedAt === "string" && !Number.isNaN(Date.parse(body.startedAt))
+      ? body.startedAt
+      : new Date().toISOString();
+
   const encoder = new TextEncoder();
 
   const stream = new ReadableStream<Uint8Array>({
@@ -99,23 +123,84 @@ export async function POST(request: Request) {
         level: conversationVerdict.level,
         indicators: conversationVerdict.indicators.map((h) => h.category),
         turnLevel: turnVerdict.level,
+        // So the client can carry the case forward, and so a student could in principle
+        // be shown "this is your reference" later.
+        conversationId,
+        handle,
+        startedAt,
       });
 
-      // ---- 3. Only now, the model. ------------------------------------------------
-      let degraded: string | null = null;
+      // ---- 3. Store the case, BEFORE contacting the model. -------------------------
+      //
+      // The ordering rule here is the same shape as the crisis one above, for the same
+      // reason. The gate is 123 µs of local regex; the model is a network call to
+      // something that can hang, refuse, or fall over. **A case that only exists once the
+      // model has answered is a case that does not exist during an outage** — and the
+      // conversations that most need to survive an outage are exactly the ones the gate
+      // has just floored at T4.
+      //
+      // So the counsellor's copy is written first. It costs a few hundred milliseconds
+      // before the reply starts, which is paid after the student already has crisis
+      // numbers on screen.
+      let persistError: unknown = null;
       try {
-        const result = await generateReply(messages, (chunk) => send("text", { chunk }));
+        await persistConversation(await store(), {
+          caseId: conversationId,
+          handle,
+          startedAt,
+          turns: messages.map((m) => ({ role: m.role, text: m.text })),
+          verdict: conversationVerdict,
+          crisisResourcesShown: showCrisis,
+        });
+      } catch (error) {
+        // Never fatal to the student's experience. They are mid-disclosure; the reply
+        // matters more to them right now than our bookkeeping does. It is logged loudly
+        // because a silent failure here means a counsellor never sees the case.
+        persistError = error;
+        console.error("[chat] FAILED TO PERSIST CASE", conversationId, error);
+      }
+
+      // ---- 4. Only now, the model. ------------------------------------------------
+      let degraded: string | null = null;
+      let replyText = "";
+      try {
+        const result = await generateReply(messages, (chunk) => {
+          replyText += chunk;
+          send("text", { chunk });
+        });
         degraded = result.degraded;
       } catch (error) {
         // generateReply is contracted never to throw. If it does, the student still gets
         // a reply, because a silent bubble in this product is the failure that matters.
         console.error("[chat] unexpected intake failure:", error);
-        send("text", { chunk: "I'm still here. Tell me more whenever you're ready." });
+        replyText = "I'm still here. Tell me more whenever you're ready.";
+        send("text", { chunk: replyText });
         degraded = "error";
+      }
+
+      // The assistant's reply is part of the transcript a counsellor reads, so the case is
+      // rewritten with it appended. Failure here is not reported to the student either:
+      // the student turns, which carry the disclosure, are already stored.
+      if (!persistError) {
+        try {
+          await persistConversation(await store(), {
+            caseId: conversationId,
+            handle,
+            startedAt,
+            turns: [...messages, { role: "assistant" as const, text: replyText }].map(
+              (m) => ({ role: m.role, text: m.text }),
+            ),
+            verdict: conversationVerdict,
+            crisisResourcesShown: showCrisis,
+          });
+        } catch (error) {
+          console.error("[chat] failed to append the reply to", conversationId, error);
+        }
       }
 
       send("done", {
         degraded,
+        conversationId,
         // Surfaced in the UI as a quiet line, per context.md §9: the demo says so rather
         // than pretending the model answered.
         degradedNotice: degraded ? degradationNotice(degraded) : null,

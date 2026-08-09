@@ -16,7 +16,7 @@
  */
 
 import { neon } from "@neondatabase/serverless";
-import { and, desc, eq, isNull, sql } from "drizzle-orm";
+import { and, desc, eq, isNotNull, isNull, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/neon-http";
 
 import {
@@ -29,6 +29,7 @@ import {
   tierOverrides,
   turns,
 } from "@/lib/db/schema";
+import type { EscalationCard } from "@/lib/cards";
 import type {
   AccessRecord,
   BreakGlassRecord,
@@ -315,6 +316,88 @@ export function createPostgresStore(url: string): Store {
       return existing ? toBreakGlass(existing) : null;
     },
 
+    async upsertLiveConversation(input) {
+      const [row] = await db
+        .insert(conversations)
+        .values({
+          caseId: input.caseId,
+          handle: input.handle,
+          startedAt: new Date(input.startedAt),
+          tier: input.tier ?? undefined,
+          confidence: input.confidence,
+          tierFloorReason: input.tierFloorReason,
+          gateLevel: input.gateLevel ?? undefined,
+          gateIndicators: input.gateIndicators,
+          crisisResourcesShown: input.crisisResourcesShown,
+          retentionExpiresAt: input.retentionExpiresAt
+            ? new Date(input.retentionExpiresAt)
+            : null,
+          card: input.card,
+        })
+        .onConflictDoUpdate({
+          target: conversations.caseId,
+          set: {
+            tier: input.tier ?? undefined,
+            confidence: input.confidence,
+            tierFloorReason: input.tierFloorReason,
+            gateLevel: input.gateLevel ?? undefined,
+            gateIndicators: input.gateIndicators,
+            // Latched, never cleared. Once a student has seen crisis numbers, a later
+            // calm turn does not make that untrue, and the console must keep saying so.
+            crisisResourcesShown: sql`${conversations.crisisResourcesShown} or ${input.crisisResourcesShown}`,
+            retentionExpiresAt: input.retentionExpiresAt
+              ? new Date(input.retentionExpiresAt)
+              : null,
+            card: input.card,
+          },
+        })
+        .returning({ id: conversations.id });
+
+      // Rewrite, matching the memory store and the interface contract. pii_map cascades
+      // from turns, so the sealed spans go with the text they belonged to.
+      await db.delete(turns).where(eq(turns.conversationId, row.id));
+
+      for (const turn of input.turns) {
+        const [turnRow] = await db
+          .insert(turns)
+          .values({
+            conversationId: row.id,
+            ordinal: turn.ordinal,
+            role: turn.role,
+            text: turn.text,
+          })
+          .returning({ id: turns.id });
+
+        for (const span of turn.spans) {
+          await db.insert(piiMap).values({
+            conversationId: row.id,
+            turnId: turnRow.id,
+            entityType: span.entityType,
+            placeholder: span.placeholder,
+            ciphertext: span.ciphertext,
+          });
+        }
+      }
+    },
+
+    async liveCards() {
+      const rows = await db
+        .select({ card: conversations.card })
+        .from(conversations)
+        .where(and(isNotNull(conversations.card), isNull(conversations.contentDeletedAt)))
+        .orderBy(desc(conversations.startedAt));
+      return rows.map((r) => r.card as EscalationCard);
+    },
+
+    async liveCard(caseId) {
+      const [row] = await db
+        .select({ card: conversations.card })
+        .from(conversations)
+        .where(eq(conversations.caseId, caseId))
+        .limit(1);
+      return (row?.card as EscalationCard | undefined) ?? null;
+    },
+
     async retentionCandidates() {
       const rows = await db
         .select({
@@ -353,7 +436,9 @@ export function createPostgresStore(url: string): Store {
       await db.delete(turns).where(eq(turns.conversationId, row.id));
       await db
         .update(conversations)
-        .set({ contentDeletedAt: new Date(at) })
+        // The card goes with the content: it quotes the student verbatim, so keeping it
+        // would be retaining the disclosure under a different column name.
+        .set({ contentDeletedAt: new Date(at), card: null })
         .where(eq(conversations.id, row.id));
       // counsellor_access, tier_overrides and break_glass are untouched. They key on
       // case_id with no foreign key, so this call has no way to reach them.

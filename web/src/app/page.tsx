@@ -35,6 +35,16 @@ export default function StudentChat() {
   const [sending, setSending] = useState(false);
   const [crisis, setCrisis] = useState<readonly config.CrisisResource[]>([]);
   const [notice, setNotice] = useState<string | null>(null);
+  /**
+   * The case this conversation is being written to. Minted by the server on the first
+   * message and carried from then on, so every turn lands on one case rather than
+   * creating a new one each time.
+   *
+   * Held in a ref, not state: it is read inside `send` and must be the current value, and
+   * putting it in state would give `send` a stale closure on the first follow-up message —
+   * which would silently split one conversation into two cases.
+   */
+  const caseRef = useRef<{ conversationId: string; handle: string; startedAt: string } | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,7 +64,7 @@ export default function StudentChat() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history }),
+        body: JSON.stringify({ messages: history, ...caseRef.current }),
       });
       if (!response.body) throw new Error("no stream");
 
@@ -77,9 +87,17 @@ export default function StudentChat() {
           if (!event || !raw) continue;
           const data = JSON.parse(raw);
 
-          if (event === "gate" && data.showCrisis) {
-            // Latch. Never cleared for the life of the session.
-            setCrisis(data.resources);
+          if (event === "gate") {
+            // Remember the case on the first reply; the server echoes it every time.
+            caseRef.current ??= {
+              conversationId: data.conversationId,
+              handle: data.handle,
+              startedAt: data.startedAt,
+            };
+            if (data.showCrisis) {
+              // Latch. Never cleared for the life of the session.
+              setCrisis(data.resources);
+            }
           } else if (event === "text") {
             setMessages((prev) => {
               const next = [...prev];

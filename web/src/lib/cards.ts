@@ -49,7 +49,14 @@ export interface EscalationCard {
   caseId: string;
   handle: string;
   tier: Tier;
-  confidence: number;
+  /**
+   * Calibrated model confidence, or **null when no model has scored this case**.
+   *
+   * Nullable rather than 0, because 0 is a number and a counsellor reading "conf 0.00"
+   * has been told something false. A gate-only card has not been scored at all, and the
+   * console renders that as "not scored yet" rather than as a value.
+   */
+  confidence: number | null;
   /** Set only when the gate CHANGED the tier. Null when the model already agreed. */
   tierFloorReason: string | null;
   /**
@@ -76,6 +83,15 @@ export interface EscalationCard {
   action: string;
   crisisResourcesShown: boolean;
   nStudentTurns: number;
+  /**
+   * True while this case has only been through the safety gate.
+   *
+   * Set on live conversations the moment they are stored, and cleared when the scoring
+   * service returns a full card. The console shows it plainly: a counsellor must be able
+   * to tell a gate-only floor from a classifier judgement at a glance, because the two
+   * carry different amounts of evidence.
+   */
+  awaitingClassifier?: boolean;
 }
 
 const CARDS = fixture as unknown as EscalationCard[];

@@ -118,6 +118,20 @@ export const conversations = pgTable(
      */
     retentionHoldReason: text("retention_hold_reason"),
 
+    /**
+     * The escalation card for a live conversation, as JSON.
+     *
+     * Stored rather than derived, for the same reason the seeded cards are compiled in:
+     * the counsellor console must render without depending on a classifier being awake.
+     * A card is written the moment the conversation is, built from the safety gate alone
+     * and marked `awaitingClassifier`; when the scoring service answers, the richer card
+     * replaces it in place. The queue reads this column either way and does not know or
+     * care which kind it got.
+     *
+     * Null on the seeded rows, whose cards are compiled into the bundle instead.
+     */
+    card: jsonb("card"),
+
     /** Set by day 7's clustering. Null until then, and null for unlinked cases. */
     patternClusterId: uuid("pattern_cluster_id"),
   },

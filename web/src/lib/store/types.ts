@@ -25,6 +25,7 @@
  * null, and it is itself recorded.
  */
 
+import type { EscalationCard } from "@/lib/cards";
 import type { Tier } from "@/lib/taxonomy";
 
 export type CounsellorRole = "counsellor" | "lead";
@@ -116,6 +117,35 @@ export interface RetentionRecord {
   contentDeletedAt: string | null;
 }
 
+/**
+ * One stored turn. `text` is REDACTED; `spans` are the identifying pieces that were taken
+ * out, already sealed. The two travel together so a caller cannot write one without the
+ * other — storing redacted text and forgetting the PII map would lose the information
+ * silently, and storing raw text is the thing the schema exists to prevent.
+ */
+export interface LiveTurn {
+  ordinal: number;
+  role: "student" | "assistant";
+  /** Redacted. Never a raw student turn. */
+  text: string;
+  spans: { entityType: string; placeholder: string; ciphertext: string }[];
+}
+
+export interface LiveConversationInput {
+  caseId: string;
+  handle: string;
+  startedAt: string;
+  tier: Tier | null;
+  confidence: number | null;
+  tierFloorReason: string | null;
+  gateLevel: "clear" | "grey" | "high" | null;
+  gateIndicators: string[];
+  crisisResourcesShown: boolean;
+  retentionExpiresAt: string | null;
+  card: EscalationCard;
+  turns: LiveTurn[];
+}
+
 export interface Store {
   readonly kind: "memory" | "postgres";
 
@@ -166,6 +196,22 @@ export interface Store {
     reviewedAt: string;
     reviewNote: string;
   }): Promise<BreakGlassRecord | null>;
+
+  // -- live conversations ---------------------------------------------------------------
+  /**
+   * Write (or rewrite) a live conversation, its turns and its card.
+   *
+   * The whole transcript is rewritten each turn rather than appended to. The client
+   * resends its full history on every message, so a rewrite is the operation that
+   * actually matches the input — and it makes a retried or half-failed request converge
+   * instead of duplicating turns.
+   */
+  upsertLiveConversation(input: LiveConversationInput): Promise<void>;
+
+  /** Cards for conversations that happened here, newest first. Excludes seeded rows. */
+  liveCards(): Promise<EscalationCard[]>;
+
+  liveCard(caseId: string): Promise<EscalationCard | null>;
 
   // -- retention ----------------------------------------------------------------------
   /** Every conversation whose content still exists, for the sweep to filter. */

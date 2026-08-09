@@ -15,6 +15,7 @@
 
 import { randomUUID } from "node:crypto";
 
+import type { EscalationCard } from "@/lib/cards";
 import type {
   AccessRecord,
   BreakGlassRecord,
@@ -28,6 +29,7 @@ import type {
 export function createMemoryStore(): Store {
   const counsellors = new Map<string, CounsellorRecord>();
   const conversations = new Map<string, RetentionRecord>();
+  const liveCards = new Map<string, EscalationCard>();
   const sessions = new Map<string, SessionRecord>();
   const access: AccessRecord[] = [];
   let accessSeq = 0;
@@ -184,6 +186,31 @@ export function createMemoryStore(): Store {
       return breakGlass[i];
     },
 
+    async upsertLiveConversation(input) {
+      liveCards.set(input.caseId, input.card);
+      // A live conversation is also a retention subject from the moment it exists. Adding
+      // it here rather than in a separate call means there is no window in which a stored
+      // transcript has no deletion date attached to it.
+      conversations.set(input.caseId, {
+        caseId: input.caseId,
+        tier: input.tier,
+        startedAt: input.startedAt,
+        retentionExpiresAt: input.retentionExpiresAt,
+        retentionHoldReason: null,
+        contentDeletedAt: null,
+      });
+    },
+
+    async liveCards() {
+      return [...liveCards.values()].sort((a, b) =>
+        a.caseId < b.caseId ? 1 : a.caseId > b.caseId ? -1 : 0,
+      );
+    },
+
+    async liveCard(caseId) {
+      return liveCards.get(caseId) ?? null;
+    },
+
     async retentionCandidates() {
       return [...conversations.values()].sort((a, b) =>
         a.caseId < b.caseId ? -1 : a.caseId > b.caseId ? 1 : 0,
@@ -194,6 +221,9 @@ export function createMemoryStore(): Store {
       const c = conversations.get(caseId);
       if (!c || c.contentDeletedAt) return;
       conversations.set(caseId, { ...c, contentDeletedAt: at });
+      // The card goes with the content. It quotes the student verbatim, so leaving it
+      // behind would be keeping the disclosure under a different column name.
+      liveCards.delete(caseId);
       // The Postgres store deletes rows from `turns` and `pii_map` here. This store never
       // held them, so the tombstone is the whole of it — and the access log is deliberately
       // not touched by either.

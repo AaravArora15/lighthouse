@@ -12,7 +12,7 @@
 
 import { BreakGlassError, breakGlass } from "@/lib/breakglass";
 import { requireCounsellorApi } from "@/lib/auth/current";
-import { cardById } from "@/lib/cards";
+import { caseById } from "@/lib/queue";
 import { store } from "@/lib/store";
 import { TIER_ORDER, Tier } from "@/lib/taxonomy";
 
@@ -27,7 +27,7 @@ export async function POST(
   if (!auth.ok) return auth.response;
 
   const { caseId } = await context.params;
-  const card = cardById(caseId);
+  const card = await caseById(caseId);
   if (!card) return Response.json({ error: "no such case" }, { status: 404 });
 
   let body: { closedAtTier?: unknown; reason?: unknown };

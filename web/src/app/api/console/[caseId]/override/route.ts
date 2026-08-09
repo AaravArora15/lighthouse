@@ -15,7 +15,7 @@
  */
 
 import { requireCounsellorApi } from "@/lib/auth/current";
-import { cardById } from "@/lib/cards";
+import { caseById } from "@/lib/queue";
 import { OverrideError, recordOverride } from "@/lib/overrides";
 import { store } from "@/lib/store";
 import { TIER_ORDER, Tier } from "@/lib/taxonomy";
@@ -32,7 +32,7 @@ export async function POST(
 
   const { caseId } = await context.params;
 
-  const card = cardById(caseId);
+  const card = await caseById(caseId);
   if (!card) {
     return Response.json({ error: "no such case" }, { status: 404 });
   }
