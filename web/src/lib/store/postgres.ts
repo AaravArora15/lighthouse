@@ -380,6 +380,21 @@ export function createPostgresStore(url: string): Store {
       }
     },
 
+    async upsertScoredCard(input) {
+      await db
+        .update(conversations)
+        .set({
+          tier: input.tier,
+          confidence: input.confidence,
+          tierFloorReason: input.tierFloorReason,
+          retentionExpiresAt: input.retentionExpiresAt
+            ? new Date(input.retentionExpiresAt)
+            : null,
+          card: input.card,
+        })
+        .where(eq(conversations.caseId, input.caseId));
+    },
+
     async liveCards() {
       const rows = await db
         .select({ card: conversations.card })

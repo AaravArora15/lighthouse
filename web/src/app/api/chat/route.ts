@@ -22,7 +22,8 @@
 import * as config from "@/lib/config";
 import { evaluateConversation, evaluateTurn, requiresCrisisResources } from "@/lib/gate/safety";
 import { generateReply, hasApiKey, type IntakeMessage } from "@/lib/intake";
-import { newCaseId, newHandle, persistConversation } from "@/lib/live";
+import { scoreConversation } from "@/lib/classifier";
+import { newCaseId, newHandle, persistConversation, saveScoredCard } from "@/lib/live";
 import { store } from "@/lib/store";
 
 export const runtime = "nodejs";
@@ -160,7 +161,20 @@ export async function POST(request: Request) {
         console.error("[chat] FAILED TO PERSIST CASE", conversationId, error);
       }
 
-      // ---- 4. Only now, the model. ------------------------------------------------
+      // ---- 4. Ask the classifier, concurrently with the model. ---------------------
+      //
+      // Started here and awaited after the reply has streamed, so the scoring call runs
+      // inside the time the language model was going to take anyway and costs the student
+      // nothing. It cannot fail loudly: `scoreConversation` returns an outcome, never
+      // throws, and a null card just means the gate-only one already stored stands.
+      const scoring = scoreConversation({
+        caseId: conversationId,
+        handle,
+        startedAt,
+        turns: messages.map((m) => ({ role: m.role, text: m.text })),
+      });
+
+      // ---- 5. Only now, the model. ------------------------------------------------
       let degraded: string | null = null;
       let replyText = "";
       try {
@@ -198,9 +212,35 @@ export async function POST(request: Request) {
         }
       }
 
+      // ---- 6. Upgrade the card, if the classifier answered in time. ----------------
+      const scored = await scoring;
+      if (scored.card && !persistError) {
+        try {
+          await saveScoredCard(await store(), {
+            caseId: conversationId,
+            handle,
+            startedAt,
+            card: scored.card,
+            verdict: conversationVerdict,
+            crisisResourcesShown: showCrisis,
+          });
+        } catch (error) {
+          console.error("[chat] failed to save the scored card for", conversationId, error);
+        }
+      }
+      if (scored.outcome !== "not_configured") {
+        console.info(
+          `[chat] classifier ${scored.outcome} in ${scored.ms}ms for ${conversationId}`,
+        );
+      }
+
       send("done", {
         degraded,
         conversationId,
+        // Not rendered to the student. Nothing about how the counsellor's copy was scored
+        // belongs on a child's screen mid-disclosure; this is here for the demo and for
+        // anyone debugging a deployment.
+        classifier: scored.outcome,
         // Surfaced in the UI as a quiet line, per context.md §9: the demo says so rather
         // than pretending the model answered.
         degradedNotice: degraded ? degradationNotice(degraded) : null,

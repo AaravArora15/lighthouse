@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import json
 import sys
+from typing import Sequence
 
 import numpy as np
 
@@ -52,18 +53,71 @@ def _temperature() -> float:
     return float(json.loads(path.read_text())["temperature"])
 
 
-def main() -> None:
-    # Imported here, not at module scope, so that merely importing this module during a
-    # test collection does not drag torch into the process.
-    import torch
-    from transformers import AutoModelForSequenceClassification, AutoTokenizer
+class TurnScorer:
+    """The fine-tuned turn classifier, loaded once and reusable.
 
-    if not config.TURN_MODEL_DIR.exists():
-        sys.exit(
-            f"missing {config.TURN_MODEL_DIR}\n"
-            "Unzip the Colab checkpoint: "
-            "unzip -o ~/Downloads/lighthouse_turn_model.zip -d data/artifacts/"
+    Extracted from ``main`` on day 9 so the serving path and the fixture-building path run
+    **the same code**. They previously could not: the batching, truncation and temperature
+    scaling lived inside a CLI entry point, so a service would have had to reimplement
+    them, and any divergence would have shown up as a live case scored differently from
+    the corpus the model was evaluated on.
+
+    Construction loads a 268MB checkpoint and takes a few seconds. Build one per process,
+    never one per request.
+    """
+
+    def __init__(self) -> None:
+        # Imported here, not at module scope, so merely importing this module during test
+        # collection does not drag torch into the process.
+        import torch
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+        if not config.TURN_MODEL_DIR.exists():
+            raise FileNotFoundError(
+                f"missing {config.TURN_MODEL_DIR}\n"
+                "Unzip the Colab checkpoint: "
+                "unzip -o ~/Downloads/lighthouse_turn_model.zip -d data/artifacts/"
+            )
+
+        self._torch = torch
+        self.temperature = _temperature()
+        self.device = "mps" if torch.backends.mps.is_available() else "cpu"
+        self.tokenizer = AutoTokenizer.from_pretrained(config.TURN_MODEL_DIR)
+        self.model = AutoModelForSequenceClassification.from_pretrained(
+            config.TURN_MODEL_DIR
         )
+        self.model.to(self.device).eval()
+
+    def score(self, texts: Sequence[str]) -> np.ndarray:
+        """`(n_turns, n_harms)` of temperature-scaled probabilities, in `HARM_ORDER`."""
+        if not texts:
+            return np.zeros((0, len(HARM_ORDER)), dtype=np.float64)
+
+        torch = self._torch
+        out: list[np.ndarray] = []
+        with torch.no_grad():
+            for start in range(0, len(texts), config.TURN_BATCH_SIZE):
+                batch = list(texts[start : start + config.TURN_BATCH_SIZE])
+                enc = self.tokenizer(
+                    batch,
+                    truncation=True,
+                    max_length=config.TURN_MAX_LENGTH,
+                    padding=True,
+                    return_tensors="pt",
+                ).to(self.device)
+                logits = self.model(**enc).logits.float().cpu().numpy()
+                # Temperature scaling, with the T fitted on val. The conversation head
+                # consumes these as probabilities; handing it the raw overconfident
+                # softmax would bake day 2's miscalibration into every downstream feature.
+                out.append(_softmax(logits / self.temperature))
+        return np.concatenate(out, axis=0)
+
+
+def main() -> None:
+    try:
+        scorer = TurnScorer()
+    except FileNotFoundError as error:
+        sys.exit(str(error))
 
     conversations = load()
     turns: list[str] = []
@@ -73,29 +127,11 @@ def main() -> None:
             turns.append(text)
             index.append((convo.id, i))
 
-    temperature = _temperature()
-    device = "mps" if torch.backends.mps.is_available() else "cpu"
+    temperature = scorer.temperature
     print(f"{len(turns)} student turns from {len(conversations)} conversations")
-    print(f"device: {device}  |  temperature: {temperature:.4f}")
+    print(f"device: {scorer.device}  |  temperature: {temperature:.4f}")
 
-    tokenizer = AutoTokenizer.from_pretrained(config.TURN_MODEL_DIR)
-    model = AutoModelForSequenceClassification.from_pretrained(config.TURN_MODEL_DIR)
-    model.to(device).eval()
-
-    probs: list[np.ndarray] = []
-    with torch.no_grad():
-        for start in range(0, len(turns), config.TURN_BATCH_SIZE):
-            batch = turns[start : start + config.TURN_BATCH_SIZE]
-            enc = tokenizer(
-                batch,
-                truncation=True,
-                max_length=config.TURN_MAX_LENGTH,
-                padding=True,
-                return_tensors="pt",
-            ).to(device)
-            logits = model(**enc).logits.float().cpu().numpy()
-            probs.append(_softmax(logits / temperature))
-    matrix = np.concatenate(probs, axis=0)
+    matrix = scorer.score(turns)
 
     by_conversation: dict[str, list[list[float]]] = {c.id: [] for c in conversations}
     for (convo_id, _), row in zip(index, matrix):

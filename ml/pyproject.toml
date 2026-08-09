@@ -18,6 +18,9 @@ dependencies = [
 
 [project.optional-dependencies]
 train = ["torch>=2.4", "transformers>=4.44", "accelerate>=0.34"]
+# The scoring service. Separate from `train` so a machine that only serves does not pull
+# accelerate, and separate from the base deps so `pytest` stays free of both.
+serve = ["fastapi>=0.115", "uvicorn[standard]>=0.32", "pydantic>=2.9"]
 
 [tool.setuptools.packages.find]
 include = ["lighthouse*"]

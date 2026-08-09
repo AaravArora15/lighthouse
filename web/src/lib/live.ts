@@ -216,6 +216,34 @@ export function buildGateCard(input: BuildCardInput): EscalationCard {
   };
 }
 
+/**
+ * Replace a stored gate-only card with one the scoring service produced.
+ *
+ * Only the card and the tier-shaped columns move. The transcript is untouched: it was
+ * already redacted and sealed on the way in, and re-writing it would mean re-encrypting
+ * spans that are already encrypted, for no gain and one more chance to lose them.
+ */
+export async function saveScoredCard(
+  store: Store,
+  input: {
+    caseId: string;
+    handle: string;
+    startedAt: string;
+    card: EscalationCard;
+    verdict: SafetyVerdict;
+    crisisResourcesShown: boolean;
+  },
+): Promise<void> {
+  await store.upsertScoredCard({
+    caseId: input.caseId,
+    tier: input.card.tier,
+    confidence: input.card.confidence,
+    tierFloorReason: input.card.tierFloorReason,
+    retentionExpiresAt: input.card.retentionExpiresAt,
+    card: input.card,
+  });
+}
+
 export interface PersistInput {
   caseId: string;
   handle: string;

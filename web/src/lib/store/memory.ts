@@ -201,6 +201,19 @@ export function createMemoryStore(): Store {
       });
     },
 
+    async upsertScoredCard(input) {
+      if (!liveCards.has(input.caseId)) return;
+      liveCards.set(input.caseId, input.card);
+      const existing = conversations.get(input.caseId);
+      if (existing) {
+        conversations.set(input.caseId, {
+          ...existing,
+          tier: input.tier,
+          retentionExpiresAt: input.retentionExpiresAt,
+        });
+      }
+    },
+
     async liveCards() {
       return [...liveCards.values()].sort((a, b) =>
         a.caseId < b.caseId ? 1 : a.caseId > b.caseId ? -1 : 0,

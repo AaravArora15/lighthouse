@@ -208,6 +208,21 @@ export interface Store {
    */
   upsertLiveConversation(input: LiveConversationInput): Promise<void>;
 
+  /**
+   * Overwrite a stored card with a scored one, leaving the transcript alone.
+   *
+   * Separate from `upsertLiveConversation` because it must NOT touch turns: those are
+   * already redacted and sealed, and rewriting them would re-encrypt spans for no gain.
+   */
+  upsertScoredCard(input: {
+    caseId: string;
+    tier: Tier;
+    confidence: number | null;
+    tierFloorReason: string | null;
+    retentionExpiresAt: string | null;
+    card: EscalationCard;
+  }): Promise<void>;
+
   /** Cards for conversations that happened here, newest first. Excludes seeded rows. */
   liveCards(): Promise<EscalationCard[]>;
 
