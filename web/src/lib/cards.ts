@@ -13,12 +13,21 @@
  * gate-only triage; this path is what the counsellor console reads.
  *
  * The consequence to keep in mind: **regenerate the fixture after any change to the gate,
- * the features, or the head.** `ml/tests/test_cards.py` fails when it is stale.
+ * the features, or the head**, then `npm run fixtures:sync`. `ml/tests/test_cards.py`
+ * fails when the fixture is stale and `fixtures.test.ts` fails when the copy is.
+ *
+ * ## Imported, not read off disk
+ *
+ * This was `readFileSync(process.cwd() + "/../fixtures/…")` until day 9, which works
+ * locally and **500s on Vercel**: a serverless function gets a bundle, not a checkout, so
+ * `../fixtures` is outside its root, and the path is not statically analysable so Next's
+ * file tracing cannot include it either. Verified by hiding the directory and hitting a
+ * production build. A static import is compiled in, needs no filesystem at request time,
+ * and turns a missing file into a build error instead of a page that only fails in
+ * production. See `scripts/sync-fixtures.mjs`.
  */
 
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-
+import fixture from "@/fixtures/escalation_cards.json";
 import { QUEUED_TIERS, Tier, tierRank } from "@/lib/taxonomy";
 
 export interface CitedQuote {
@@ -69,18 +78,10 @@ export interface EscalationCard {
   nStudentTurns: number;
 }
 
-const FIXTURE = join(
-  process.cwd(),
-  "..",
-  "fixtures",
-  "escalation_cards.json",
-);
-
-let cache: EscalationCard[] | null = null;
+const CARDS = fixture as unknown as EscalationCard[];
 
 export function allCards(): EscalationCard[] {
-  cache ??= JSON.parse(readFileSync(FIXTURE, "utf8")) as EscalationCard[];
-  return cache;
+  return CARDS;
 }
 
 /**

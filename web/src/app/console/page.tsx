@@ -39,7 +39,7 @@ export default async function ConsolePage() {
   const openGlass = await unreviewed(await store());
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-4 py-8">
+    <main id="content" className="mx-auto w-full max-w-5xl px-4 py-8">
       <ConsoleHeader principal={principal} />
 
       <header className="mb-6">

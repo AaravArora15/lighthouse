@@ -9,9 +9,8 @@
  * merges cases; a counsellor decides what it means.
  */
 
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 
+import fixture from "@/fixtures/pattern_alerts.json";
 import type { Tier } from "@/lib/taxonomy";
 
 export interface PatternLink {
@@ -38,23 +37,21 @@ export interface PatternAlert {
   tiers: Tier[];
 }
 
-const FIXTURE = join(process.cwd(), "..", "fixtures", "pattern_alerts.json");
-
-let cache: PatternAlert[] | null = null;
+/**
+ * Imported rather than read off disk. This was a `readFileSync` of `../fixtures` until
+ * day 9 — see the note in `cards.ts` for why that breaks on serverless.
+ *
+ * The old version wrapped the read in a try/catch that fell back to an empty list, on the
+ * principle that a missing pattern layer must not take the queue down with it. Correct
+ * instinct, wrong consequence here: on Vercel the file was always going to be missing, so
+ * the catch would have swallowed it and the pattern alerts — the novel part of this
+ * project — would have quietly not existed in the deployed demo, with nothing in the logs.
+ * A static import cannot fail at request time at all, so there is nothing left to catch.
+ */
+const ALERTS = (fixture as { alerts: PatternAlert[] }).alerts;
 
 export function allAlerts(): PatternAlert[] {
-  if (cache === null) {
-    try {
-      cache = (JSON.parse(readFileSync(FIXTURE, "utf8")) as { alerts: PatternAlert[] })
-        .alerts;
-    } catch {
-      // Clustering is additive. If the fixture is absent the console still works and the
-      // panel simply does not render — a missing pattern layer must never take the queue
-      // down with it.
-      cache = [];
-    }
-  }
-  return cache;
+  return ALERTS;
 }
 
 export function alertsForCase(caseId: string): PatternAlert[] {

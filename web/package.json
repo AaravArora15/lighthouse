@@ -5,15 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "node scripts/sync-fixtures.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
+    "fixtures:sync": "node scripts/sync-fixtures.mjs",
     "db:push": "drizzle-kit push",
     "counsellor": "tsx scripts/counsellor.mts",
     "counsellor:add": "tsx scripts/counsellor.mts add",
     "counsellor:list": "tsx scripts/counsellor.mts list",
-    "counsellor:disable": "tsx scripts/counsellor.mts disable"
+    "counsellor:disable": "tsx scripts/counsellor.mts disable",
+    "seed": "tsx scripts/seed.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.116.0",

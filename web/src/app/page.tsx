@@ -111,7 +111,7 @@ export default function StudentChat() {
   }
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-2xl flex-col gap-4 px-4 py-6">
+    <main id="content" className="mx-auto flex min-h-dvh w-full max-w-2xl flex-col gap-4 px-4 py-6">
       <header className="shrink-0">
         <h1 className="text-lg font-semibold tracking-tight">Lighthouse</h1>
         <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">

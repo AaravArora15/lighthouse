@@ -22,5 +22,70 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /*
+   * `--font-geist-sans`, not Arial.
+   *
+   * This said `Arial, Helvetica, sans-serif` — the create-next-app default — while
+   * `layout.tsx` loaded Geist and set the variable on `<html>`. So both fonts were being
+   * downloaded on every page load and neither was being used. The fallback chain stays
+   * behind it: a font that fails to load must not leave a student's disclosure rendering
+   * in whatever the browser picks by default.
+   */
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+ * A visible focus ring on everything reachable by keyboard.
+ *
+ * `:focus-visible` rather than `:focus`, so a counsellor clicking with a mouse does not
+ * get a ring on every button while someone tabbing through the queue always does. The
+ * components set their own rings on the inputs that carry them; this is the floor for
+ * everything that does not, which on a console full of links and buttons is most of it.
+ */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/*
+ * Skip link: the first thing in the tab order, invisible until focused.
+ *
+ * The counsellor console puts a sign-in identity bar, a queue link and a sign-out button
+ * ahead of the case list on every screen. Without this, reading the third case with a
+ * keyboard means tabbing past all of it every time.
+ */
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 50;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 0 0 2px #0284c7;
+  transition: top 150ms ease;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+/*
+ * Respect a stated preference for less motion.
+ *
+ * Not a nicety on this product: vestibular disorders are common, and the people using the
+ * student side are already distressed. Nothing here animates load-bearing information, so
+ * there is nothing lost by switching it off.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

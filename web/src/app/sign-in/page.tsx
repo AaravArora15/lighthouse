@@ -30,7 +30,7 @@ export default async function SignInPage({
   if (await currentCounsellor()) redirect(target ?? "/console");
 
   return (
-    <main className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center px-4 py-12">
+    <main id="content" className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center px-4 py-12">
       <h1 className="text-xl font-semibold tracking-tight">Lighthouse console</h1>
       <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
         For school counselling staff. Everything you open here is logged against your name

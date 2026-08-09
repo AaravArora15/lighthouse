@@ -59,7 +59,7 @@ export default async function CardPage({
   const spec = TIERS[card.tier];
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-8">
+    <main id="content" className="mx-auto w-full max-w-3xl px-4 py-8">
       <ConsoleHeader principal={principal} />
 
       <Link
