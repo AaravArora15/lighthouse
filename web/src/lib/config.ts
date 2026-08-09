@@ -1,0 +1,193 @@
+/**
+ * Single-file tunables for the TypeScript runtime.
+ *
+ * Per the root CLAUDE.md: tunable constants live in exactly one file per runtime. This is
+ * that file for `web/`. `ml/lighthouse/config.py` is the Python one.
+ *
+ * Anything marked MIRRORED has a counterpart in `config.py` carrying the same marker, and
+ * the two must hold the same value. `ml/tests/test_ts_conformance.py` parses this file and
+ * asserts the numbers match, so a drift fails the build rather than quietly changing where
+ * a child's crisis banner appears.
+ */
+
+// ---------------------------------------------------------------------------------------
+// Safety gate
+// ---------------------------------------------------------------------------------------
+
+/**
+ * At or above this weighted score the gate is "high": crisis resources render
+ * unconditionally, before any model output. MIRRORED.
+ */
+export const GATE_HIGH_SCORE = 0.7;
+
+/**
+ * Between grey and high the gate is uncertain: it does not floor, but it marks the case
+ * as grey_risk, which is an escalation signal for the conversation head. MIRRORED.
+ */
+export const GATE_GREY_SCORE = 0.35;
+
+/**
+ * Per-match weights for the three graded pattern families. MIRRORED.
+ *
+ * Chosen so the score bands mean something rather than being arbitrary decimals, given the
+ * noisy-OR aggregation in `gate/safety.ts`:
+ *
+ *   one STRONG match      -> 1.00, high
+ *   two MODERATE matches  -> 0.84, high      (two independent concerning readings)
+ *   one MODERATE match    -> 0.60, grey
+ *   two WEAK matches      -> 0.51, grey
+ *   one WEAK match        -> 0.30, clear     (a topic word with no stance)
+ */
+export const GATE_SEVERITY_WEIGHTS = {
+  strong: 1.0,
+  moderate: 0.6,
+  weak: 0.3,
+} as const;
+
+/**
+ * A category only contributes a tier floor if it matched at this weight or above.
+ *
+ * This is the line that stops the gate from de-anonymising a child over the word "knife".
+ * WEAK matches still raise the score and can push a case into the grey band, which routes
+ * it to the conversation head; they just cannot force a tier on their own. MIRRORED.
+ */
+export const GATE_FLOOR_MIN_WEIGHT = 0.6;
+
+/**
+ * The highest tier the gate permits when no T4-capable category fired. MIRRORED.
+ *
+ * The floor rule protects against under-reacting. This protects against over-reacting,
+ * which is not a symmetric concern but is a real one: T4 means break-glass, and
+ * break-glass means lifting a student's anonymity.
+ */
+export const GATE_CEILING_WITHOUT_T4_EVIDENCE = "T3";
+
+// ---------------------------------------------------------------------------------------
+// Triage
+// ---------------------------------------------------------------------------------------
+
+/**
+ * A turn is "concerning" at or above this risk (`1 - P(none)`). MIRRORED.
+ *
+ * Two things read it and they must agree: the conversation features count turns above it
+ * (`count_above_tau`, `frac_above_tau`), and the escalation card refuses to cite a turn
+ * below it as evidence. If the card used a looser bar than the model, it would quote
+ * messages the model itself did not consider concerning.
+ */
+export const CONCERN_THRESHOLD = 0.5;
+
+/**
+ * Cases one counsellor gets through in a week. MIRRORED.
+ *
+ * The denominator of recall@budget, and the line drawn across the queue. It is an
+ * assumption, not a measurement — it is printed next to every number derived from it so a
+ * school can reject it and recompute.
+ */
+export const COUNSELLOR_WEEKLY_BUDGET = 20;
+
+// ---------------------------------------------------------------------------------------
+// Escalation card
+// ---------------------------------------------------------------------------------------
+
+/** Hard cap. A card with more than three quotes stops being scannable. MIRRORED. */
+export const MAX_CITED_QUOTES = 3;
+
+// ---------------------------------------------------------------------------------------
+// Retention
+// ---------------------------------------------------------------------------------------
+
+/**
+ * Non-escalated conversations auto-delete after this many days. The student is told this
+ * number up front, so it must match the consent copy. MIRRORED.
+ */
+export const RETENTION_DAYS_NON_ESCALATED = 30;
+
+// ---------------------------------------------------------------------------------------
+// Classifier service
+// ---------------------------------------------------------------------------------------
+
+/** Past this, live chat degrades to gate-only triage and says so in the UI. MIRRORED. */
+export const CLASSIFIER_TIMEOUT_SECONDS = 4.0;
+
+// ---------------------------------------------------------------------------------------
+// Crisis resources
+// ---------------------------------------------------------------------------------------
+
+export interface CrisisResource {
+  readonly name: string;
+  /** Dialable as printed. Rendered as a tel: link on mobile. */
+  readonly contact: string;
+  readonly hours: string;
+  readonly note?: string;
+  /** Secondary channel (WhatsApp, webchat) for students who cannot speak out loud. */
+  readonly alternative?: { readonly label: string; readonly value: string };
+}
+
+/**
+ * Rendered to the student on a T4 gate floor, before any model output, and still rendered
+ * when the LLM call fails, times out, or refuses. This is a product non-negotiable
+ * (CLAUDE.md), not a nice-to-have.
+ *
+ * Region: Singapore. Verified 2026-08-08 against each operator's own site.
+ *
+ * **Every line here must be 24/7.** A T4 gate hit can happen at 2am on a Sunday, and a
+ * number that does not answer is worse than no number at all: it costs a student the one
+ * attempt they were brave enough to make. That rule is why Tinkle Friend (1800 2744 788)
+ * is deliberately NOT in this list despite being the obvious child-focused service in
+ * Singapore — it runs Mon-Fri 2.30pm-5pm only. It belongs in a lower-tier support list
+ * with its hours printed, not on a crisis banner.
+ *
+ * Re-verify before any public deployment. Helpline numbers change: SOS moved to 1767 from
+ * its previous 1800-221-4444, and mindline 1771 only launched in June 2025.
+ */
+export const CRISIS_RESOURCES: readonly CrisisResource[] = [
+  {
+    name: "Samaritans of Singapore (SOS)",
+    contact: "1767",
+    hours: "24 hours, every day",
+    note: "Free and confidential.",
+    alternative: { label: "CareText on WhatsApp", value: "9151 1767" },
+  },
+  {
+    name: "national mindline 1771",
+    contact: "1771",
+    hours: "24 hours, every day",
+    note: "Free, anonymous, run by the Institute of Mental Health.",
+    alternative: { label: "WhatsApp", value: "6669 1771" },
+  },
+  {
+    name: "Emergency services",
+    contact: "995",
+    hours: "24 hours, every day",
+    note: "If you are in immediate danger, or someone needs medical help right now.",
+  },
+] as const;
+
+/**
+ * Non-crisis support, shown outside the T4 banner. Hours are printed because these lines
+ * are not 24/7 and a student needs to know that before they dial.
+ */
+export const SUPPORT_RESOURCES: readonly CrisisResource[] = [
+  {
+    name: "Tinkle Friend",
+    contact: "1800 2744 788",
+    hours: "Mon-Fri, 2.30pm-5pm",
+    note: "Singapore Children's Society, for primary-school-aged children.",
+  },
+] as const;
+
+// ---------------------------------------------------------------------------------------
+// Chat intake
+// ---------------------------------------------------------------------------------------
+
+/** Longer than this and the intake box stops being a chat. Matches MAX_TURN_CHARS. */
+export const MAX_TURN_CHARS = 1000;
+
+/**
+ * Model used for the intake replies. The LLM listens and keeps the student talking; it
+ * never assigns a tier and never counsels. See CLAUDE.md.
+ */
+export const INTAKE_MODEL = "claude-opus-5";
+
+/** Cap on intake replies. The assistant asks one short question, it does not lecture. */
+export const INTAKE_MAX_TOKENS = 300;

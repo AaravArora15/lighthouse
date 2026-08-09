@@ -1,0 +1,5536 @@
+{
+  "conversations": [
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-001",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-002",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-003",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-004",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-005",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-006",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-007",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-008",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-009",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-010",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-011",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-012",
+      "n_student_turns": 3,
+      "tier": "T0",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-013",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-014",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-015",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-016",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-017",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-018",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-019",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-020",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-021",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-022",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-023",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-024",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-025",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-026",
+      "n_student_turns": 3,
+      "tier": "T1",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-027",
+      "n_student_turns": 4,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-028",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-029",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-030",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-031",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-032",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-033",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-034",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-035",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-036",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-037",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-038",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-039",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-040",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-041",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-042",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-043",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-044",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-045",
+      "n_student_turns": 4,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-046",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "told_target_to_kill_themselves",
+            "severity": "strong",
+            "text": "keep telling me to kys",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-047",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "threat_of_violence",
+              "pattern": "told_target_to_kill_themselves",
+              "severity": "strong",
+              "text": "keep telling me to kys",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "threat_of_violence"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "he said he'd batter me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-048",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "threat_of_violence",
+              "pattern": "reported_threat_against_student",
+              "severity": "strong",
+              "text": "he said he'd batter me",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "threat_of_violence"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "weapon_mention",
+            "pattern": "weapon_being_carried",
+            "severity": "strong",
+            "text": "brought a knife",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "weapon_mention"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-049",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "weapon_mention",
+              "pattern": "weapon_being_carried",
+              "severity": "strong",
+              "text": "brought a knife",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "weapon_mention"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-050",
+      "n_student_turns": 4,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-051",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-052",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T2",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "make_you_pay",
+            "severity": "moderate",
+            "text": "make me pay",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      },
+      "id": "syn-053",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T2",
+          "hits": [
+            {
+              "category": "threat_of_violence",
+              "pattern": "make_you_pay",
+              "severity": "moderate",
+              "text": "make me pay",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "threat_of_violence"
+          ],
+          "is_grey": true,
+          "is_high": false,
+          "level": "grey",
+          "score": 0.6
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-054",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "better_off_without_me",
+            "severity": "moderate",
+            "text": "everyone would be better off without me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      },
+      "id": "syn-055",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "better_off_without_me",
+              "severity": "moderate",
+              "text": "everyone would be better off without me",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": true,
+          "is_high": false,
+          "level": "grey",
+          "score": 0.6
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "nobody_would_notice",
+            "severity": "moderate",
+            "text": "nobody would notice",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      },
+      "id": "syn-056",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "nobody_would_notice",
+              "severity": "moderate",
+              "text": "nobody would notice",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": true,
+          "is_high": false,
+          "level": "grey",
+          "score": 0.6
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "third_party_disclosure",
+            "severity": "moderate",
+            "text": "my friend said she wants to die",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      },
+      "id": "syn-057",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "third_party_disclosure",
+              "severity": "moderate",
+              "text": "my friend said she wants to die",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": true,
+          "is_high": false,
+          "level": "grey",
+          "score": 0.6
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-058",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-059",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "self_harm_intent",
+            "pattern": "self_harm_term",
+            "severity": "moderate",
+            "text": "self harm",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "self_harm_intent"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      },
+      "id": "syn-060",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "self_harm_intent",
+              "pattern": "self_harm_term",
+              "severity": "moderate",
+              "text": "self harm",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "self_harm_intent"
+          ],
+          "is_grey": true,
+          "is_high": false,
+          "level": "grey",
+          "score": 0.6
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "he said he'd hurt me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-061",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "threat_of_violence",
+              "pattern": "reported_threat_against_student",
+              "severity": "strong",
+              "text": "he said he'd hurt me",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "threat_of_violence"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T2",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "coming_for_you",
+            "severity": "moderate",
+            "text": "going to get me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      },
+      "id": "syn-062",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T2",
+          "hits": [
+            {
+              "category": "threat_of_violence",
+              "pattern": "coming_for_you",
+              "severity": "moderate",
+              "text": "going to get me",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "threat_of_violence"
+          ],
+          "is_grey": true,
+          "is_high": false,
+          "level": "grey",
+          "score": 0.6
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "abuse_disclosure",
+            "pattern": "afraid_to_go_home",
+            "severity": "moderate",
+            "text": "scared to go home",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "abuse_disclosure"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      },
+      "id": "syn-063",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "abuse_disclosure",
+              "pattern": "afraid_to_go_home",
+              "severity": "moderate",
+              "text": "scared to go home",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "abuse_disclosure"
+          ],
+          "is_grey": true,
+          "is_high": false,
+          "level": "grey",
+          "score": 0.6
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "cannot_go_on",
+            "severity": "weak",
+            "text": "i can't do this anymore",
+            "turn_index": 0
+          },
+          {
+            "category": "suicidal_ideation",
+            "pattern": "wants_to_disappear",
+            "severity": "weak",
+            "text": "i just want to disappear",
+            "turn_index": 3
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.3
+      },
+      "id": "syn-064",
+      "n_student_turns": 4,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "cannot_go_on",
+              "severity": "weak",
+              "text": "i can't do this anymore",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.3
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "wants_to_disappear",
+              "severity": "weak",
+              "text": "i just want to disappear",
+              "turn_index": 3
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.3
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "kill_myself",
+            "severity": "strong",
+            "text": "kill myself",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-065",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "kill_myself",
+              "severity": "strong",
+              "text": "kill myself",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "self_harm_intent",
+            "pattern": "first_person_cutting",
+            "severity": "strong",
+            "text": "i've been cutting my arms",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "self_harm_intent"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-066",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "self_harm_intent",
+              "pattern": "first_person_cutting",
+              "severity": "strong",
+              "text": "i've been cutting my arms",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "self_harm_intent"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "wrote_a_note",
+            "severity": "strong",
+            "text": "i left a goodbye letter",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-067",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "wrote_a_note",
+              "severity": "strong",
+              "text": "i left a goodbye letter",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "abuse_disclosure",
+            "pattern": "caregiver_violence",
+            "severity": "strong",
+            "text": "my dad hits me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "abuse_disclosure"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-068",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "abuse_disclosure",
+              "pattern": "caregiver_violence",
+              "severity": "strong",
+              "text": "my dad hits me",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "abuse_disclosure"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "abuse_disclosure",
+            "pattern": "home_not_safe",
+            "severity": "strong",
+            "text": "i'm not safe at home",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "abuse_disclosure"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-069",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "abuse_disclosure",
+              "pattern": "home_not_safe",
+              "severity": "strong",
+              "text": "i'm not safe at home",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "abuse_disclosure"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "he said he'd stab me",
+            "turn_index": 0
+          },
+          {
+            "category": "imminent_time_marker",
+            "pattern": "imminent_window",
+            "severity": "moderate",
+            "text": "after school",
+            "turn_index": 0
+          },
+          {
+            "category": "weapon_mention",
+            "pattern": "bare_weapon_noun",
+            "severity": "weak",
+            "text": "knife",
+            "turn_index": 2
+          }
+        ],
+        "indicators": [
+          "threat_of_violence",
+          "weapon_mention",
+          "imminent_time_marker"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-070",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "threat_of_violence",
+              "pattern": "reported_threat_against_student",
+              "severity": "strong",
+              "text": "he said he'd stab me",
+              "turn_index": 0
+            },
+            {
+              "category": "imminent_time_marker",
+              "pattern": "imminent_window",
+              "severity": "moderate",
+              "text": "after school",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "threat_of_violence",
+            "imminent_time_marker"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [
+            {
+              "category": "weapon_mention",
+              "pattern": "bare_weapon_noun",
+              "severity": "weak",
+              "text": "knife",
+              "turn_index": 2
+            }
+          ],
+          "indicators": [
+            "weapon_mention"
+          ],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.3
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "going_to_end_it",
+            "severity": "strong",
+            "text": "i'm going to end it all",
+            "turn_index": 0
+          },
+          {
+            "category": "imminent_time_marker",
+            "pattern": "imminent_window",
+            "severity": "moderate",
+            "text": "tonight",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation",
+          "imminent_time_marker"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-071",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "going_to_end_it",
+              "severity": "strong",
+              "text": "i'm going to end it all",
+              "turn_index": 0
+            },
+            {
+              "category": "imminent_time_marker",
+              "pattern": "imminent_window",
+              "severity": "moderate",
+              "text": "tonight",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation",
+            "imminent_time_marker"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "saved_pills",
+            "severity": "strong",
+            "text": "saving up my pills",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-072",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "saved_pills",
+              "severity": "strong",
+              "text": "saving up my pills",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "unalive_myself",
+            "severity": "strong",
+            "text": "unalive myself",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-073",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "unalive_myself",
+              "severity": "strong",
+              "text": "unalive myself",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "kill_myself",
+            "severity": "strong",
+            "text": "k1ll myself",
+            "turn_index": 0
+          },
+          {
+            "category": "imminent_time_marker",
+            "pattern": "imminent_window",
+            "severity": "moderate",
+            "text": "tonight",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation",
+          "imminent_time_marker"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-074",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "kill_myself",
+              "severity": "strong",
+              "text": "k1ll myself",
+              "turn_index": 0
+            },
+            {
+              "category": "imminent_time_marker",
+              "pattern": "imminent_window",
+              "severity": "moderate",
+              "text": "tonight",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation",
+            "imminent_time_marker"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "abuse_disclosure",
+            "pattern": "sexual_abuse_disclosure",
+            "severity": "strong",
+            "text": "touched me when i was asleep",
+            "turn_index": 1
+          }
+        ],
+        "indicators": [
+          "abuse_disclosure"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-075",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "abuse_disclosure",
+              "pattern": "sexual_abuse_disclosure",
+              "severity": "strong",
+              "text": "touched me when i was asleep",
+              "turn_index": 1
+            }
+          ],
+          "indicators": [
+            "abuse_disclosure"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "abuse_disclosure",
+            "pattern": "beaten_at_home",
+            "severity": "strong",
+            "text": "i get hit at home",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "abuse_disclosure"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-076",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "abuse_disclosure",
+              "pattern": "beaten_at_home",
+              "severity": "strong",
+              "text": "i get hit at home",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "abuse_disclosure"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "stated_intent_to_die",
+            "severity": "strong",
+            "text": "i do want to die",
+            "turn_index": 0
+          },
+          {
+            "category": "threat_of_violence",
+            "pattern": "told_target_to_kill_themselves",
+            "severity": "strong",
+            "text": "told me to kill myself",
+            "turn_index": 0
+          },
+          {
+            "category": "imminent_time_marker",
+            "pattern": "imminent_window",
+            "severity": "moderate",
+            "text": "tonight",
+            "turn_index": 1
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation",
+          "threat_of_violence",
+          "imminent_time_marker"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-077",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "stated_intent_to_die",
+              "severity": "strong",
+              "text": "i do want to die",
+              "turn_index": 0
+            },
+            {
+              "category": "threat_of_violence",
+              "pattern": "told_target_to_kill_themselves",
+              "severity": "strong",
+              "text": "told me to kill myself",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation",
+            "threat_of_violence"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "giving_things_away",
+            "severity": "strong",
+            "text": "giving all my stuff away",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-078",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "giving_things_away",
+              "severity": "strong",
+              "text": "giving all my stuff away",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "has_a_method_in_mind",
+            "severity": "strong",
+            "text": "i've thought about how i'd do it",
+            "turn_index": 2
+          },
+          {
+            "category": "suicidal_ideation",
+            "pattern": "does_not_want_to_be_here",
+            "severity": "moderate",
+            "text": "i don't want to be here",
+            "turn_index": 2
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-079",
+      "n_student_turns": 4,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "suicidal_ideation",
+              "pattern": "has_a_method_in_mind",
+              "severity": "strong",
+              "text": "i've thought about how i'd do it",
+              "turn_index": 2
+            },
+            {
+              "category": "suicidal_ideation",
+              "pattern": "does_not_want_to_be_here",
+              "severity": "moderate",
+              "text": "i don't want to be here",
+              "turn_index": 2
+            }
+          ],
+          "indicators": [
+            "suicidal_ideation"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "weapon_mention",
+            "pattern": "weapon_being_carried",
+            "severity": "strong",
+            "text": "bringing a knife",
+            "turn_index": 0
+          },
+          {
+            "category": "imminent_time_marker",
+            "pattern": "imminent_window",
+            "severity": "moderate",
+            "text": "tomorrow",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "weapon_mention",
+          "imminent_time_marker"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-080",
+      "n_student_turns": 3,
+      "tier": "T4",
+      "turns": [
+        {
+          "ceiling": null,
+          "floor": "T4",
+          "hits": [
+            {
+              "category": "weapon_mention",
+              "pattern": "weapon_being_carried",
+              "severity": "strong",
+              "text": "bringing a knife",
+              "turn_index": 0
+            },
+            {
+              "category": "imminent_time_marker",
+              "pattern": "imminent_window",
+              "severity": "moderate",
+              "text": "tomorrow",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "weapon_mention",
+            "imminent_time_marker"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-081",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-082",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-083",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "kai says he'll batter me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      },
+      "id": "syn-084",
+      "n_student_turns": 3,
+      "tier": "T3",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": "T3",
+          "hits": [
+            {
+              "category": "threat_of_violence",
+              "pattern": "reported_threat_against_student",
+              "severity": "strong",
+              "text": "kai says he'll batter me",
+              "turn_index": 0
+            }
+          ],
+          "indicators": [
+            "threat_of_violence"
+          ],
+          "is_grey": false,
+          "is_high": true,
+          "level": "high",
+          "score": 1.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "conversation": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      },
+      "id": "syn-085",
+      "n_student_turns": 3,
+      "tier": "T2",
+      "turns": [
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        },
+        {
+          "ceiling": "T3",
+          "floor": null,
+          "hits": [],
+          "indicators": [],
+          "is_grey": false,
+          "is_high": false,
+          "level": "clear",
+          "score": 0.0
+        }
+      ]
+    }
+  ],
+  "generated_by": "lighthouse.gate.export_expectations",
+  "mirrored_config": {
+    "CLASSIFIER_TIMEOUT_SECONDS": 4.0,
+    "CONCERN_THRESHOLD": 0.5,
+    "COUNSELLOR_WEEKLY_BUDGET": 20,
+    "GATE_CEILING_WITHOUT_T4_EVIDENCE": "T3",
+    "GATE_FLOOR_MIN_WEIGHT": 0.6,
+    "GATE_GREY_SCORE": 0.35,
+    "GATE_HIGH_SCORE": 0.7,
+    "GATE_SEVERITY_WEIGHTS": {
+      "moderate": 0.6,
+      "strong": 1.0,
+      "weak": 0.3
+    },
+    "INTAKE_MODEL": "claude-opus-5",
+    "MAX_CITED_QUOTES": 3,
+    "RETENTION_DAYS_NON_ESCALATED": 30
+  },
+  "note": "Generated, do not hand-edit. Regenerate with `python -m lighthouse.gate.export_expectations` after any change under ml/lighthouse/gate/, and mirror the change in web/src/lib/gate/.",
+  "pattern_count": {
+    "abuse_disclosure": 11,
+    "imminent_time_marker": 1,
+    "self_harm_intent": 11,
+    "suicidal_ideation": 25,
+    "threat_of_violence": 14,
+    "weapon_mention": 4
+  },
+  "probes": [
+    {
+      "text": "we walked 5 kms for the charity thing",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "im gonna kill myself",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "kill_myself",
+            "severity": "strong",
+            "text": "kill myself",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "i'm going to end it all tonight",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "going_to_end_it",
+            "severity": "strong",
+            "text": "i'm going to end it all",
+            "turn_index": 0
+          },
+          {
+            "category": "imminent_time_marker",
+            "pattern": "imminent_window",
+            "severity": "moderate",
+            "text": "tonight",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation",
+          "imminent_time_marker"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "he says he'll make me pay",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T2",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "make_you_pay",
+            "severity": "moderate",
+            "text": "make me pay",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      }
+    },
+    {
+      "text": "i wrote a note for my mum",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "he said he'd stab me after school",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "he said he'd stab me",
+            "turn_index": 0
+          },
+          {
+            "category": "imminent_time_marker",
+            "pattern": "imminent_window",
+            "severity": "moderate",
+            "text": "after school",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence",
+          "imminent_time_marker"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "i've been cutting my arms",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "self_harm_intent",
+            "pattern": "first_person_cutting",
+            "severity": "strong",
+            "text": "i've been cutting my arms",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "self_harm_intent"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "i have been cutting my arms",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "self_harm_intent",
+            "pattern": "first_person_cutting",
+            "severity": "strong",
+            "text": "i have been cutting my arms",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "self_harm_intent"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "i had been cutting my arms again",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "self_harm_intent",
+            "pattern": "first_person_cutting",
+            "severity": "strong",
+            "text": "i had been cutting my arms",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "self_harm_intent"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "i have stopped cutting my arms",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "i haven't been cutting my arms",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "kai says he'll batter me",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "kai says he'll batter me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "kai said he'd batter me",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "kai said he'd batter me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "kai says he will batter me",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "kai says he will batter me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "she says she'll kill me",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "she says she'll kill me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "they said they'll beat me",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "reported_threat_against_student",
+            "severity": "strong",
+            "text": "they said they'll beat me",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "this coursework is killing me",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "he told me to kill myself",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "threat_of_violence",
+            "pattern": "told_target_to_kill_themselves",
+            "severity": "strong",
+            "text": "told me to kill myself",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "he told me to kill myself, and honestly i do want to die",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "stated_intent_to_die",
+            "severity": "strong",
+            "text": "i do want to die",
+            "turn_index": 0
+          },
+          {
+            "category": "threat_of_violence",
+            "pattern": "told_target_to_kill_themselves",
+            "severity": "strong",
+            "text": "told me to kill myself",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation",
+          "threat_of_violence"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "i would never kill myself",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "i'm not going to hurt myself",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "i stopped cutting last year",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "it's suicide prevention week at school",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "we used a butter knife in food tech",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "i'm gonna smash you at fifa",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "i still want to die of embarrassment",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "i've been cutting my arms",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "self_harm_intent",
+            "pattern": "first_person_cutting",
+            "severity": "strong",
+            "text": "i've been cutting my arms",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "self_harm_intent"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "we did a lesson on self harm",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "self harm",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "self_harm_intent",
+            "pattern": "self_harm_term",
+            "severity": "moderate",
+            "text": "self harm",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "self_harm_intent"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      }
+    },
+    {
+      "text": "there was a knife",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [
+          {
+            "category": "weapon_mention",
+            "pattern": "bare_weapon_noun",
+            "severity": "weak",
+            "text": "knife",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "weapon_mention"
+        ],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.3
+      }
+    },
+    {
+      "text": "someone brought a knife to school",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "weapon_mention",
+            "pattern": "weapon_being_carried",
+            "severity": "strong",
+            "text": "brought a knife",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "weapon_mention"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "see you tomorrow",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "after school",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "i'll see him at lunch",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "i w4nt t0 d!e",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "stated_intent_to_die",
+            "severity": "strong",
+            "text": "i w4nt t0 d!e",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "k1ll my5elf",
+      "verdict": {
+        "ceiling": null,
+        "floor": "T4",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "kill_myself",
+            "severity": "strong",
+            "text": "k1ll my5elf",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": false,
+        "is_high": true,
+        "level": "high",
+        "score": 1.0
+      }
+    },
+    {
+      "text": "my friend said she wants to die and i'm scared",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": "T3",
+        "hits": [
+          {
+            "category": "suicidal_ideation",
+            "pattern": "third_party_disclosure",
+            "severity": "moderate",
+            "text": "my friend said she wants to die",
+            "turn_index": 0
+          }
+        ],
+        "indicators": [
+          "suicidal_ideation"
+        ],
+        "is_grey": true,
+        "is_high": false,
+        "level": "grey",
+        "score": 0.6
+      }
+    },
+    {
+      "text": "",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    },
+    {
+      "text": "   ",
+      "verdict": {
+        "ceiling": "T3",
+        "floor": null,
+        "hits": [],
+        "indicators": [],
+        "is_grey": false,
+        "is_high": false,
+        "level": "clear",
+        "score": 0.0
+      }
+    }
+  ]
+}
