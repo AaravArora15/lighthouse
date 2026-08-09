@@ -96,13 +96,13 @@ const SELF_HARM_INTENT: Bank = {
     ],
     [
       "stated_intent_to_self_injure",
-      R`\bi\s+(want|wanna|need|have|am\s+going|'?m\s+going|going)\s+to\s+` +
+      R`\bi(\s+(want|wanna|need|have|am\s+going|going)|'?m\s+going)\s+to\s+` +
         R`(cut|hurt|harm|burn)\s+myself\b`,
     ],
     ["cut_again", R`\bi\s+(cut|hurt)\s+(myself\s+)?again\b`],
     [
       "first_person_self_harm_term",
-      R`\bi\s+(have\s+been|'?ve\s+been|am|'?m|was|started|stopped|relapsed)\s+` +
+      R`\bi(\s+(have\s+been|am|was|started|stopped|relapsed)|'?ve\s+been|'?m)\s+` +
         R`\w*\s*self[\s\-]?harm(ing|ed)?\b`,
     ],
     ["relapse_with_injury", R`\bi\s+relapsed\b.{0,40}\b(cut|cutting|blade|razor)\b`],
@@ -147,7 +147,7 @@ const SUICIDAL_IDEATION: Bank = {
     ],
     [
       "first_person_suicidal",
-      R`\bi\s+(am|'?m|feel|'?ve\s+been|have\s+been)\s+(really\s+|so\s+|very\s+)?suicidal\b`,
+      R`\bi(\s+(am|feel|have\s+been)|'?m|'?ve\s+been)\s+(really\s+|so\s+|very\s+)?suicidal\b`,
     ],
     // Preparation. The highest-precision signals in the whole gate: nobody writes them
     // casually, and each indicates a plan rather than an idea. The qualifier on
@@ -161,7 +161,7 @@ const SUICIDAL_IDEATION: Bank = {
     [
       "note_for_when_im_gone",
       R`\b(note|letter|message)\s+for\s+(when|after)\s+` +
-        R`i'?m\s+(gone|not\s+here|not\s+around)\b`,
+        R`i('?m|\s+am)\s+(gone|not\s+here|not\s+around)\b`,
     ],
     [
       "saved_pills",
@@ -193,12 +193,12 @@ const SUICIDAL_IDEATION: Bank = {
     ],
     [
       "better_off_without_me",
-      R`\b(everyone|everybody|they|my\s+(family|mum|mom|dad|parents))\s+` +
-        R`(would\s+be|'?d\s+be|are|is)\s+better\s+off\s+without\s+me\b`,
+      R`\b(everyone|everybody|they|my\s+(family|mum|mom|dad|parents))` +
+        R`(\s+(would\s+be|are|is)|'?d\s+be)\s*better\s+off\s+without\s+me\b`,
     ],
     [
       "no_point_living",
-      R`\bwhat'?s\s+the\s+point\s+(of|in)\s+` +
+      R`\bwhat('?s|\s+is)\s+the\s+point\s+(of|in)\s+` +
         R`(living|being\s+here|any\s?of\s?this|anything)\b`,
     ],
     ["suicide_term", R`\bsuicid(e|al)\b`],
@@ -217,7 +217,7 @@ const SUICIDAL_IDEATION: Bank = {
     ],
   ],
   [Severity.WEAK]: [
-    ["cannot_go_on", R`\bi\s+can'?t\s+(do\s+this|go\s+on|keep\s+going)\s+(any\s?more)?\b`],
+    ["cannot_go_on", R`\bi\s+(can'?t|cannot)\s+(do\s+this|go\s+on|keep\s+going)\s+(any\s?more)?\b`],
     ["wants_to_disappear", R`\bi\s+(just\s+)?want\s+to\s+disappear\b`],
     [
       "tired_of_everything",
@@ -240,7 +240,7 @@ const ABUSE_DISCLOSURE: Bank = {
       "sexual_abuse_disclosure",
       R`\b(touch(ed|es|ing)?)\s+me\s+` +
         R`(inappropriately|where\s+he\s+shouldn'?t|down\s+there|when\s+i\s+was\s+` +
-        R`asleep|in\s+a\s+way\s+i\s+didn'?t\s+like)\b`,
+        R`asleep|in\s+a\s+way\s+i\s+(didn'?t|did\s+not)\s+like)\b`,
     ],
     ["made_me_do_things", R`\bmade\s+me\s+(touch|do)\s+(him|her|things|stuff)\b`],
     [

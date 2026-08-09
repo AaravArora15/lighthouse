@@ -123,13 +123,13 @@ _SELF_HARM_INTENT: Bank = {
         ),
         (
             "stated_intent_to_self_injure",
-            r"\bi\s+(want|wanna|need|have|am\s+going|'?m\s+going|going)\s+to\s+"
+            r"\bi(\s+(want|wanna|need|have|am\s+going|going)|'?m\s+going)\s+to\s+"
             r"(cut|hurt|harm|burn)\s+myself\b",
         ),
         ("cut_again", r"\bi\s+(cut|hurt)\s+(myself\s+)?again\b"),
         (
             "first_person_self_harm_term",
-            r"\bi\s+(have\s+been|'?ve\s+been|am|'?m|was|started|stopped|relapsed)\s+"
+            r"\bi(\s+(have\s+been|am|was|started|stopped|relapsed)|'?ve\s+been|'?m)\s+"
             r"\w*\s*self[\s\-]?harm(ing|ed)?\b",
         ),
         ("relapse_with_injury", r"\bi\s+relapsed\b.{0,40}\b(cut|cutting|blade|razor)\b"),
@@ -174,7 +174,7 @@ _SUICIDAL_IDEATION: Bank = {
         ("take_my_own_life", r"\btake\s+my\s+own\s+life\b"),
         ("wish_i_was_dead", r"\bi\s+wish\s+i\s+(was|were|had\s+never\s+been\s+born)\b"
                             r"(\s+dead|\s+gone)?\b"),
-        ("first_person_suicidal", r"\bi\s+(am|'?m|feel|'?ve\s+been|have\s+been)\s+"
+        ("first_person_suicidal", r"\bi(\s+(am|feel|have\s+been)|'?m|'?ve\s+been)\s+"
                                   r"(really\s+|so\s+|very\s+)?suicidal\b"),
         # Preparation. These are the highest-precision signals in the whole gate: nobody
         # writes them casually, and each one indicates a plan rather than an idea.
@@ -184,7 +184,7 @@ _SUICIDAL_IDEATION: Bank = {
         ("wrote_a_note", r"\b(i\s+)?(wrote|written|writing|finished|left)\s+(a\s+|my\s+)?"
                          r"(suicide|goodbye|good\s?bye|final|last)\s+(note|letter|message)\b"),
         ("note_for_when_im_gone", r"\b(note|letter|message)\s+for\s+(when|after)\s+"
-                                  r"i'?m\s+(gone|not\s+here|not\s+around)\b"),
+                                  r"i('?m|\s+am)\s+(gone|not\s+here|not\s+around)\b"),
         ("saved_pills", r"\b(saved|saving|collected|collecting|been\s+taking)\s+up?\s*"
                         r"(my\s+)?(pills|tablets|meds|medication)\b"),
         ("giving_things_away", r"\bgiving\s+(away\s+)?(all\s+)?my\s+(stuff|things|"
@@ -206,10 +206,10 @@ _SUICIDAL_IDEATION: Bank = {
         ),
         (
             "better_off_without_me",
-            r"\b(everyone|everybody|they|my\s+(family|mum|mom|dad|parents))\s+"
-            r"(would\s+be|'?d\s+be|are|is)\s+better\s+off\s+without\s+me\b",
+            r"\b(everyone|everybody|they|my\s+(family|mum|mom|dad|parents))"
+            r"(\s+(would\s+be|are|is)|'?d\s+be)\s*better\s+off\s+without\s+me\b",
         ),
-        ("no_point_living", r"\bwhat'?s\s+the\s+point\s+(of|in)\s+"
+        ("no_point_living", r"\bwhat('?s|\s+is)\s+the\s+point\s+(of|in)\s+"
                             r"(living|being\s+here|any\s?of\s?this|anything)\b"),
         ("suicide_term", r"\bsuicid(e|al)\b"),
         ("nobody_would_notice", r"\bno\s?body\s+would\s+(notice|care|miss\s+me)\b"),
@@ -229,7 +229,7 @@ _SUICIDAL_IDEATION: Bank = {
         ),
     ],
     Severity.WEAK: [
-        ("cannot_go_on", r"\bi\s+can'?t\s+(do\s+this|go\s+on|keep\s+going)\s+"
+        ("cannot_go_on", r"\bi\s+(can'?t|cannot)\s+(do\s+this|go\s+on|keep\s+going)\s+"
                          r"(any\s?more)?\b"),
         ("wants_to_disappear", r"\bi\s+(just\s+)?want\s+to\s+disappear\b"),
         ("tired_of_everything", r"\b(i'?m|im)\s+(so\s+)?tired\s+of\s+"
@@ -251,7 +251,7 @@ _ABUSE_DISCLOSURE: Bank = {
             "sexual_abuse_disclosure",
             r"\b(touch(ed|es|ing)?)\s+me\s+"
             r"(inappropriately|where\s+he\s+shouldn'?t|down\s+there|when\s+i\s+was\s+"
-            r"asleep|in\s+a\s+way\s+i\s+didn'?t\s+like)\b",
+            r"asleep|in\s+a\s+way\s+i\s+(didn'?t|did\s+not)\s+like)\b",
         ),
         ("made_me_do_things", r"\bmade\s+me\s+(touch|do)\s+(him|her|things|stuff)\b"),
         ("beaten_at_home", r"\bi\s+(get|got|keep\s+getting)\s+"
