@@ -38,3 +38,10 @@ out/
 .DS_Store
 .vscode/
 .idea/
+
+# Local scratch. `creds.txt` holds demo counsellor passwords: it is untracked on purpose
+# and must stay that way, because this repo goes public before judging.
+creds.txt
+run.txt
+notes.txt
+scratch/
