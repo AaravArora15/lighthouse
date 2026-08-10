@@ -533,3 +533,64 @@ def test_modifier_category_carries_exactly_one_severity() -> None:
     school" in any way we can measure, and pretending otherwise invites a fake threshold."""
     bank = PATTERNS[GateCategory.IMMINENT_TIME_MARKER]
     assert len(bank) == 1
+
+
+# =========================================================================================
+# LOCKED DECISION: moderate-severity suicidal ideation floors at T3, not T4.
+#
+# Reviewed on 2026-08-10 after `"i dont want to be alive anymore"` was found to be
+# recognised as `suicidal_ideation` and yet show the student no crisis resources. The
+# behaviour was kept deliberately, and these tests exist so it stays a *decision* rather
+# than drifting into an accident in either direction.
+#
+# Why it was kept: `floor_from` demotes MODERATE matches one tier, and the same pattern
+# bank catches `"whats the point of any of this"`, which is frequently about homework. A
+# red crisis banner on that desensitises students to the real ones.
+#
+# What it costs: a student using indirect phrasing is queued for counsellor contact within
+# 24 hours but is shown no helpline numbers in the moment. Stated in `docs/results.md` §5
+# and in the README rather than hidden.
+#
+# If anyone later decides to close this gap, the intended route is a quieter support block
+# for the grey band using `SUPPORT_RESOURCES`, NOT promoting these patterns to STRONG.
+# =========================================================================================
+
+INDIRECT_IDEATION = [
+    "i dont want to be here anymore",
+    "i don't want to be here anymore",
+    "i dont want to be alive anymore",
+    "whats the point of any of this",
+]
+
+EXPLICIT_IDEATION = [
+    "i want to kill myself",
+    "i have been cutting my arms",
+    "i've been cutting my arms",
+]
+
+
+@pytest.mark.parametrize("text", INDIRECT_IDEATION)
+def test_indirect_ideation_is_recognised_but_floors_at_t3(text):
+    """The category fires. The floor is T3. Both halves are the decision."""
+    verdict = evaluate_conversation([text])
+    assert GateCategory.SUICIDAL_IDEATION in verdict.categories, (
+        f"{text!r} should still be recognised as suicidal ideation"
+    )
+    assert verdict.floor is Tier.T3, (
+        f"{text!r} floored at {verdict.floor}, expected T3. If this was intentional, "
+        "update the locked-decision block above and docs/results.md §5."
+    )
+
+
+@pytest.mark.parametrize("text", INDIRECT_IDEATION)
+def test_indirect_ideation_shows_no_crisis_resources(text):
+    """The consequence, asserted directly rather than left implicit in the floor."""
+    assert not evaluate_conversation([text]).requires_crisis_resources
+
+
+@pytest.mark.parametrize("text", EXPLICIT_IDEATION)
+def test_explicit_ideation_still_floors_at_t4_and_shows_resources(text):
+    """The non-negotiable, unchanged. This is the half that must never regress."""
+    verdict = evaluate_conversation([text])
+    assert verdict.floor is Tier.T4
+    assert verdict.requires_crisis_resources

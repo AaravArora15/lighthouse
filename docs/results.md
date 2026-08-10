@@ -237,8 +237,23 @@ the trend group earning its place on `syn-050` and `syn-079`.
   persistence (`syn-014` is a one-off exclusion, `syn-028` is the fourth time this term),
   so a persistence feature is being scored against the definition it was built from. The
   victim-voice diagnosis in section 2 is *not* circular: that came from the classifier.
-- **Zero-shot Claude baseline is missing** (no `ANTHROPIC_API_KEY`), so we cannot yet say
-  whether a frontier model beats 0.767 on turn classification.
+- **Zero-shot Claude baseline is missing.** Note: the key has been present since day 7, so
+  this is no longer credential-blocked, only undone. Until it is run we cannot say whether a
+  frontier model beats 0.767 on turn classification.
+- **Indirect suicidal ideation floors at T3 and shows the student no crisis resources.**
+  `"i dont want to be alive anymore"` *is* recognised as `suicidal_ideation`, but the
+  pattern is graded MODERATE and `_floor_from` demotes moderate matches by one tier, so T4
+  becomes T3, and the crisis banner only renders at T4. The case still reaches a counsellor
+  within 24 hours; the student is shown nothing in the moment.
+
+  **Reviewed on 2026-08-10 and kept deliberately.** The same pattern bank catches
+  `"whats the point of any of this"`, which is frequently about homework, and a red crisis
+  banner on that desensitises students to the real ones. The costs are genuinely asymmetric
+  in both directions and the call went to the narrower banner.
+
+  Pinned by tests in `ml/tests/test_safety.py` so it stays a decision rather than drifting.
+  If it is ever revisited, the intended route is a quieter support block for the grey band
+  using `SUPPORT_RESOURCES`, **not** promoting these patterns to STRONG.
 
 ---
 
