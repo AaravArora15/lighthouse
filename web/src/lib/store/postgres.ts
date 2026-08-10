@@ -413,6 +413,16 @@ export function createPostgresStore(url: string): Store {
       return (row?.card as EscalationCard | undefined) ?? null;
     },
 
+    async turnsForCase(caseId) {
+      const rows = await db
+        .select({ ordinal: turns.ordinal, role: turns.role, text: turns.text })
+        .from(turns)
+        .innerJoin(conversations, eq(turns.conversationId, conversations.id))
+        .where(eq(conversations.caseId, caseId))
+        .orderBy(turns.ordinal);
+      return rows.map((r) => ({ ordinal: r.ordinal, role: r.role as string, text: r.text }));
+    },
+
     async retentionCandidates() {
       const rows = await db
         .select({

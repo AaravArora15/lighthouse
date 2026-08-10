@@ -28,7 +28,7 @@
  * normalisation is length-preserving — offsets have to survive the whole journey.
  */
 
-import { randomUUID } from "node:crypto";
+import { randomBytes } from "node:crypto";
 
 import type { CitedQuote, EscalationCard, TimelinePoint } from "@/lib/cards";
 import * as config from "@/lib/config";
@@ -46,8 +46,22 @@ export function isLiveCase(caseId: string): boolean {
   return caseId.startsWith(LIVE_PREFIX);
 }
 
+/**
+ * A case id, and therefore a capability.
+ *
+ * The student is anonymous, so there is no account to authenticate a receipt page against.
+ * **The URL is the credential**, which is the right model here (there is nothing else to
+ * check) but makes the id's width a security property rather than a cosmetic one.
+ *
+ * The first version was `randomUUID().slice(0, 8)`: 32 bits, about 4 billion, enumerable
+ * by anyone willing to spend a weekend on it. 128 bits of CSPRNG output is not.
+ *
+ * Older 8-character ids created before this change still resolve. `isLiveCase` keys off
+ * the prefix, not the length, so nothing breaks; they are simply weaker, and there are
+ * only a handful, all from testing.
+ */
 export function newCaseId(): string {
-  return LIVE_PREFIX + randomUUID().slice(0, 8);
+  return LIVE_PREFIX + randomBytes(16).toString("base64url");
 }
 
 /**

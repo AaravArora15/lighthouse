@@ -20,6 +20,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { CrisisBanner } from "@/components/crisis-banner";
+import { CONSENT_LINES } from "@/lib/student";
 import * as config from "@/lib/config";
 
 type Message = { role: "student" | "assistant"; text: string };
@@ -45,11 +46,48 @@ export default function StudentChat() {
    * which would silently split one conversation into two cases.
    */
   const caseRef = useRef<{ conversationId: string; handle: string; startedAt: string } | null>(null);
+  /**
+   * The same id, in state, purely so the link to the receipt can render.
+   *
+   * The ref is the source of truth for *sending*; this mirrors it for *drawing*. Two
+   * copies because a ref does not trigger a re-render and state inside `send` would be
+   * stale on the first follow-up message, which would silently split one conversation
+   * into two cases.
+   */
+  const [caseId, setCaseId] = useState<string | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, crisis]);
+
+  /**
+   * Recover the case reference after a refresh.
+   *
+   * Only the id, never the messages. Restoring the transcript would mean a shared or
+   * borrowed device shows the last person's disclosure to whoever opens the tab next,
+   * which on a school laptop is a realistic Tuesday. The id alone lets the student find
+   * their receipt again and nothing else.
+   */
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("lighthouse:case");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (typeof parsed?.conversationId === "string") {
+          caseRef.current = parsed;
+          // `localStorage` does not exist during server rendering, so this cannot be a
+          // lazy state initialiser: the server would render null, the client would render
+          // the id, and that is a hydration mismatch. An effect is the correct place to
+          // read a client-only store, and one extra render is the cost of doing it right.
+          // eslint-disable-next-line react-hooks/set-state-in-effect
+          setCaseId(parsed.conversationId);
+        }
+      }
+    } catch {
+      // A blocked or full localStorage must never stop a student typing.
+    }
+  }, []);
 
   async function send() {
     const text = draft.trim();
@@ -89,11 +127,21 @@ export default function StudentChat() {
 
           if (event === "gate") {
             // Remember the case on the first reply; the server echoes it every time.
-            caseRef.current ??= {
-              conversationId: data.conversationId,
-              handle: data.handle,
-              startedAt: data.startedAt,
-            };
+            if (!caseRef.current && data.conversationId) {
+              const next = {
+                conversationId: data.conversationId,
+                handle: data.handle,
+                startedAt: data.startedAt,
+              };
+              caseRef.current = next;
+              setCaseId(next.conversationId);
+              try {
+                localStorage.setItem("lighthouse:case", JSON.stringify(next));
+              } catch {
+                // Private browsing, or storage full. The session still works; only the
+                // ability to find the receipt after a refresh is lost.
+              }
+            }
             if (data.showCrisis) {
               // Latch. Never cleared for the life of the session.
               setCrisis(data.resources);
@@ -132,15 +180,35 @@ export default function StudentChat() {
     <main id="content" className="mx-auto flex min-h-dvh w-full max-w-2xl flex-col gap-4 px-4 py-6">
       <header className="shrink-0">
         <h1 className="text-lg font-semibold tracking-tight">Lighthouse</h1>
-        <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
-          Anonymous. A school counsellor reads this afterwards if it looks like you need
-          one. Chats that aren&rsquo;t escalated are deleted after{" "}
-          {config.RETENTION_DAYS_NON_ESCALATED} days.
-        </p>
+        {/* The consent screen from context.md §11, as two sentences rather than a wall.
+            A page of policy at the top of a crisis chat is not consent, it is an obstacle,
+            and it gets scrolled past by exactly the people it was meant to protect. */}
+        <div className="mt-1 space-y-1 text-sm text-stone-600 dark:text-stone-400">
+          {CONSENT_LINES.map((line) => (
+            <p key={line}>{line}</p>
+          ))}
+          <p>
+            Chats that nobody needs to follow up are deleted after{" "}
+            {config.RETENTION_DAYS_NON_ESCALATED} days.
+          </p>
+        </div>
       </header>
 
       {/* Above the transcript, always, once shown. */}
       {crisis.length > 0 && <CrisisBanner resources={crisis} />}
+
+      {/* The way back. Without this the case id lives only in memory and the student has
+          no route to the audit log §11 promises them. */}
+      {caseId && (
+        <p className="shrink-0 rounded-lg border border-stone-200 px-3 py-2 text-xs text-stone-600 dark:border-stone-800 dark:text-stone-400">
+          You can{" "}
+          <a href={`/c/${caseId}`} className="font-medium underline underline-offset-4">
+            see what was saved and who has opened it
+          </a>
+          . Save that link if you want to come back to it later. Anyone who has the link
+          can read it, so keep it to yourself.
+        </p>
+      )}
 
       <div className="flex-1 space-y-3 overflow-y-auto" aria-live="polite">
         {messages.map((m, i) => (

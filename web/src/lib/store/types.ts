@@ -228,6 +228,15 @@ export interface Store {
 
   liveCard(caseId: string): Promise<EscalationCard | null>;
 
+  /**
+   * The stored (redacted) transcript for a case.
+   *
+   * Redacted is the only form that exists; there is no raw copy to accidentally return.
+   * Used by the student's own receipt page, where showing them their `[phone]` placeholder
+   * is the clearest possible demonstration that redaction actually happened.
+   */
+  turnsForCase(caseId: string): Promise<{ ordinal: number; role: string; text: string }[]>;
+
   // -- retention ----------------------------------------------------------------------
   /** Every conversation whose content still exists, for the sweep to filter. */
   retentionCandidates(): Promise<RetentionRecord[]>;

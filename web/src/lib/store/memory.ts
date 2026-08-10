@@ -18,6 +18,7 @@ import { randomUUID } from "node:crypto";
 import type { EscalationCard } from "@/lib/cards";
 import type {
   AccessRecord,
+  LiveTurn,
   BreakGlassRecord,
   CounsellorRecord,
   OverrideRecord,
@@ -30,6 +31,7 @@ export function createMemoryStore(): Store {
   const counsellors = new Map<string, CounsellorRecord>();
   const conversations = new Map<string, RetentionRecord>();
   const liveCards = new Map<string, EscalationCard>();
+  const liveTurns = new Map<string, LiveTurn[]>();
   const sessions = new Map<string, SessionRecord>();
   const access: AccessRecord[] = [];
   let accessSeq = 0;
@@ -188,6 +190,7 @@ export function createMemoryStore(): Store {
 
     async upsertLiveConversation(input) {
       liveCards.set(input.caseId, input.card);
+      liveTurns.set(input.caseId, input.turns);
       // A live conversation is also a retention subject from the moment it exists. Adding
       // it here rather than in a separate call means there is no window in which a stored
       // transcript has no deletion date attached to it.
@@ -224,6 +227,14 @@ export function createMemoryStore(): Store {
       return liveCards.get(caseId) ?? null;
     },
 
+    async turnsForCase(caseId) {
+      return (liveTurns.get(caseId) ?? []).map((t) => ({
+        ordinal: t.ordinal,
+        role: t.role,
+        text: t.text,
+      }));
+    },
+
     async retentionCandidates() {
       return [...conversations.values()].sort((a, b) =>
         a.caseId < b.caseId ? -1 : a.caseId > b.caseId ? 1 : 0,
@@ -237,6 +248,7 @@ export function createMemoryStore(): Store {
       // The card goes with the content. It quotes the student verbatim, so leaving it
       // behind would be keeping the disclosure under a different column name.
       liveCards.delete(caseId);
+      liveTurns.delete(caseId);
       // The Postgres store deletes rows from `turns` and `pii_map` here. This store never
       // held them, so the tombstone is the whole of it — and the access log is deliberately
       // not touched by either.

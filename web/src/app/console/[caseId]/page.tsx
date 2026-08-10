@@ -205,6 +205,18 @@ export default async function CardPage({
         <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
           Shown to you because it is shown to the student. Nothing on this list can be
           edited or removed, including by whoever wrote it.
+          {card.awaitingClassifier !== undefined && (
+            <>
+              {" "}
+              <Link
+                href={`/c/${card.caseId}`}
+                className="underline underline-offset-4"
+              >
+                See their view
+              </Link>
+              .
+            </>
+          )}
         </p>
         <ul className="mt-3 space-y-1.5 text-sm">
           {accesses.map((entry) => (
