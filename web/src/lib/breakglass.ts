@@ -39,6 +39,7 @@ import { recordAccess } from "@/lib/audit";
 import type { Principal } from "@/lib/auth/session";
 import { REASON_CHARS } from "@/lib/config";
 import type { BreakGlassRecord, Store } from "@/lib/store";
+import { READ_FIRST_REFUSAL, hasReadTranscript } from "@/lib/transcript";
 import { Tier, tierRank } from "@/lib/taxonomy";
 
 /**
@@ -95,6 +96,15 @@ export async function breakGlass(
         "characters. A safeguarding lead will read it, possibly weeks from now, with no " +
         "memory of this case. Say what made you certain.",
     );
+  }
+
+  // The strongest claim in the product — "the gate is wrong about this case" — made from
+  // the artifact least able to support it. Of the two controls this guard covers, this is
+  // the one it exists for: the reason threshold is 40 characters precisely so a lead can
+  // judge the call later, and "student was quoting song lyrics, confirmed in the
+  // transcript" is not a sentence anyone can write without having opened one.
+  if (!(await hasReadTranscript(store, input.caseId, input.principal.counsellorId))) {
+    throw new BreakGlassError(READ_FIRST_REFUSAL);
   }
 
   const at = input.at ?? new Date();

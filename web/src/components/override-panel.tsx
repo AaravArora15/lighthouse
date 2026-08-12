@@ -13,6 +13,10 @@
  *    recorded, and the case stays T4. The UI shows that plainly rather than silently
  *    accepting the click, because a control that pretends to work is worse than one that
  *    explains why it did not.
+ *
+ * The tiers are a segmented control rather than five loose buttons: they are one choice
+ * with five values, and the model's own answer is marked inside it so a counsellor can
+ * always see what they are disagreeing with.
  */
 
 import { useState } from "react";
@@ -20,6 +24,7 @@ import { useRouter } from "next/navigation";
 
 import * as config from "@/lib/config";
 import type { OverrideRecord } from "@/lib/store";
+import { READ_FIRST_REFUSAL } from "@/lib/transcript";
 import { TIER_ORDER, TIERS, Tier } from "@/lib/taxonomy";
 
 export function OverridePanel({
@@ -27,12 +32,22 @@ export function OverridePanel({
   predictedTier,
   existing,
   persisted,
+  transcriptRead,
 }: {
   caseId: string;
   predictedTier: Tier;
   existing: OverrideRecord | null;
   /** False when the app is running on the in-memory store. Said out loud below. */
   persisted: boolean;
+  /**
+   * Whether this counsellor has opened the transcript on this case.
+   *
+   * Presentation only. `recordOverride` re-checks it against the audit log, so a client
+   * that ignores this prop gets a 400 rather than a write. The rule lives in one place
+   * and this is the courtesy of not letting someone type a paragraph into a control that
+   * was going to refuse them.
+   */
+  transcriptRead: boolean;
 }) {
   const router = useRouter();
   const [tier, setTier] = useState<Tier>(existing?.requestedTier ?? predictedTier);
@@ -43,7 +58,7 @@ export function OverridePanel({
 
   const min = config.REASON_CHARS.override;
   const unchanged = tier === predictedTier;
-  const canSubmit = reason.trim().length >= min && !unchanged && !saving;
+  const canSubmit = reason.trim().length >= min && !unchanged && !saving && transcriptRead;
 
   async function submit() {
     setSaving(true);
@@ -65,9 +80,17 @@ export function OverridePanel({
     }
   }
 
+  if (!transcriptRead) {
+    return (
+      <div className="mt-4 rounded-xl border border-dashed border-line-strong bg-sunk/50 px-4 py-3.5">
+        <p className="text-sm leading-relaxed text-muted">{READ_FIRST_REFUSAL}</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="mt-3">
-      <div className="flex flex-wrap items-center gap-2">
+    <div className="mt-4">
+      <div className="inline-flex flex-wrap gap-1 rounded-xl border border-line bg-sunk p-1">
         {TIER_ORDER.map((t) => (
           <button
             key={t}
@@ -75,23 +98,25 @@ export function OverridePanel({
             onClick={() => setTier(t)}
             aria-pressed={tier === t}
             title={TIERS[t].meaning}
-            className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors ${
+            className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors ${
               tier === t
-                ? "border-sky-600 bg-sky-600 text-white"
-                : "border-stone-300 hover:border-stone-400 dark:border-stone-700 dark:hover:border-stone-600"
+                ? "bg-accent text-on-accent shadow-soft"
+                : "text-muted hover:bg-surface hover:text-ink"
             }`}
           >
             {t}
             {t === predictedTier && (
-              <span className="ml-1 text-xs opacity-70">(model)</span>
+              <span className="ml-1.5 text-[10px] font-medium uppercase tracking-wide opacity-70">
+                model
+              </span>
             )}
           </button>
         ))}
       </div>
 
-      <label htmlFor="reason" className="mt-3 block text-sm font-medium">
+      <label htmlFor="reason" className="mt-4 block text-sm font-medium">
         Why?{" "}
-        <span className="font-normal text-stone-500">(required, {min}+ characters)</span>
+        <span className="font-normal text-faint">(required, {min}+ characters)</span>
       </label>
       <textarea
         id="reason"
@@ -99,43 +124,46 @@ export function OverridePanel({
         onChange={(e) => setReason(e.target.value)}
         rows={2}
         placeholder="What does the model not know about this student?"
-        className="mt-1 w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm placeholder:text-stone-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/30 dark:border-stone-700 dark:bg-stone-900"
+        className="mt-1.5 w-full resize-y rounded-xl border border-line bg-surface px-3.5 py-2.5 text-sm leading-relaxed text-ink transition-colors placeholder:text-faint focus:border-accent-line focus:outline-none"
       />
 
-      <button
-        type="button"
-        onClick={() => void submit()}
-        disabled={!canSubmit}
-        className="mt-2 rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-40"
-      >
-        {saving ? "Recording…" : "Record override"}
-      </button>
-      {unchanged && (
-        <span className="ml-3 text-xs text-stone-500 dark:text-stone-400">
-          Pick a different tier to record a change.
-        </span>
-      )}
+      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+        <button
+          type="button"
+          onClick={() => void submit()}
+          disabled={!canSubmit}
+          className="rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:bg-sunk disabled:text-faint"
+        >
+          {saving ? "Recording…" : "Record override"}
+        </button>
+        {unchanged && (
+          <span className="text-xs text-faint">
+            Pick a different tier to record a change.
+          </span>
+        )}
+      </div>
 
       {error && (
-        <p role="alert" className="mt-2 text-sm text-red-700 dark:text-red-400">
+        <p role="alert" className="mt-2.5 text-sm font-medium text-danger">
           {error}
         </p>
       )}
 
       {result && (
-        <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 p-3 text-sm dark:border-stone-800 dark:bg-stone-900">
+        <div className="mt-4 rounded-xl border border-line bg-sunk p-4 text-sm leading-relaxed">
           <p>
-            Recorded <strong>{result.effectiveTier}</strong> over the model&rsquo;s{" "}
-            {result.predictedTier}, {new Date(result.at).toLocaleString()}.
+            Recorded <strong className="font-semibold">{result.effectiveTier}</strong> over
+            the model&rsquo;s {result.predictedTier},{" "}
+            {new Date(result.at).toLocaleString()}.
           </p>
           {/* The gate refused the change. Do not soften this. */}
           {result.flooredNotice && (
-            <p className="mt-2 rounded border border-amber-300 bg-amber-50 px-2 py-1.5 text-amber-900 dark:border-amber-500/30 dark:bg-amber-950/40 dark:text-amber-100">
+            <p className="mt-2.5 rounded-lg border border-warn-line bg-warn-soft px-3 py-2 text-warn-ink">
               {result.flooredNotice}
             </p>
           )}
           {!persisted && (
-            <p className="mt-2 text-xs text-amber-700 dark:text-amber-400">
+            <p className="mt-2.5 text-xs text-warn">
               No DATABASE_URL is set, so this is held in memory and will not survive a
               restart. Said plainly rather than left to be discovered.
             </p>

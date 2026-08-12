@@ -18,6 +18,7 @@ import {
   reviewBreakGlass,
   unreviewed,
 } from "@/lib/breakglass";
+import { recordAccess } from "@/lib/audit";
 import type { Principal } from "@/lib/auth/session";
 import { createMemoryStore, type Store } from "@/lib/store";
 import { Tier } from "@/lib/taxonomy";
@@ -45,15 +46,27 @@ beforeEach(() => {
   store = createMemoryStore();
 });
 
-function open(overrides: Partial<Parameters<typeof breakGlass>[1]> = {}) {
-  return breakGlass(store, {
+async function open(overrides: Partial<Parameters<typeof breakGlass>[1]> = {}) {
+  const input = {
     caseId: "syn-065",
     principal: COUNSELLOR,
     gateFloor: Tier.T4,
     closedAtTier: Tier.T1,
     reason: GOOD_REASON,
     ...overrides,
+  };
+
+  // `docs/context.md` §17 refuses a break-glass until this counsellor has opened the
+  // transcript. That rule is tested on its own in `transcript.test.ts`; satisfying it here
+  // keeps this file about the break-glass rules rather than re-testing the ordering.
+  await recordAccess(store, {
+    caseId: input.caseId,
+    principal: input.principal,
+    action: "viewed_transcript",
+    reason: "read the conversation before deciding",
   });
+
+  return breakGlass(store, input);
 }
 
 describe("breaking glass", () => {
@@ -68,9 +81,12 @@ describe("breaking glass", () => {
   it("writes an audit row the student can read", async () => {
     await open();
     const log = await store.accessForCase("syn-065");
-    expect(log).toHaveLength(1);
-    expect(log[0].action).toBe("broke_glass");
-    expect(log[0].reason).toBe(GOOD_REASON);
+    const broke = log.filter((e) => e.action === "broke_glass");
+    expect(broke).toHaveLength(1);
+    expect(broke[0].reason).toBe(GOOD_REASON);
+    // In order, and this is the sequence the student reads: someone opened the
+    // conversation, then closed the case against the gate's judgement.
+    expect(log.map((e) => e.action)).toEqual(["viewed_transcript", "broke_glass"]);
   });
 
   it("refuses where the gate never fired", async () => {
@@ -106,7 +122,10 @@ describe("breaking glass", () => {
   it("writes nothing when it refuses", async () => {
     await expect(open({ reason: "no" })).rejects.toThrow();
     expect(await breakGlassForCase(store, "syn-065")).toHaveLength(0);
-    expect(await store.accessForCase("syn-065")).toHaveLength(0);
+    // The transcript read the helper performs is a real access and stays. What must be
+    // absent is any record of the case having been closed.
+    const log = await store.accessForCase("syn-065");
+    expect(log.filter((e) => e.action === "broke_glass")).toHaveLength(0);
   });
 
   it("is available to an ordinary counsellor, not only a lead", async () => {
@@ -202,7 +221,11 @@ describe("review", () => {
       note: "agreed after reading the transcript",
     });
     const log = await store.accessForCase("syn-065");
-    expect(log.map((e) => e.action)).toEqual(["broke_glass", "reviewed_break_glass"]);
+    expect(log.map((e) => e.action)).toEqual([
+      "viewed_transcript",
+      "broke_glass",
+      "reviewed_break_glass",
+    ]);
   });
 
   it("refuses an unknown id", async () => {

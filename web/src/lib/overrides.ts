@@ -33,6 +33,7 @@ import { recordAccess } from "@/lib/audit";
 import type { Principal } from "@/lib/auth/session";
 import { REASON_CHARS } from "@/lib/config";
 import type { OverrideRecord, Store } from "@/lib/store";
+import { READ_FIRST_REFUSAL, hasReadTranscript } from "@/lib/transcript";
 import { Tier, applyFloor, tierRank } from "@/lib/taxonomy";
 
 export const MIN_OVERRIDE_REASON_CHARS = REASON_CHARS.override;
@@ -59,6 +60,13 @@ export async function recordOverride(
     throw new OverrideError(
       `An override needs a reason of at least ${MIN_OVERRIDE_REASON_CHARS} characters.`,
     );
+  }
+
+  // Checked in the writer, not at the call site. Same argument as the mandatory-reason
+  // rule in `audit.ts`: a check at each call site is the check that is missing from the
+  // seventh one. See `lib/transcript.ts` for why reading comes first.
+  if (!(await hasReadTranscript(store, input.caseId, input.principal.counsellorId))) {
+    throw new OverrideError(READ_FIRST_REFUSAL);
   }
 
   const effectiveTier = applyFloor(input.requestedTier, input.gateFloor);

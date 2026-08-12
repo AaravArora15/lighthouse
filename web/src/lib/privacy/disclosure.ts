@@ -142,9 +142,14 @@ export function decide(request: DisclosureRequest): DisclosureDecision {
  */
 export function reachableLevel(tier: Tier, escalated: boolean): DisclosureLevel {
   if (escalated) return "identity";
-  // Escalated tiers can *reach* identity, but only after someone escalates. Anything
-  // below that tops out at the transcript.
-  return ESCALATED_TIERS.has(tier) ? "transcript" : "transcript";
+  // Every tier tops out at the transcript until a human escalates, including T4: the gate
+  // raising a tier is a machine judgement and does not unlock a name.
+  //
+  // This read `ESCALATED_TIERS.has(tier) ? "transcript" : "transcript"`, both branches
+  // identical, so `tier` was doing nothing. Kept as a parameter because the signature is
+  // the honest one — whether that stays true is a policy question, not a dead branch.
+  void tier;
+  return "transcript";
 }
 
 /** True when this case could ever expose identity, for the console's affordances. */

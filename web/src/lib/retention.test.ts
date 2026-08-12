@@ -185,6 +185,13 @@ describe("sweep", () => {
 
   it("does not delete a case whose break-glass a lead has not reviewed yet", async () => {
     await seed(record({ caseId: "syn-065" }));
+    // §17: a break-glass is refused until this counsellor has opened the transcript.
+    await recordAccess(store, {
+      caseId: "syn-065",
+      principal: COUNSELLOR,
+      action: "viewed_transcript",
+      reason: "read the conversation before deciding",
+    });
     await breakGlass(store, {
       caseId: "syn-065",
       principal: COUNSELLOR,
@@ -202,6 +209,13 @@ describe("sweep", () => {
 
   it("deletes it once the lead has reviewed", async () => {
     await seed(record({ caseId: "syn-065" }));
+    // §17: a break-glass is refused until this counsellor has opened the transcript.
+    await recordAccess(store, {
+      caseId: "syn-065",
+      principal: COUNSELLOR,
+      action: "viewed_transcript",
+      reason: "read the conversation before deciding",
+    });
     const glass = await breakGlass(store, {
       caseId: "syn-065",
       principal: COUNSELLOR,
