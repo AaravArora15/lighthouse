@@ -9,10 +9,16 @@ python -m lighthouse.baselines.tfidf            # TF-IDF baseline
 python -m lighthouse.model.calibrate_turn       # temperature + reliability diagram
 python -m lighthouse.data.synthetic             # gate audit over the 80 conversations
 python -m lighthouse.model.conversation_head    # the tables below
+python -m lighthouse.cluster.patterns           # the cross-conversation alert
+pytest -q                                       # 1093 passed, 59 skipped
+
+cd ../web
+npm test                                        # 473 passed
 ```
 
 Only the turn classifier needs the checkpoint. Everything else, including the whole of
-day 3 and day 4, runs offline from committed fixtures with no API key and no GPU.
+day 3, day 4 and the clustering layer, runs offline from committed fixtures with no API key
+and no GPU. **1,566 tests in total, none of which need a key, a database or a network.**
 
 ---
 
@@ -220,7 +226,128 @@ the trend group earning its place on `syn-050` and `syn-079`.
 
 ---
 
-## 5. What is still wrong, stated plainly
+## 5. Cross-conversation clustering (day 7)
+
+The layer that answers a question no single conversation can: *is this the same person doing
+this to several students?*
+
+Entity extraction with structured output, **pseudonymised at the point of extraction** with
+a keyed HMAC, then BM25 plus character-trigram cosine plus entity overlap inside a 14-day
+window, single-linkage agglomerative. No embeddings (`docs/ml.md` §5 has the argument).
+
+| | |
+|---|---|
+| corpus | **85** conversations, 260 student turns |
+| conversations naming an entity | 11 of 85, 16 mentions |
+| **alerts raised** | **1** — 4 cases, 6 links, 9-day span |
+| planted decoy joined a cluster | **0** |
+| largest cluster | 4 of 85, so no corpus collapse |
+
+The alert reads, verbatim: *4 separate reports, naming the same location, naming the same
+person, within 9 days.*
+
+### The result that matters, and it was not staged
+
+| case | authored | the head said | escalation | clustered |
+|---|---|---|---|---|
+| syn-081 | T2 | **T0** | **0.08** | yes |
+| syn-082 | T2 | T2 | 0.08 | yes |
+| syn-083 | T3 | T3 | 0.94 | yes |
+| syn-084 | T3 | T3 | 1.00 | yes |
+| syn-085 (decoy) | T2 | T2 | 0.08 | **no** |
+
+**`syn-081` is a student describing being pushed down a flight of stairs twice in one week,
+and the conversation head scored it T0, escalation 0.08.** That is section 2's victim-voice
+gap doing exactly what day 4 predicted, on a case written after the diagnosis rather than to
+illustrate it. Alone, it would be logged and never queued.
+
+The cluster surfaces it anyway, because two *other* students named the same person and the
+same stairwell. Cross-conversation evidence rescuing a case that per-conversation ML threw
+away is the whole argument for building this layer, and it emerged from the system's own
+behaviour rather than from a demo script.
+`test_the_cluster_rescues_a_case_the_classifier_dismissed` fails if it ever stops being true.
+The console marks that case **"missed alone"**.
+
+### Entities link; text only corroborates
+
+Every conversation here is a teenager describing school in the same register, so a purely
+lexical linker merges all 85 into one useless cluster. A shared entity is the only thing
+that can form a link on its own; BM25 and trigram similarity can strengthen a link and never
+create one. `test_the_whole_corpus_does_not_collapse` pins that, and the decoy is what
+measures it: it shares the register and the vocabulary and names different people.
+
+### The privacy property, measured
+
+All four clustered reports resolved to `per_5034b50e06bc` and `pla_088b5679f48c`. The decoy
+resolved to different tokens for both. The database holds no name at all. A counsellor is
+told "the same person"; nobody, including us, learns who.
+
+---
+
+## 6. The live path, end to end (day 9 onward)
+
+The numbers above are all offline. These are from the running system, against Neon and a
+local scoring service.
+
+| | |
+|---|---|
+| warm scoring latency | **~30 ms** against a 4.0 s timeout |
+| cold start | **~10 s**, which exceeds the timeout by design |
+| gate cost per turn | 123 µs, four orders of magnitude of headroom |
+| **fixture reproduction through the HTTP path** | **exact**, tier and confidence to 4 dp on three spot-checked cases (0.9529, 0.9099, 0.8653) |
+
+**The service reproduces the committed fixture exactly.** Three seeded T3 cases fed back
+through the FastAPI path returned the same tier and the same confidence to four decimal
+places. That is what proves the serving pipeline is the pipeline that was evaluated, and it
+is why the finding below can be attributed to the training data rather than to a plumbing
+bug.
+
+`TurnScorer` was extracted from `score_turns.main()` so the serving path and the
+fixture-building path run the same batching, truncation and temperature scaling. Before
+that, the logic lived inside a CLI entry point, and a service reimplementing it would have
+scored live cases differently from the corpus the model was evaluated on.
+
+### Degradation, verified rather than assumed
+
+| Injected failure | Observed |
+|---|---|
+| Scorer killed mid-session | crisis resources still render, the case is still created at T4, the card is honestly marked gate-only |
+| Cold start | first call timed out at 4 s, the case was written gate-only, the next call scored in 30 ms |
+| No `ANTHROPIC_API_KEY` | scripted replies, tiering unaffected, all 473 web tests pass |
+| `DATABASE_URL` pointed at a dead host | all 473 web tests pass against the in-memory store |
+
+### The finding that matters more than the plumbing
+
+A live conversation describing months of daily bullying and eating lunch in the toilets was
+scored **T0, "No concern identified"**, confidence 0.4539. The gate has no keyword for
+sustained bullying, so nothing else caught it either. That case would be logged and never
+queued.
+
+This is not a serving bug. It is section 2 appearing on the live path for the first time,
+and the exact reproduction of the fixture above is what proves the pipeline innocent.
+
+**Consequence for any demo:** typing a realistic bullying disclosure into the live chat may
+produce a T0. Do not show that path without saying why. The honest framing is the one
+already in section 2: the gap is in the training data, every cheap remedy was tried, and the
+deterministic half of the system is currently better than the learned half on exactly this
+class of case.
+
+### One ranking bug worth recording
+
+The first live T4 case landed **17th in the queue, below every seeded T4**. `queue_rank` is
+`floor_rank + escalation`, escalation is the model's output, a gate-only card has no model
+output, and 0 had been passed for it. "Not scored yet" was being read as "scored low", and a
+student in crisis right now sorted underneath sixteen synthetic cases.
+
+**Unknown is not zero.** An unscored case now resolves to the top of its floor band: it
+carries the most unresolved uncertainty and the least elapsed handling, so the tie-break
+goes upward. Live T4 is now position 1 of 57. Its confidence is reported as `null` rather
+than 0, because a counsellor reading "conf 0.00" on a case nothing has scored has been told
+something false.
+
+---
+
+## 7. What is still wrong, stated plainly
 
 - **recall@budget misses its target**, 0.865 against 0.90. Closing it needs victim-voice
   training data, not more features. Everything cheap has been tried.
@@ -255,9 +382,26 @@ the trend group earning its place on `syn-050` and `syn-079`.
   If it is ever revisited, the intended route is a quieter support block for the grey band
   using `SUPPORT_RESOURCES`, **not** promoting these patterns to STRONG.
 
+### Beyond the ML
+
+Not model problems, but they belong on the same page rather than only in `docs/privacy.md`
+§12, because they bound what any of the numbers above are worth in practice.
+
+- **Redaction is not anonymisation.** On the live path it is regex-only, because entity
+  extraction is an offline batch step over a finished conversation, so a lowercase name
+  survives. Tested as a known gap rather than hidden.
+- **Tiered disclosure level 3 is unwired.** `seal.ts:unseal()` has no caller, so identity
+  disclosure is designed, tested and unreachable. The console does not claim otherwise.
+- **No rate limiting on counsellor sign-in.** scrypt makes guessing slow, not stopped.
+- **The clustering evaluation is one alert on one planted cluster.** A single positive and a
+  single decoy is a demonstration, not a precision/recall measurement, and it should be read
+  that way.
+- **Cards are snapshots.** Changing card logic does not update already-stored cases; a real
+  deployment would need a backfill.
+
 ---
 
-## 6. Reproducibility
+## 8. Reproducibility
 
 Seed `20260804` everywhere. Splits are grouped so near-duplicates cannot straddle the
 train/test boundary. The turn probabilities used by day 4 are committed at
