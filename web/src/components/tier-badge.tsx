@@ -4,16 +4,24 @@
  * Colour carries urgency, but never alone: the tier code and the SLA are both in the
  * text, so the badge still works for a colourblind counsellor, in greyscale print, and in
  * a screen reader. Colour is the accelerator, not the message.
+ *
+ * T4 is the only **filled** badge. The others are tinted with a border, so on a queue of
+ * twenty cases the eye lands on the one that means break-glass rather than having to sort
+ * five similar-weight chips. Weight is doing the same job as hue, for the same reason the
+ * text repeats what the colour says.
  */
 
 import { Tier, TIERS } from "@/lib/taxonomy";
 
 const STYLES: Record<Tier, string> = {
-  [Tier.T0]: "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400",
-  [Tier.T1]: "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400",
-  [Tier.T2]: "bg-sky-100 text-sky-900 dark:bg-sky-950 dark:text-sky-200",
-  [Tier.T3]: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200",
-  [Tier.T4]: "bg-red-600 text-white dark:bg-red-700",
+  [Tier.T0]: "border-line bg-sunk text-muted",
+  [Tier.T1]: "border-line bg-sunk text-muted",
+  [Tier.T2]: "border-calm-line bg-calm-soft text-calm-ink",
+  [Tier.T3]: "border-warn-line bg-warn-soft text-warn-ink",
+  // `text-danger-soft`, not `text-white`. In dark mode `--danger` is a light salmon and
+  // white on it fails contrast; `--danger-soft` is near-white in light and near-black in
+  // dark, so the pair reads correctly in both without a second rule.
+  [Tier.T4]: "border-transparent bg-danger text-danger-soft shadow-soft",
 };
 
 export function TierBadge({ tier, large = false }: { tier: Tier; large?: boolean }) {
@@ -23,12 +31,14 @@ export function TierBadge({ tier, large = false }: { tier: Tier; large?: boolean
 
   return (
     <span
-      className={`inline-flex shrink-0 flex-col items-center rounded-lg font-semibold ${
-        large ? "px-4 py-2 text-lg" : "px-2.5 py-1.5 text-sm"
+      className={`inline-flex shrink-0 flex-col items-center justify-center rounded-xl border font-semibold leading-none tabular-nums ${
+        large ? "min-w-16 px-3 py-2.5 text-lg" : "min-w-12 px-2 py-1.5 text-sm"
       } ${STYLES[tier]}`}
     >
       {tier}
-      <span className={`font-normal ${large ? "text-xs" : "text-[10px]"} opacity-80`}>
+      <span
+        className={`mt-1 font-medium ${large ? "text-[11px]" : "text-[10px]"} opacity-75`}
+      >
         {sla}
       </span>
       <span className="sr-only">

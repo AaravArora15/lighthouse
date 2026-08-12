@@ -7,6 +7,11 @@
  *
  * The order is `queueRank` (`floor_rank + escalation`), which is the product's ranking
  * rather than the model's. See `lib/cards.ts:queue`.
+ *
+ * A row therefore carries four things and no more: how urgent, who, why, and in their own
+ * words. Everything else — confidence, whether the gate moved it, whether the classifier
+ * has run — sits in a metadata column that a counsellor can ignore entirely while
+ * triaging and go to when they want to check the system's work.
  */
 
 import Link from "next/link";
@@ -15,6 +20,7 @@ import { requireCounsellor } from "@/lib/auth/current";
 import { unreviewed } from "@/lib/breakglass";
 import { queue, queueStats } from "@/lib/queue";
 import { allAlerts } from "@/lib/patterns";
+import { Callout } from "@/components/callout";
 import { ConsoleHeader } from "@/components/console-header";
 import { PatternAlertPanel } from "@/components/pattern-alert";
 import * as config from "@/lib/config";
@@ -42,43 +48,50 @@ export default async function ConsolePage() {
       <ConsoleHeader principal={principal} />
 
       <header className="mb-6">
-        <h1 className="text-xl font-semibold tracking-tight">Counsellor queue</h1>
-        <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
-          {stats.queued} cases need action, of {stats.total} conversations.{" "}
+        <h1 className="text-2xl font-semibold tracking-tight">Counsellor queue</h1>
+        <p className="mt-1.5 text-sm leading-relaxed text-muted">
+          <strong className="font-semibold text-ink">{stats.queued} cases</strong> need
+          action, of {stats.total} conversations.{" "}
           {stats.byTier[Tier.T0] + stats.byTier[Tier.T1]} were logged with no action needed
           and are not shown.
         </p>
-        {stats.breakGlass > 0 && (
-          <p
-            role="alert"
-            className="mt-3 rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm font-medium text-red-900 dark:border-red-500/30 dark:bg-red-950/40 dark:text-red-100"
-          >
-            {stats.breakGlass} case{stats.breakGlass === 1 ? "" : "s"} at T4 — immediate,
-            break-glass now. Crisis resources were already shown to the student.
-          </p>
-        )}
 
-        {/* The one control on break-glass is that these are visible and counted. Shown to
-            everyone, not just leads: a counsellor seeing their own unreviewed closure sit
-            here for a week is the feedback that keeps the threshold meaningful. */}
-        {openGlass.length > 0 && (
-          <p className="mt-3 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:border-amber-500/30 dark:bg-amber-950/40 dark:text-amber-100">
-            {openGlass.length} break-glass closure{openGlass.length === 1 ? "" : "s"}{" "}
-            awaiting review by a safeguarding lead
-            {principal.role === "lead" ? " — that is you." : "."}{" "}
-            {openGlass.map((r) => r.caseId).join(", ")}
-          </p>
-        )}
+        <div className="mt-4 space-y-2.5">
+          {stats.breakGlass > 0 && (
+            <Callout tone="danger" role="alert">
+              <strong className="font-semibold">
+                {stats.breakGlass} case{stats.breakGlass === 1 ? "" : "s"} at T4 —
+                immediate, break-glass now.
+              </strong>{" "}
+              Crisis resources were already shown to the student.
+            </Callout>
+          )}
+
+          {/* The one control on break-glass is that these are visible and counted. Shown to
+              everyone, not just leads: a counsellor seeing their own unreviewed closure sit
+              here for a week is the feedback that keeps the threshold meaningful. */}
+          {openGlass.length > 0 && (
+            <Callout tone="warn">
+              {openGlass.length} break-glass closure{openGlass.length === 1 ? "" : "s"}{" "}
+              awaiting review by a safeguarding lead
+              {principal.role === "lead" ? " — that is you." : "."}{" "}
+              <span className="font-mono text-xs">
+                {openGlass.map((r) => r.caseId).join(", ")}
+              </span>
+            </Callout>
+          )}
+
+          {stats.awaitingClassifier > 0 && (
+            <Callout tone="insight">
+              {stats.awaitingClassifier} case
+              {stats.awaitingClassifier === 1 ? " is" : "s are"} from a live conversation
+              and {stats.awaitingClassifier === 1 ? "has" : "have"} been scored by the
+              safety gate only. The tier is a floor, not a prediction — the classifier has
+              not run on {stats.awaitingClassifier === 1 ? "it" : "them"} yet.
+            </Callout>
+          )}
+        </div>
       </header>
-
-      {stats.awaitingClassifier > 0 && (
-        <p className="mb-4 rounded-lg border border-violet-300 bg-violet-50 px-3 py-2 text-sm text-violet-900 dark:border-violet-500/30 dark:bg-violet-950/30 dark:text-violet-100">
-          {stats.awaitingClassifier} case{stats.awaitingClassifier === 1 ? " is" : "s are"}{" "}
-          from a live conversation and {stats.awaitingClassifier === 1 ? "has" : "have"} been
-          scored by the safety gate only. The tier is a floor, not a prediction — the
-          classifier has not run on {stats.awaitingClassifier === 1 ? "it" : "them"} yet.
-        </p>
-      )}
 
       <PatternAlertPanel alerts={alerts} />
 
@@ -89,69 +102,77 @@ export default async function ConsolePage() {
                 Drawn rather than hidden, because a counsellor should know the cut exists
                 and be able to look past it. recall@budget is measured against this. */}
             {i === budget && (
-              <p className="my-4 border-t border-dashed border-stone-300 pt-3 text-xs text-stone-500 dark:border-stone-700 dark:text-stone-400">
-                Below this line is beyond a typical week of {budget} cases. Measured
-                recall of T3 and T4 above the line is{" "}
-                <strong>0.865 ±0.019</strong> against a 0.90 target — see docs/results.md.
-              </p>
+              <div className="my-5 flex items-center gap-3">
+                <span className="h-px flex-1 bg-line-strong" />
+                <p className="max-w-md text-center text-xs leading-relaxed text-faint">
+                  Below this line is beyond a typical week of {budget} cases. Measured
+                  recall of T3 and T4 above the line is{" "}
+                  <strong className="font-semibold text-muted">0.865 ±0.019</strong>{" "}
+                  against a 0.90 target — see docs/results.md.
+                </p>
+                <span className="h-px flex-1 bg-line-strong" />
+              </div>
             )}
             <Link
               href={`/console/${card.caseId}`}
-              className="flex items-start gap-4 rounded-xl border border-stone-200 bg-white p-4 transition-colors hover:border-stone-300 hover:bg-stone-50 dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-700 dark:hover:bg-stone-800/60"
+              className="group flex items-start gap-4 rounded-2xl border border-line bg-surface p-4 transition-all hover:border-line-strong hover:shadow-lift"
             >
               <TierBadge tier={card.tier} />
 
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-2">
-                  <span className="font-medium">{card.handle}</span>
-                  <span className="text-xs text-stone-500 dark:text-stone-400">
-                    {card.caseId} · {card.nStudentTurns} messages
+                  <span className="font-semibold tracking-tight">{card.handle}</span>
+                  <span className="font-mono text-xs text-faint">{card.caseId}</span>
+                  <span className="text-xs text-faint">
+                    {card.nStudentTurns} messages
                   </span>
                 </div>
 
                 {/* The lead reason, not a summary. Deterministic, from the closed bank. */}
-                <p className="mt-1 truncate text-sm text-stone-700 dark:text-stone-300">
+                <p className="mt-1 truncate text-sm text-muted">
                   {card.reasons[1] ?? card.reasons[0]}
                 </p>
 
                 {card.citedQuotes[0] && (
-                  <p className="mt-1 truncate text-sm italic text-stone-500 dark:text-stone-400">
+                  <p className="mt-1.5 truncate border-l-2 border-line-strong pl-2.5 text-sm italic text-faint">
                     &ldquo;{card.citedQuotes[0].text}&rdquo;
                   </p>
                 )}
               </div>
 
-              <div className="shrink-0 text-right text-xs text-stone-500 dark:text-stone-400">
-                <div className="font-medium text-stone-700 dark:text-stone-300">
+              <div className="flex shrink-0 flex-col items-end gap-1 text-right">
+                <div className="text-sm font-semibold tabular-nums">
                   {TIERS[card.tier].slaHours === 0
                     ? "now"
                     : `${TIERS[card.tier].slaHours}h`}
                 </div>
-                <div>
+                <div className="text-xs tabular-nums text-faint">
                   {card.confidence === null
                     ? "not scored"
                     : `conf ${card.confidence.toFixed(2)}`}
                 </div>
-                {card.tierFloorReason && (
-                  <div className="mt-1 font-medium text-amber-700 dark:text-amber-400">
-                    gate
-                  </div>
-                )}
                 {/* A counsellor has to be able to tell a gate-only floor from a
                     classifier judgement at a glance: the two carry different amounts
                     of evidence, and the tier means different things. */}
-                {card.awaitingClassifier && (
-                  <div className="mt-1 font-medium text-violet-700 dark:text-violet-400">
-                    live
-                  </div>
-                )}
+                <div className="flex gap-1">
+                  {card.tierFloorReason && (
+                    <span className="rounded-md border border-warn-line bg-warn-soft px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-warn-ink">
+                      gate
+                    </span>
+                  )}
+                  {card.awaitingClassifier && (
+                    <span className="rounded-md border border-insight-line bg-insight-soft px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-insight-ink">
+                      live
+                    </span>
+                  )}
+                </div>
               </div>
             </Link>
           </li>
         ))}
       </ol>
 
-      <p className="mt-8 text-xs text-stone-500 dark:text-stone-400">
+      <p className="mt-8 border-t border-line pt-4 text-xs text-faint">
         Every conversation here is synthetic and hand-authored. No real student wrote any
         of it.
       </p>

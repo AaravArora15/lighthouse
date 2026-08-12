@@ -1,27 +1,156 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * ---------------------------------------------------------------------------
+ * The palette
+ * ---------------------------------------------------------------------------
+ *
+ * Semantic tokens, not raw colours. Every surface in the product names what it *is*
+ * (`bg-surface`, `border-line`, `text-muted`) rather than which shade of stone it
+ * happens to be, which is what makes a theme change one edit here instead of a sweep
+ * through nine files.
+ *
+ * They are declared as CSS variables on `:root` and re-declared under
+ * `prefers-color-scheme: dark`, then mapped into Tailwind with `@theme inline` — inline
+ * so the generated utilities reference `var(--…)` rather than baking in the light value,
+ * which is the whole reason the media query works.
+ *
+ * The neutrals are deliberately **warm**. A pure-grey canvas reads as clinical, and the
+ * student side of this product is a thirteen-year-old telling someone the worst thing in
+ * their week. The accent is a harbour teal: calm, and not the medical blue every other
+ * safeguarding tool uses.
+ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  /* Neutrals ------------------------------------------------------------- */
+  --canvas: #fbfaf8; /* the page itself */
+  --surface: #ffffff; /* cards, the composer, anything lifted off the page */
+  --sunk: #f0ece4; /* insets: assistant bubbles, quiet panels */
+  --line: #e8e4dc; /* ordinary borders */
+  --line-strong: #d6d0c5; /* borders that need to be seen */
+  --ink: #1b1917; /* body text */
+  --muted: #6b645a; /* secondary text, still comfortably readable */
+  --faint: #958d81; /* timestamps, counters, metadata */
+
+  /* Accent --------------------------------------------------------------- */
+  --accent: #0e6f6a; /* filled buttons, the student's own messages */
+  --accent-hover: #0b5a56;
+  --on-accent: #ffffff; /* text on a filled accent */
+  --accent-text: #0b5a56; /* accent as *text* on the canvas, contrast-safe */
+  --accent-soft: #e3f0ef; /* accent-tinted surface */
+  --accent-line: #b7d8d5;
+
+  /* Status --------------------------------------------------------------- */
+  /* danger: T4, crisis, break-glass. */
+  --danger: #b42318;
+  --danger-soft: #fef4f2;
+  --danger-line: #f7cfc9;
+  --danger-ink: #7a271a;
+  /* warn: the safety gate, and the amber banner that is not yet an emergency. */
+  --warn: #b54708;
+  --warn-soft: #fffaeb;
+  --warn-line: #fde3ab;
+  --warn-ink: #7a2e0e;
+  /* insight: cross-conversation patterns. A notice, never an escalation. */
+  --insight: #6941c6;
+  --insight-soft: #f6f3ff;
+  --insight-line: #dbd0fb;
+  --insight-ink: #4a1fb8;
+  /* calm: T2, and anything informational. */
+  --calm: #175cd3;
+  --calm-soft: #eff5ff;
+  --calm-line: #c5d9f8;
+  --calm-ink: #1a439c;
+
+  /* Depth ---------------------------------------------------------------- */
+  --shadow-soft: 0 1px 2px rgb(27 25 23 / 0.04), 0 4px 16px -8px rgb(27 25 23 / 0.1);
+  --shadow-lift: 0 1px 2px rgb(27 25 23 / 0.05), 0 12px 32px -12px rgb(27 25 23 / 0.16);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --canvas: #131211;
+    --surface: #1c1a18;
+    --sunk: #24211e;
+    --line: #302c28;
+    --line-strong: #443e37;
+    --ink: #f2efe9;
+    --muted: #a69e93;
+    --faint: #7d746a;
+
+    --accent: #1d7c76;
+    --accent-hover: #24938c;
+    --on-accent: #eafaf8;
+    --accent-text: #5cc9c0;
+    --accent-soft: #14302e;
+    --accent-line: #21504c;
+
+    --danger: #f97066;
+    --danger-soft: #2a1513;
+    --danger-line: #5c211a;
+    --danger-ink: #fee4e2;
+    --warn: #fdb022;
+    --warn-soft: #291d0d;
+    --warn-line: #5a3c12;
+    --warn-ink: #fef0c7;
+    --insight: #b191f9;
+    --insight-soft: #1d182e;
+    --insight-line: #3a2f68;
+    --insight-ink: #ece5ff;
+    --calm: #84adff;
+    --calm-soft: #131c2e;
+    --calm-line: #24365c;
+    --calm-ink: #d6e3ff;
+
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 16px -8px rgb(0 0 0 / 0.6);
+    --shadow-lift: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 32px -12px rgb(0 0 0 / 0.7);
   }
 }
 
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-sunk: var(--sunk);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-line: var(--danger-line);
+  --color-danger-ink: var(--danger-ink);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-warn-line: var(--warn-line);
+  --color-warn-ink: var(--warn-ink);
+  --color-insight: var(--insight);
+  --color-insight-soft: var(--insight-soft);
+  --color-insight-line: var(--insight-line);
+  --color-insight-ink: var(--insight-ink);
+  --color-calm: var(--calm);
+  --color-calm-soft: var(--calm-soft);
+  --color-calm-line: var(--calm-line);
+  --color-calm-ink: var(--calm-ink);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--canvas);
+  color: var(--ink);
   /*
    * `--font-geist-sans`, not Arial.
    *
@@ -32,6 +161,9 @@ body {
    * in whatever the browser picks by default.
    */
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  /* Stops the composer and the crisis banner shifting sideways when a long transcript
+     adds a scrollbar mid-conversation. */
+  scrollbar-gutter: stable;
 }
 
 /*
@@ -43,9 +175,9 @@ body {
  * everything that does not, which on a console full of links and buttons is most of it.
  */
 :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
-  outline: 2px solid #0284c7;
+  outline: 2px solid var(--accent-text);
   outline-offset: 2px;
-  border-radius: 0.25rem;
+  border-radius: 0.375rem;
 }
 
 /*
@@ -59,17 +191,90 @@ body {
   position: absolute;
   left: 0.5rem;
   top: -3rem;
-  z-index: 50;
+  z-index: 60;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  background: var(--background);
-  color: var(--foreground);
-  box-shadow: 0 0 0 2px #0284c7;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 0 0 2px var(--accent-text);
   transition: top 150ms ease;
 }
 
 .skip-link:focus {
   top: 0.5rem;
+}
+
+/*
+ * The transcript scrollbar.
+ *
+ * Thin and in the page's own neutrals rather than the OS default, which on Windows is a
+ * wide grey slab that dominates a calm layout. Firefox gets the standard properties;
+ * WebKit gets its pseudo-elements. Both degrade to the platform scrollbar.
+ */
+.scroll-quiet {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.scroll-quiet::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll-quiet::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-quiet::-webkit-scrollbar-thumb {
+  background-color: var(--line-strong);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+}
+
+/*
+ * A message arriving.
+ *
+ * 12px of travel and 180ms. Enough to read as "this is new" and not enough to make a
+ * fast conversation feel like it is fighting you. Switched off entirely under
+ * `prefers-reduced-motion` by the block at the bottom of this file.
+ */
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.message-in {
+  animation: message-in 180ms ease-out both;
+}
+
+/*
+ * The three dots while the model is still writing.
+ *
+ * This replaced a single `…` at 50% opacity, which was indistinguishable from a message
+ * that had arrived empty. A student watching a blank bubble after a disclosure needs to
+ * know the thing is still thinking.
+ */
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.typing-dot {
+  animation: typing-dot 1.2s ease-in-out infinite;
 }
 
 /*
@@ -87,5 +292,10 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* The dots would otherwise freeze at 25% opacity and read as a broken element. */
+  .typing-dot {
+    opacity: 0.6 !important;
   }
 }

@@ -15,11 +15,19 @@
  *   numbers from a student's screen.
  * - The gate event is consumed the instant it arrives, before the first text chunk. The
  *   server writes it first; this renders it first.
+ *
+ * ## The layout is a fixed shell, not a long page
+ *
+ * Header, crisis banner, scrolling transcript, docked composer. The page itself never
+ * scrolls; only the transcript does. On a phone that means the box you type into is
+ * always under your thumb and the crisis numbers never scroll off the top, which is the
+ * whole point of having put them there.
  */
 
 import { useEffect, useRef, useState } from "react";
 
 import { CrisisBanner } from "@/components/crisis-banner";
+import { LighthouseMark } from "@/components/mark";
 import { CONSENT_LINES } from "@/lib/student";
 import * as config from "@/lib/config";
 
@@ -29,6 +37,9 @@ const OPENING: Message = {
   role: "assistant",
   text: "Hi. This is a safe place to say what's going on. Nobody here knows who you are, and you can stop whenever you want. What's been happening?",
 };
+
+/** Tallest the composer grows before it scrolls internally, in pixels. */
+const COMPOSER_MAX_HEIGHT = 184;
 
 export default function StudentChat() {
   const [messages, setMessages] = useState<Message[]>([OPENING]);
@@ -56,10 +67,25 @@ export default function StudentChat() {
    */
   const [caseId, setCaseId] = useState<string | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
+  const composerRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, crisis]);
+
+  /**
+   * Grow the composer with the message, up to a cap.
+   *
+   * A fixed two-row box makes anyone writing more than a sentence type into a letterbox,
+   * and this is a product whose users are trying to explain something complicated. The
+   * cap exists so a long message cannot push the transcript off the screen entirely.
+   */
+  useEffect(() => {
+    const el = composerRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, COMPOSER_MAX_HEIGHT)}px`;
+  }, [draft]);
 
   /**
    * Recover the case reference after a refresh.
@@ -176,103 +202,224 @@ export default function StudentChat() {
     }
   }
 
+  const remaining = config.MAX_TURN_CHARS - draft.length;
+
   return (
-    <main id="content" className="mx-auto flex min-h-dvh w-full max-w-2xl flex-col gap-4 px-4 py-6">
-      <header className="shrink-0">
-        <h1 className="text-lg font-semibold tracking-tight">Lighthouse</h1>
-        {/* The consent screen from context.md §11, as two sentences rather than a wall.
-            A page of policy at the top of a crisis chat is not consent, it is an obstacle,
-            and it gets scrolled past by exactly the people it was meant to protect. */}
-        <div className="mt-1 space-y-1 text-sm text-stone-600 dark:text-stone-400">
-          {CONSENT_LINES.map((line) => (
-            <p key={line}>{line}</p>
-          ))}
-          <p>
-            Chats that nobody needs to follow up are deleted after{" "}
-            {config.RETENTION_DAYS_NON_ESCALATED} days.
-          </p>
+    <main id="content" className="flex h-dvh flex-col overflow-hidden">
+      <header className="shrink-0 border-b border-line/80">
+        <div className="mx-auto flex w-full max-w-2xl items-center gap-2.5 px-4 py-3">
+          <LighthouseMark />
+          <h1 className="text-[15px] font-semibold tracking-tight">Lighthouse</h1>
+          <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-2.5 py-1 text-xs font-medium text-muted">
+            <span aria-hidden className="size-1.5 rounded-full bg-accent" />
+            Anonymous
+          </span>
         </div>
       </header>
 
-      {/* Above the transcript, always, once shown. */}
-      {crisis.length > 0 && <CrisisBanner resources={crisis} />}
+      {/*
+        Above the transcript and *outside* the scroll container, always, once shown.
+        Previously this sat at the top of the transcript, which meant three more messages
+        scrolled the crisis numbers off the screen. A banner CLAUDE.md calls unconditional
+        should not be conditional on how far you have scrolled.
 
-      {/* The way back. Without this the case id lives only in memory and the student has
-          no route to the audit log §11 promises them. */}
-      {caseId && (
-        <p className="shrink-0 rounded-lg border border-stone-200 px-3 py-2 text-xs text-stone-600 dark:border-stone-800 dark:text-stone-400">
-          You can{" "}
-          <a href={`/c/${caseId}`} className="font-medium underline underline-offset-4">
-            see what was saved and who has opened it
-          </a>
-          . Save that link if you want to come back to it later. Anyone who has the link
-          can read it, so keep it to yourself.
-        </p>
+        Capped at 42% of the viewport and scrolled internally past that. Always-visible
+        and unbounded are in tension on a phone: three resources with their WhatsApp
+        alternatives run to roughly 400px, which on a 667px screen would leave a student
+        about four lines of conversation. The cap keeps the first number — the one that
+        matters most — permanently on screen while guaranteeing the transcript over half
+        the display.
+      */}
+      {crisis.length > 0 && (
+        <div className="scroll-quiet mx-auto max-h-[42dvh] w-full max-w-2xl shrink-0 overflow-y-auto px-4 pt-3">
+          <CrisisBanner resources={crisis} />
+        </div>
       )}
 
-      <div className="flex-1 space-y-3 overflow-y-auto" aria-live="polite">
-        {messages.map((m, i) => (
-          <div
-            key={i}
-            className={m.role === "student" ? "flex justify-end" : "flex justify-start"}
-          >
-            <p
-              className={
-                m.role === "student"
-                  ? "max-w-[85%] rounded-2xl rounded-br-sm bg-sky-600 px-4 py-2.5 text-white"
-                  : "max-w-[85%] rounded-2xl rounded-bl-sm bg-stone-100 px-4 py-2.5 text-stone-900 dark:bg-stone-800 dark:text-stone-100"
-              }
-            >
-              {m.text || (sending ? <span className="opacity-50">…</span> : null)}
+      <div className="scroll-quiet flex-1 overflow-y-auto overscroll-contain">
+        <div className="mx-auto w-full max-w-2xl px-4 pb-8 pt-5">
+          {/* The consent screen from context.md §11, as two sentences rather than a wall.
+              A page of policy at the top of a crisis chat is not consent, it is an obstacle,
+              and it gets scrolled past by exactly the people it was meant to protect.
+              It scrolls away with the rest of the transcript once the conversation starts,
+              which is correct: it is read once. */}
+          <section className="rounded-2xl border border-line bg-sunk/60 px-4 py-3">
+            <h2 className="text-[10px] font-semibold uppercase tracking-[0.09em] text-faint">
+              Before you start
+            </h2>
+            <div className="mt-1.5 space-y-1 text-[13px] leading-[1.55] text-muted">
+              {CONSENT_LINES.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+              <p>
+                Chats that nobody needs to follow up are deleted after{" "}
+                {config.RETENTION_DAYS_NON_ESCALATED} days.
+              </p>
+            </div>
+          </section>
+
+          {/* The way back. Without this the case id lives only in memory and the student has
+              no route to the audit log §11 promises them. */}
+          {caseId && (
+            <p className="mt-3 rounded-2xl border border-accent-line bg-accent-soft px-4 py-3 text-sm leading-relaxed text-muted">
+              You can{" "}
+              <a
+                href={`/c/${caseId}`}
+                className="font-medium text-accent-text underline decoration-accent-line decoration-2 underline-offset-4 hover:decoration-accent-text"
+              >
+                see what was saved and who has opened it
+              </a>
+              . Save that link if you want to come back to it later. Anyone who has the link
+              can read it, so keep it to yourself.
             </p>
+          )}
+
+          <div className="mt-6 space-y-3" aria-live="polite">
+            {messages.map((m, i) => (
+              <div
+                key={i}
+                className={`message-in flex ${
+                  m.role === "student" ? "justify-end" : "justify-start"
+                }`}
+              >
+                <div
+                  className={
+                    m.role === "student"
+                      ? "max-w-[85%] rounded-3xl rounded-br-lg bg-accent px-4 py-2.5 text-[15px] leading-relaxed text-on-accent shadow-soft"
+                      : "max-w-[85%] rounded-3xl rounded-bl-lg bg-sunk px-4 py-2.5 text-[15px] leading-relaxed text-ink"
+                  }
+                >
+                  {/* `whitespace-pre-wrap` because Shift+Enter inserts a newline and the
+                      old markup collapsed it, so a student who laid out three separate
+                      things carefully saw them run together into one paragraph. */}
+                  {m.text ? (
+                    <p className="whitespace-pre-wrap">{m.text}</p>
+                  ) : sending ? (
+                    <TypingDots />
+                  ) : null}
+                </div>
+              </div>
+            ))}
+            <div ref={endRef} />
           </div>
-        ))}
-        <div ref={endRef} />
+        </div>
       </div>
 
-      {notice && (
-        <p className="shrink-0 text-xs text-stone-500 dark:text-stone-400">{notice}</p>
-      )}
+      <div className="shrink-0 border-t border-line/80">
+        <div className="mx-auto w-full max-w-2xl px-4 pb-4 pt-3">
+          {notice && (
+            <p className="mb-2 flex items-start gap-2 rounded-xl bg-sunk px-3 py-2 text-xs leading-relaxed text-muted">
+              <span aria-hidden className="mt-0.5 text-faint">
+                ⓘ
+              </span>
+              {notice}
+            </p>
+          )}
 
-      <form
-        className="flex shrink-0 items-end gap-2"
-        onSubmit={(e) => {
-          e.preventDefault();
-          void send();
-        }}
-      >
-        <label htmlFor="draft" className="sr-only">
-          Your message
-        </label>
-        <textarea
-          id="draft"
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-          onKeyDown={(e) => {
-            // Enter sends, Shift+Enter breaks the line. Phone keyboards send.
-            if (e.key === "Enter" && !e.shiftKey) {
+          <form
+            onSubmit={(e) => {
               e.preventDefault();
               void send();
-            }
-          }}
-          rows={2}
-          maxLength={config.MAX_TURN_CHARS}
-          placeholder="Type whatever you want to say…"
-          className="min-h-[3rem] flex-1 resize-none rounded-2xl border border-stone-300 bg-white px-4 py-2.5 text-stone-900 placeholder:text-stone-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/30 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
-        />
-        <button
-          type="submit"
-          disabled={sending || !draft.trim()}
-          className="rounded-2xl bg-sky-600 px-5 py-3 font-medium text-white transition-colors hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Send
-        </button>
-      </form>
+            }}
+          >
+            <label htmlFor="draft" className="sr-only">
+              Your message
+            </label>
+            {/*
+              One composer, not a textarea sitting next to a button. The border and the
+              focus ring belong to the whole control, which is what makes it read as a
+              single place to write rather than as a form to fill in.
+            */}
+            <div className="flex items-end gap-2 rounded-[1.75rem] border border-line bg-surface py-1.5 pl-4 pr-1.5 shadow-soft transition-colors focus-within:border-accent-line">
+              <textarea
+                id="draft"
+                ref={composerRef}
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                onKeyDown={(e) => {
+                  // Enter sends, Shift+Enter breaks the line. Phone keyboards send.
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    void send();
+                  }
+                }}
+                rows={1}
+                maxLength={config.MAX_TURN_CHARS}
+                placeholder="Type whatever you want to say…"
+                className="scroll-quiet max-h-[184px] min-h-[2.5rem] flex-1 resize-none bg-transparent py-2 text-[15px] leading-6 text-ink placeholder:text-faint focus:outline-none"
+              />
+              <button
+                type="submit"
+                disabled={sending || !draft.trim()}
+                className="grid size-10 shrink-0 place-items-center rounded-full bg-accent text-on-accent transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:bg-sunk disabled:text-faint"
+              >
+                <SendGlyph sending={sending} />
+                <span className="sr-only">Send</span>
+              </button>
+            </div>
+          </form>
 
-      <p className="shrink-0 text-xs text-stone-500 dark:text-stone-400">
-        Lighthouse listens and passes what you say to a counsellor. It is not therapy and
-        not an emergency service. If someone is in danger right now, call 995.
-      </p>
+          {/* Only once it is close enough to matter. A counter that is always on turns
+              writing about something difficult into an exam. */}
+          {remaining <= config.MAX_TURN_CHARS * 0.15 && (
+            <p className="mt-1.5 text-right text-xs tabular-nums text-faint">
+              {remaining} characters left
+            </p>
+          )}
+
+          <p className="mt-2.5 text-center text-xs leading-relaxed text-faint">
+            Lighthouse listens and passes what you say to a counsellor. It is not therapy and
+            not an emergency service. If someone is in danger right now, call 995.
+          </p>
+        </div>
+      </div>
     </main>
+  );
+}
+
+/** Three dots while the model is still writing. See `.typing-dot` in globals.css. */
+function TypingDots() {
+  return (
+    <span className="flex items-center gap-1 py-2" role="status" aria-label="Writing a reply">
+      {[0, 1, 2].map((i) => (
+        <span
+          key={i}
+          aria-hidden
+          className="typing-dot size-1.5 rounded-full bg-faint"
+          style={{ animationDelay: `${i * 160}ms` }}
+        />
+      ))}
+    </span>
+  );
+}
+
+/** An arrow, or a spinner while a reply is streaming. */
+function SendGlyph({ sending }: { sending: boolean }) {
+  if (sending) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" className="size-4.5 animate-spin">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth={2} opacity={0.3} />
+        <path
+          d="M21 12a9 9 0 0 0-9-9"
+          stroke="currentColor"
+          strokeWidth={2}
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="size-4.5"
+    >
+      <path d="M12 19V5M6 11l6-6 6 6" />
+    </svg>
   );
 }
