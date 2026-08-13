@@ -46,6 +46,10 @@ interface ChatRequest {
 
 function parseMessages(raw: unknown): IntakeMessage[] | null {
   if (!Array.isArray(raw) || raw.length === 0) return null;
+  // The client controls this array and this route is unauthenticated, so its length is
+  // the input size of a paid model call and of two database writes. Bounded here, before
+  // anything is spent. See MAX_CONVERSATION_TURNS for why this rejects rather than trims.
+  if (raw.length > config.MAX_CONVERSATION_TURNS) return null;
   const out: IntakeMessage[] = [];
   for (const item of raw) {
     if (typeof item !== "object" || item === null) return null;
@@ -70,7 +74,9 @@ export async function POST(request: Request) {
   const messages = parseMessages(body.messages);
   if (!messages) {
     return Response.json(
-      { error: "messages must be a non-empty array ending in a student turn" },
+      {
+        error: `messages must be an array of 1 to ${config.MAX_CONVERSATION_TURNS} turns ending in a student turn`,
+      },
       { status: 400 },
     );
   }

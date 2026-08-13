@@ -130,6 +130,10 @@ export default function StudentChat() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: history, ...caseRef.current }),
       });
+      // A rejected request still has a body — a JSON error, not an SSE stream. Without
+      // this check the frame parser below finds no events, and the student is left with
+      // the empty bubble this product treats as the failure that matters.
+      if (!response.ok) throw new Error(`chat rejected: ${response.status}`);
       if (!response.body) throw new Error("no stream");
 
       const reader = response.body.getReader();

@@ -94,7 +94,10 @@ let client: Anthropic | null = null;
 
 function getClient(): Anthropic | null {
   if (!process.env.ANTHROPIC_API_KEY) return null;
-  client ??= new Anthropic();
+  // `maxRetries` is set explicitly because the SDK default of 2 multiplies both the wall
+  // clock a student waits and the bill for the calls most likely to time out. See
+  // INTAKE_MAX_RETRIES.
+  client ??= new Anthropic({ maxRetries: config.INTAKE_MAX_RETRIES });
   return client;
 }
 

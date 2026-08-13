@@ -237,6 +237,25 @@ export const SUPPORT_RESOURCES: readonly CrisisResource[] = [
 export const MAX_TURN_CHARS = 1000;
 
 /**
+ * Hard cap on the number of messages one `POST /api/chat` may carry.
+ *
+ * The route is unauthenticated and the client controls the whole array, so without this
+ * the input size of a paid call is whatever a caller decides to send: 4,000 turns of
+ * 1,000 characters is roughly a million tokens of input, which is about **$5 in a single
+ * HTTP request** and a proportional Neon write besides. This constant is the only thing
+ * between the deployed key and that, short of a console spend limit.
+ *
+ * 40 messages is 20 student turns and 20 replies. A real intake is well short of that.
+ *
+ * Over the cap the request is **rejected**, not trimmed. Dropping the oldest turns would
+ * be gentler on a long session, but it would also erase the earliest disclosure from both
+ * the counsellor's copy and the conversation verdict — and a weapon named in turn 2 plus
+ * "after school" in turn 30 is exactly the pair the conversation gate exists to catch.
+ * Silently forgetting the first half of a disclosure is a worse failure than a 400.
+ */
+export const MAX_CONVERSATION_TURNS = 40;
+
+/**
  * Model used for the intake replies. The LLM listens and keeps the student talking; it
  * never assigns a tier and never counsels. See CLAUDE.md.
  */
@@ -244,3 +263,18 @@ export const INTAKE_MODEL = "claude-opus-5";
 
 /** Cap on intake replies. The assistant asks one short question, it does not lecture. */
 export const INTAKE_MAX_TOKENS = 300;
+
+/**
+ * SDK retries per intake call. The SDK default is 2, which is wrong here in both
+ * directions.
+ *
+ * Wall clock: a request that times out at CLASSIFIER_TIMEOUT_SECONDS is retried, so the
+ * default turns a 4s ceiling into a 12s one while a distressed student watches an empty
+ * bubble. Cost: the calls most likely to time out are the expensive ones, and the default
+ * bills them three times.
+ *
+ * One retry, not zero, because a 429 or a 529 is genuinely transient and the scripted
+ * reply is a real downgrade in warmth. Worst case is now two attempts, 8s, then a
+ * scripted reply with a visible notice.
+ */
+export const INTAKE_MAX_RETRIES = 1;
