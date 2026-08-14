@@ -1,7 +1,7 @@
 """Single-file tunables for the Lighthouse ML runtime.
 
 Every magic number lives here. If you find a threshold inline in another module, move it
-here. Pattern borrowed from ``a prior project``.
+here.
 
 The TypeScript runtime has its own mirror at ``web/src/lib/config.ts``. Values that must
 agree across both are marked MIRRORED.
