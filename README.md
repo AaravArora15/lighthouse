@@ -9,6 +9,17 @@ counsellor could see.
 
 Built for the ML Empowerment Build Challenge 2.0.
 
+| | |
+|---|---|
+| **Live demo** | <https://lighthouse-lime-three.vercel.app> |
+| Scoring service | <https://AaravArora-lighthouse-scoring.hf.space> |
+
+The demo runs **without an Anthropic API key on purpose**: chat replies are scripted and the
+UI says so, while the safety gate, the classifier, the tiering and the crisis resources are
+all live. That is the thesis being demonstrated, not a degraded build. The counsellor
+console at `/console` needs an account; credentials are in the submission notes, never in
+this repository.
+
 > **Every conversation in this repository is synthetic and hand-authored.** No student
 > wrote any of it, none of it derives from a real transcript, and no real school, staff
 > member or child is represented. See [Data and honesty](#data-and-honesty).
@@ -27,7 +38,7 @@ is never read back into the classifier.
 The test of that claim is what happens when the API is down. Pull the key and triage still
 works: the gate still fires, the case is still created, the tier is still assigned, and the
 crisis numbers still render. That path is not a fallback branch we hope works. It is the
-default the repository runs in with no credentials present, which is how 1,566 tests
+default the repository runs in with no credentials present, which is how 1,570 tests
 exercise it on every run.
 
 ## Non-negotiables
@@ -195,7 +206,7 @@ uv run python -m lighthouse.model.conversation_head   # the ablation table in re
 
 ```bash
 # Both suites
-cd web && npm test        # 473 passed
+cd web && npm test        # 477 passed
 ```
 
 Deploying, and the post-deploy checklist: **[docs/deploy.md](docs/deploy.md)**.

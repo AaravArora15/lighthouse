@@ -1,5 +1,0 @@
-# scorer
-cd ml && uv run uvicorn lighthouse.serve.app:app --port 8000
-
-# web app, in another terminal
-cd web && npm run dev
