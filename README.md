@@ -209,7 +209,10 @@ uv run python -m lighthouse.model.conversation_head   # the ablation table in re
 cd web && npm test        # 477 passed
 ```
 
-Deploying, and the post-deploy checklist: **[docs/deploy.md](docs/deploy.md)**.
+The app deploys from `web/` on Vercel, the scorer as a Hugging Face Space. Five environment
+variables matter and each is documented with its failure mode in
+**[web/env.example](web/env.example)**; `LIGHTHOUSE_CLASSIFIER_URL` is the one that fails
+silently, degrading every case to gate-only triage without logging anything.
 
 ## Repository layout
 
@@ -284,8 +287,9 @@ number, faster than a queue of unread messages would.
 | [docs/results.md](docs/results.md) | every number, how it was produced, and what is still wrong |
 | [docs/ml.md](docs/ml.md) | the techniques, in plain language, and why each was chosen |
 | [docs/privacy.md](docs/privacy.md) | the privacy model and its threat model |
-| [docs/deploy.md](docs/deploy.md) | deploying, and the post-deploy checklist |
-| [docs/demo.md](docs/demo.md) | the three-minute demo: script, shot list, pre-flight |
-| [docs/submission.md](docs/submission.md) | the submission copy, and the questions a judge will ask |
-| [docs/context.md](docs/context.md) | the locked decisions, with the reasoning kept |
-| [docs/log.md](docs/log.md) | a dated build log, including everything that broke |
+
+A second set of documents was used to build this and is deliberately not published: a dated
+build log, the day-by-day plan, the locked-decision notes, an operational runbook, the demo
+script and the submission copy. Comments in the source still cite them by section, in the
+form `docs/context.md §6`. Those pointers are accurate but the files are local, so treat
+them as a note that a decision was written down rather than as a link you can follow.

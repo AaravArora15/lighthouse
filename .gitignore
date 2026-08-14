@@ -45,3 +45,21 @@ creds.txt
 run.txt
 notes.txt
 scratch/
+
+# Working documents. These stay on disk because the session workflow in CLAUDE.md reads
+# and writes them, but they are not published: log.md is a build diary, submission.md is
+# Devpost copy, deploy.md is an operational runbook, and context.md/plan.md are planning
+# notes. The four docs that are evidence for the README — architecture, results, ml,
+# privacy — are tracked, as are the screenshots.
+#
+# Note that adding a path here does NOT untrack a file that is already committed, and it
+# does not remove it from history. These were purged with `git filter-repo`; if one comes
+# back, it needs the same treatment, not just this line.
+docs/context.md
+docs/plan.md
+docs/log.md
+docs/ideas.md
+docs/improvements.md
+docs/deploy.md
+docs/demo.md
+docs/submission.md

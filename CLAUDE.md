@@ -1,5 +1,10 @@
 # CLAUDE.md — Lighthouse
 
+> The four working documents named below are **local and gitignored**, not part of this
+> repository. They are planning and build notes rather than documentation. If you are
+> reading this from a clone, they will be absent and that is expected: the published
+> documentation is `docs/architecture.md`, `results.md`, `ml.md` and `privacy.md`.
+
 ## Read this first, every session
 
 1. Read `docs/context.md` — durable facts, locked decisions, taxonomy, schemas, thresholds.
