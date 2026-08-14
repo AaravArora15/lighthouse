@@ -1,0 +1,8 @@
+# The 256MB checkpoint goes in over LFS. Without this line git tries to push it as an
+# ordinary blob and the Space repo rejects it.
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+*.bin        filter=lfs diff=lfs merge=lfs -text
+*.pt         filter=lfs diff=lfs merge=lfs -text
+
+# tokenizer.json is ~700KB, comfortably under the limit, and staying off LFS keeps it
+# diffable.

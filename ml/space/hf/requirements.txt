@@ -1,0 +1,15 @@
+# Gradio-SDK Space on ZeroGPU.
+#
+# Only the ML packages are pinned, to the versions the service was verified against. gradio
+# brings its own fastapi, uvicorn and pydantic, and pinning those here is how you get a
+# resolver conflict that fails the build with a wall of red.
+#
+# torch is deliberately unpinned and comes from PyPI, i.e. the CUDA build. The Docker
+# flavour pins the CPU wheel instead; that is correct there and wrong here, where the
+# platform expects a CUDA-capable torch even though our scoring path stays on CPU.
+gradio>=5
+spaces
+torch
+transformers==5.14.1
+numpy==2.5.1
+scikit-learn==1.9.0
