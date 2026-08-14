@@ -26,7 +26,7 @@
  * already uses for the gate snapshot. Regenerate after any change to the Python writers.
  */
 
-import { copyFileSync, mkdirSync, readFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -36,6 +36,20 @@ const TARGET = join(HERE, "..", "src", "fixtures");
 
 /** Only what the running app reads. Test-only fixtures stay out of the bundle. */
 const FILES = ["escalation_cards.json", "pattern_alerts.json"];
+
+// `vercel` uploads only the project root, which is `web/`, so `../../fixtures` does not
+// exist in a deployed build and this script runs as `prebuild` on every one of them. The
+// copies under `src/fixtures/` are committed for exactly this reason and
+// `fixtures.test.ts` asserts they match the source byte-for-byte, so there is nothing to
+// sync here and nothing left unchecked.
+//
+// Narrow on purpose. A missing SOURCE DIRECTORY means "not in a checkout" and is normal.
+// A source directory that exists with a file missing is still a hard error below, because
+// in a checkout that means someone deleted a fixture.
+if (!existsSync(SOURCE)) {
+  console.log("fixtures source absent (deployed build); using the committed copies");
+  process.exit(0);
+}
 
 mkdirSync(TARGET, { recursive: true });
 
