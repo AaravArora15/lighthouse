@@ -18,7 +18,7 @@ npm test                                        # 473 passed
 
 Only the turn classifier needs the checkpoint. Everything else, including the whole of
 day 3, day 4 and the clustering layer, runs offline from committed fixtures with no API key
-and no GPU. **1,566 tests in total, none of which need a key, a database or a network.**
+and no GPU. **1,570 tests in total, none of which need a key, a database or a network.**
 
 ---
 

@@ -414,5 +414,5 @@ If you are checking whether a claim in this document is true, these are the file
 | The audit log cannot be deleted | `store/types.ts` | a test asserts the interface exposes no delete for any audit table |
 | The cluster rescues what the model dropped | `cluster/patterns.py` | `test_the_cluster_rescues_a_case_the_classifier_dismissed` |
 
-**1,566 tests, all offline.** 1,093 Python and 473 TypeScript, with no API key, no database
+**1,570 tests, all offline.** 1,093 Python and 477 TypeScript, with no API key, no database
 and no network.

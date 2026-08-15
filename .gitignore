@@ -63,3 +63,8 @@ docs/improvements.md
 docs/deploy.md
 docs/demo.md
 docs/submission.md
+
+# Demo takes: large binaries, not source. 262MB as of 2026-08-15.
+docs/*.mov
+docs/SubmissionVideo/
+docs/Screenshot*.png
